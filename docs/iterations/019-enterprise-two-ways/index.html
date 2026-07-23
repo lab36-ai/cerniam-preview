@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>CERNIAM — The Enterprise, Two Ways</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/compare.css">
+</head>
+<body>
+<main>
+  <nav class="crumb"><a href="../../">CERNIAM</a><span>/</span><span>ARCHITECTURE</span><span>/</span><span>CLASSIC VS CORTEX</span></nav>
+
+  <header class="hero reveal">
+    <h1>THE<br>ENTERPRISE,<br>TWO WAYS.</h1>
+    <div class="hero-copy"><p>Classic enterprise architecture moves and duplicates data until each function can use it. Cerniam keeps operational context alive and brings functional intelligence to that context.</p><div class="hero-rule"><span>THE QUESTION</span><b>Where should intelligence live?</b></div></div>
+  </header>
+
+  <section class="plate reveal" aria-labelledby="plate-title">
+    <header class="plate-head">
+      <div class="plate-id"><span class="mark">△</span><div><small>ARCHITECTURE / SIDE-BY-SIDE</small><h2 id="plate-title">Enterprise Decision Architecture</h2><p>MAPS · MOVEMENT · COPIES · CONTRACTS · CONTEXT</p></div></div>
+      <div class="contract"><span>Model contract</span><b>cerniam.architecture-compare.v1</b><span>Scope / enterprise operations</span></div>
+    </header>
+    <div class="plate-index"><div><b>02</b> ARCHITECTURES<small>SAME ENTERPRISE</small></div><div><b>04</b> FLOW TYPES<small>DATA · EVENT · ASK · ANSWER</small></div><div><b>05</b> TRADEOFFS<small>COPIES · CONTRACTS · FRESHNESS</small></div><div><b>01</b> DECISION LAYER<small>FUNCTIONAL INTELLIGENCE</small></div></div>
+
+    <div class="architectures">
+      <article class="architecture classic" aria-labelledby="classic-title">
+        <header><div><small>ARCHITECTURE A / CLASSIC</small><h3 id="classic-title">DATA LOGISTICS</h3></div><span class="status amber">COPY + SYNC</span></header>
+        <div class="diagram classic-diagram" aria-label="Source systems interconnected point-to-point, sending exhaust to a data lake which feeds functional SaaS AI">
+          <div class="lane-label sources">SOURCE SYSTEMS</div><div class="lane-label center">DATA ESTATE</div><div class="lane-label consumers">FUNCTIONAL AI</div>
+          <svg viewBox="0 0 760 430" preserveAspectRatio="none" aria-hidden="true">
+            <g class="static-lines"><path d="M120 65 C200 20 230 100 305 72"/><path d="M120 150 C195 205 240 115 305 145"/><path d="M120 235 C205 190 235 290 305 220"/><path d="M120 320 C210 350 250 255 305 295"/><path d="M120 65 C185 115 220 215 305 220"/><path d="M120 235 C205 250 225 130 305 145"/></g>
+            <g class="heavy-lines"><path d="M305 72 C380 100 390 205 450 212"/><path d="M305 145 C365 150 390 190 450 212"/><path d="M305 220 C360 220 395 215 450 212"/><path d="M305 295 C375 270 395 230 450 212"/></g>
+            <g class="copy-lines"><path d="M500 212 C570 110 620 70 686 74"/><path d="M500 212 C580 180 625 162 686 160"/><path d="M500 212 C580 240 625 252 686 250"/><path d="M500 212 C570 315 625 340 686 340"/></g>
+          </svg>
+          <div class="node source" style="--x:3%;--y:8%"><small>SYSTEM</small><b>ERP</b></div><div class="node source" style="--x:3%;--y:29%"><small>SYSTEM</small><b>OMS</b></div><div class="node source" style="--x:3%;--y:50%"><small>SYSTEM</small><b>POS</b></div><div class="node source" style="--x:3%;--y:71%"><small>SYSTEM</small><b>WMS</b></div>
+          <div class="node contract-node" style="--x:33%;--y:10%"><small>CONTRACT</small><b>API / EDI</b></div><div class="node contract-node" style="--x:33%;--y:31%"><small>PIPELINE</small><b>ETL</b></div><div class="node contract-node" style="--x:33%;--y:52%"><small>COPY</small><b>CUSTOMER</b></div><div class="node contract-node" style="--x:33%;--y:73%"><small>COPY</small><b>INVENTORY</b></div>
+          <div class="lake"><small>ENTERPRISE EXHAUST</small><b>DATA LAKE</b><span>STORE · NORMALIZE · GOVERN</span></div>
+          <div class="node ai" style="--x:82%;--y:9%"><small>SAAS</small><b>SUPPLY CHAIN AI</b></div><div class="node ai" style="--x:82%;--y:30%"><small>SAAS</small><b>FRAUD AI</b></div><div class="node ai" style="--x:82%;--y:51%"><small>SAAS</small><b>PRICING AI</b></div><div class="node ai" style="--x:82%;--y:72%"><small>SAAS</small><b>FORECAST AI</b></div>
+        </div>
+        <footer><span><i class="legend-line heavy"></i> DATASET MOVEMENT</span><span><i class="legend-line dashed"></i> POINT-TO-POINT CONTRACT</span><b>INTELLIGENCE WAITS DOWNSTREAM</b></footer>
+      </article>
+
+      <article class="architecture cortex" aria-labelledby="cortex-title">
+        <header><div><small>ARCHITECTURE B / CERNIAM</small><h3 id="cortex-title">LIVE CONTEXT</h3></div><span class="status teal">EVENT + ASK</span></header>
+        <div class="diagram cortex-diagram" aria-label="Source systems emit live events into the Cerniam Cortex and SaaS AI requests operational context">
+          <div class="lane-label sources">SOURCE SYSTEMS</div><div class="lane-label center">OPERATIONAL CONTEXT</div><div class="lane-label consumers">FUNCTIONAL AI</div>
+          <svg viewBox="0 0 760 430" preserveAspectRatio="none" aria-hidden="true">
+            <g class="event-lines"><path d="M120 65 C250 65 300 160 390 212"/><path d="M120 150 C250 150 300 185 390 212"/><path d="M120 235 C250 235 300 225 390 212"/><path d="M120 320 C250 320 300 255 390 212"/></g>
+            <g class="ask-lines"><path d="M470 212 C560 130 620 75 686 74"/><path d="M470 212 C565 185 620 162 686 160"/><path d="M470 212 C565 240 620 250 686 250"/><path d="M470 212 C560 300 620 340 686 340"/></g>
+          </svg>
+          <div class="node source" style="--x:3%;--y:8%"><small>EVENT SOURCE</small><b>ERP</b></div><div class="node source" style="--x:3%;--y:29%"><small>EVENT SOURCE</small><b>OMS</b></div><div class="node source" style="--x:3%;--y:50%"><small>EVENT SOURCE</small><b>POS</b></div><div class="node source" style="--x:3%;--y:71%"><small>EVENT SOURCE</small><b>WMS</b></div>
+          <div class="event-fabric"><small>LIVE EVENT FABRIC</small><span>ORDER · PAYMENT · INVENTORY · SHIPMENT</span></div>
+          <div class="cortex-core"><small>CERNIAM</small><b>CORTEX</b><span>SEMANTIC MEMORY<br>RELATIONSHIPS · STATE · CONFIDENCE</span></div>
+          <div class="node ai" style="--x:82%;--y:9%"><small>CONTEXT CLIENT</small><b>SUPPLY CHAIN AI</b></div><div class="node ai" style="--x:82%;--y:30%"><small>CONTEXT CLIENT</small><b>FRAUD AI</b></div><div class="node ai" style="--x:82%;--y:51%"><small>CONTEXT CLIENT</small><b>PRICING AI</b></div><div class="node ai" style="--x:82%;--y:72%"><small>CONTEXT CLIENT</small><b>FORECAST AI</b></div>
+        </div>
+        <footer><span><i class="legend-line event"></i> LIVE EVENT</span><span><i class="legend-dot"></i> CONTEXT REQUEST</span><b>INTELLIGENCE COMES TO CONTEXT</b></footer>
+      </article>
+    </div>
+    <footer class="plate-foot"><span>01 · SAME SOURCE SYSTEMS</span><span>02 · DIFFERENT DIRECTION OF MOVEMENT</span><span>03 · SCROLL FOR TRADEOFFS</span><b>CLASSIC MOVES DATA. CERNIAM MAINTAINS CONTEXT.</b></footer>
+  </section>
+
+  <section class="narrative reveal" aria-labelledby="movement-title">
+    <header class="section-head"><span>01 / MOVEMENT</span><h2 id="movement-title">WHAT<br>ACTUALLY<br>MOVES?</h2><p>The visible difference begins with payload size and direction.</p></header>
+    <div class="paired">
+      <article class="classic-note"><small>CLASSIC</small><h3>Complete datasets move outward.</h3><p>Rows, files, tables, and domain copies travel through contracts and pipelines so each function can reconstruct enough context to operate.</p><ul><li>Batch and replicated payloads</li><li>Transformation before use</li><li>Freshness tied to pipeline cadence</li></ul></article>
+      <article class="cortex-note"><small>CERNIAM</small><h3>Events move inward. Answers move outward.</h3><p>Operational events update shared context. Functional intelligence requests only the relationships and current state required for a decision.</p><ul><li>Small event messages</li><li>Context assembled continuously</li><li>Freshness tied to live operations</li></ul></article>
+    </div>
+  </section>
+
+  <section class="narrative reveal" aria-labelledby="accumulates-title">
+    <header class="section-head"><span>02 / ACCUMULATION</span><h2 id="accumulates-title">WHAT<br>BUILDS UP?</h2><p>Every architecture accumulates something. The question is whether it accumulates copies or understanding.</p></header>
+    <div class="burden-grid">
+      <article><span>CLASSIC BURDEN 01</span><b>Contracts</b><p>Each producer-consumer relationship introduces a schema, SLA, ownership boundary, and change surface.</p></article><article><span>CLASSIC BURDEN 02</span><b>Copies</b><p>Customer, inventory, order, and shipment truth diverge by function and refresh schedule.</p></article><article><span>CLASSIC BURDEN 03</span><b>Synchronization</b><p>More effort goes into reconciling state before intelligence can act.</p></article>
+      <article class="positive"><span>CERNIAM ASSET 01</span><b>Relationships</b><p>Entity history and operational connections grow in one shared semantic memory.</p></article><article class="positive"><span>CERNIAM ASSET 02</span><b>Current state</b><p>Every accepted event advances the context used by downstream intelligence.</p></article><article class="positive"><span>CERNIAM ASSET 03</span><b>Decision evidence</b><p>Context, confidence, and lineage remain attached to the operational moment.</p></article>
+    </div>
+  </section>
+
+  <section class="tradeoffs reveal" aria-labelledby="tradeoffs-title">
+    <header class="section-head"><span>03 / TRADEOFFS</span><h2 id="tradeoffs-title">DISADVANTAGES.<br><em>ADVANTAGES.</em></h2><p>No slogans. The operating consequences, side by side.</p></header>
+    <div class="trade-table" role="table" aria-label="Classic and Cerniam architecture tradeoffs">
+      <div class="trade-row head" role="row"><b role="columnheader">DIMENSION</b><b role="columnheader">CLASSIC DATA LOGISTICS</b><b role="columnheader">CERNIAM LIVE CONTEXT</b></div>
+      <div class="trade-row" role="row"><span>Integration</span><p>Point-to-point contracts multiply with producers, consumers, and versions.</p><p>Sources publish events once; intelligence uses shared operational semantics.</p></div>
+      <div class="trade-row" role="row"><span>Freshness</span><p>Intelligence is limited by extraction, transformation, and refresh cadence.</p><p>Context advances as operational events are accepted.</p></div>
+      <div class="trade-row" role="row"><span>Ownership</span><p>Each function commonly owns another partial copy of enterprise truth.</p><p>The Cortex owns context; SaaS intelligence owns its function, not the data copy.</p></div>
+      <div class="trade-row" role="row"><span>Change</span><p>Schema and pipeline changes propagate across contract surfaces.</p><p>Semantic evolution is governed at the context boundary.</p></div>
+      <div class="trade-row" role="row"><span>Decision time</span><p>Context must be reconstructed before the model can decide.</p><p>Decision-ready context is already alive when intelligence asks.</p></div>
+    </div>
+  </section>
+
+  <section class="boundary reveal" aria-labelledby="boundary-title">
+    <div class="boundary-copy"><span>04 / HONEST BOUNDARY</span><h2 id="boundary-title">THE LAKE<br>STILL HAS<br>A JOB.</h2></div>
+    <div class="boundary-grid"><article><small>KEEP THE DATA PLATFORM FOR</small><ul><li>Long-horizon analytical workloads</li><li>Regulatory archives and bulk history</li><li>Training corpora and offline exploration</li><li>Large-scale reporting and BI</li></ul></article><article><small>USE THE CORTEX FOR</small><ul><li>Live operational state</li><li>Entity relationships and memory</li><li>Decision context and confidence</li><li>Real-time functional intelligence</li></ul></article></div>
+  </section>
+
+  <footer class="closing reveal"><small>THE ARCHITECTURAL INVERSION</small><h2>MOVE THE EVENT.<br><em>KEEP THE INTELLIGENCE ALIVE.</em></h2><p>CERNIAM · OPERATIONAL INTELLIGENCE FOR REAL-TIME DECISIONS</p></footer>
+</main>
+<script src="assets/compare.js"></script>
+</body>
+</html>
