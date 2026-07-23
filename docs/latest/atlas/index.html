@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Atlas — Cerniam Control Plane</title>
+<link rel="stylesheet" href="atlas.css">
+</head>
+<body>
+<a class="skip-link" href="#topology">Skip to connected systems</a>
+<header class="control-header">
+  <div class="header-copy">
+    <div class="perimeter"><span>Operational perimeter</span><b>Demo-Ops</b><i aria-hidden="true"></i><span>Live topology</span></div>
+    <h1>Every connected system, contract, and signal—<strong>one control-plane view.</strong></h1>
+  </div>
+  <a class="registry-card" href="#registry-inspector" aria-label="Atlas external agent and registry inspector">
+    <span>Atlas</span>
+    <b>External Agent / Registry</b>
+    <small>Maps · binds · observes</small>
+  </a>
+</header>
+
+<main class="control-plane">
+  <section class="service-plane" aria-labelledby="service-title">
+    <header class="plane-rail">
+      <h2 id="service-title">Service Plane</h2>
+      <p>APIs · MCP · Skills · Recipes · Projections · Governed Action</p>
+    </header>
+    <div class="intelligence-grid">
+      <article class="intelligence-card deterministic">
+        <span>Deterministic Intelligence</span>
+        <p>Rules · SEMs · Markov · Optimization</p>
+        <small>Signal · Score · Proof</small>
+      </article>
+      <article class="intelligence-card agentic">
+        <span>Agent Intelligence</span>
+        <p>Targets · Strategy · Arbitration · Resolver</p>
+        <small>Candidate · Recommendation · Receipt</small>
+      </article>
+    </div>
+    <div class="context-rail">
+      <i aria-hidden="true"></i><b>Little-e Context</b><span>Source-stamped · portable · not recommendation</span><i aria-hidden="true"></i>
+    </div>
+  </section>
+
+  <section class="topology" id="topology" aria-labelledby="topology-title">
+    <h2 class="sr-only" id="topology-title">Connected enterprise systems surrounding the Cerniam Cortex integration core</h2>
+    <svg class="connection-field" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
+      <path class="context-path teal" d="M586 0V174"/><path class="context-path cyan" d="M600 0V174"/><path class="context-path amber" d="M614 0V174"/>
+      <path data-link="shopify" class="system-path cyan" d="M220 74C334 96 410 184 500 222"/>
+      <path data-link="wms" class="system-path teal" d="M220 194C346 210 415 236 500 248"/>
+      <path data-link="salesforce" class="system-path attention" d="M220 314C349 299 420 285 500 274"/>
+      <path data-link="fedex" class="system-path amber" d="M220 434C338 390 413 324 500 298"/>
+      <path data-link="oms" class="system-path violet" d="M980 74C862 96 788 183 700 222"/>
+      <path data-link="sap" class="system-path amber" d="M980 194C851 211 787 235 700 248"/>
+      <path data-link="stripe" class="system-path violet" d="M980 314C850 300 780 285 700 274"/>
+      <path data-link="akeneo" class="system-path fixture" d="M980 434C860 390 786 324 700 298"/>
+    </svg>
+
+    <div class="topology-grid">
+      <div class="system-column system-column-left" aria-label="Inbound and operational systems">
+        <button class="system-card" type="button" data-system="shopify" style="--accent:#68d8e8">
+          <span class="system-status">Active</span><span class="system-code">SHOP</span><span class="system-copy"><b>Shopify Commerce</b><small>Commerce</small></span>
+        </button>
+        <button class="system-card is-selected" type="button" data-system="wms" style="--accent:#53d3a9" aria-pressed="true">
+          <span class="system-status">Active</span><span class="system-code">WMS</span><span class="system-copy"><b>Manhattan Active WMS</b><small>Fulfillment</small></span>
+        </button>
+        <button class="system-card" type="button" data-system="salesforce" style="--accent:#e684a8">
+          <span class="system-status">Attention</span><span class="system-code">SFDC</span><span class="system-copy"><b>Salesforce Service Cloud</b><small>Customer care</small></span>
+        </button>
+        <button class="system-card" type="button" data-system="fedex" style="--accent:#d99451">
+          <span class="system-status">Wire</span><span class="system-code">FDX</span><span class="system-copy"><b>FedEx Ship API</b><small>Carrier</small></span>
+        </button>
+      </div>
+
+      <div class="cortex-zone" aria-label="Cerniam Cortex Integration Core">
+        <div class="cortex-orbit orbit-one" aria-hidden="true"></div><div class="cortex-orbit orbit-two" aria-hidden="true"></div>
+        <div class="cortex-sphere">
+          <span>Cerniam Cortex</span>
+          <b>Integration<br>Core</b>
+          <small>Ingest · Resolve · Project</small>
+        </div>
+      </div>
+
+      <div class="system-column system-column-right" aria-label="Enterprise and decision systems">
+        <button class="system-card" type="button" data-system="oms" style="--accent:#8177e8">
+          <span class="system-status">Active</span><span class="system-code">OMS</span><span class="system-copy"><b>Manhattan Active OMS</b><small>Order orchestration</small></span>
+        </button>
+        <button class="system-card" type="button" data-system="sap" style="--accent:#e7b85c">
+          <span class="system-status">Active</span><span class="system-code">S/4</span><span class="system-copy"><b>SAP S/4HANA</b><small>Finance &amp; ERP</small></span>
+        </button>
+        <button class="system-card" type="button" data-system="stripe" style="--accent:#9d83ef">
+          <span class="system-status">Active</span><span class="system-code">PAY</span><span class="system-copy"><b>Stripe Payments</b><small>Payments</small></span>
+        </button>
+        <button class="system-card" type="button" data-system="akeneo" style="--accent:#65798f">
+          <span class="system-status">Fixture</span><span class="system-code">PIM</span><span class="system-copy"><b>Akeneo PIM</b><small>Product</small></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="registry-inspector" id="registry-inspector" aria-live="polite" aria-label="Selected system contract">
+    <div class="selection-identity">
+      <span data-slot="status">Active resource</span>
+      <b data-slot="title">Manhattan Active WMS</b>
+      <small data-slot="meta">wms · fulfillment</small>
+    </div>
+    <div class="selection-fact"><span>Contract</span><b data-slot="contract">inventory.changed → fulfillment.projected</b></div>
+    <div class="selection-fact"><span>Atlas observes</span><b data-slot="observes">Health · schema · receipts · binding</b></div>
+    <div class="selection-fact authority"><span>Authority boundary</span><b data-slot="authority">WMS owns execution. Cortex owns operational projection.</b></div>
+  </section>
+
+  <footer class="status-rail">
+    <span><i class="status-dot active"></i><b>06 Active</b></span>
+    <span><i class="status-dot attention"></i><b>01 Attention</b></span>
+    <span><i class="status-dot fixture"></i><b>01 Fixture</b></span>
+    <p>Atlas maps and observes. Operational traffic remains on its native path.</p>
+    <a href="../">Return to Cerniam</a>
+  </footer>
+</main>
+<script src="atlas.js"></script>
+</body>
+</html>
