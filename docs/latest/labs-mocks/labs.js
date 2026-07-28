@@ -6,9 +6,13 @@ const valid=new Set(views.map(v=>v.dataset.screen));
 function setView(name,{focus=false}={}){
  if(!valid.has(name))name='index';
  views.forEach(v=>{const on=v.dataset.screen===name;v.hidden=!on;v.classList.toggle('is-active',on)});
- nav.forEach(b=>{const on=b.dataset.view===name;b.classList.toggle('is-active',on);b.setAttribute('aria-current',on?'page':'false')});
+ const navName=name==='researcher'?'researchers':name;
+ nav.forEach(b=>{const on=b.dataset.view===navName;b.classList.toggle('is-active',on);b.setAttribute('aria-current',on?'page':'false')});
+ const activeNav=nav.find(b=>b.dataset.view===navName);
+ if(activeNav&&activeNav.parentElement.scrollWidth>activeNav.parentElement.clientWidth)activeNav.scrollIntoView({block:'nearest',inline:'nearest'});
  if(location.hash.slice(1)!==name)history.replaceState(null,'','#'+name);
- document.title=`Cerniam Labs — ${name==='index'?'Research Index':name==='report'?'Research Report':name==='models'?'Model Registry':'Applied Research'}`;
+ const titles={index:'Research Index',report:'Research Report',models:'Model Registry',case:'Applied Research',researchers:'Researchers',researcher:'Researcher Profile'};
+ document.title=`Cerniam Labs — ${titles[name]}`;
  if(focus){workspace.focus({preventScroll:true});scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 }
 nav.forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view,{focus:true})));

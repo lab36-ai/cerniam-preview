@@ -21,6 +21,7 @@
   <button class="nav-item" type="button" data-view="report"><span>02</span>Reports</button>
   <button class="nav-item" type="button" data-view="models"><span>03</span>Models</button>
   <button class="nav-item" type="button" data-view="case"><span>04</span>Applied Research</button>
+  <button class="nav-item" type="button" data-view="researchers"><span>05</span>Researchers</button>
 </nav>
 <main id="workspace" tabindex="-1">
 <section class="view is-active" data-screen="index" aria-labelledby="index-title">
@@ -62,7 +63,7 @@
       <span class="eyebrow">Operational Knowledge / Research Cycle 01</span>
       <h1 id="report-title">Operational Memory<br>Under Event Pressure</h1>
       <p class="abstract">A comparative evaluation of graph-based operational memory under high-frequency order, inventory, and fulfillment events.</p>
-      <div class="author-line"><div><span>AUTHORS</span><b>Van Oleson · Maya Chen · Sofia Alvarez</b></div><div><span>CONTRIBUTORS</span><b>Intern cohort 2026-02 · Systems Evaluation</b></div></div>
+      <div class="author-line"><div><span>AUTHORS</span><b>Van Oleson · <button class="author-profile-link" type="button" data-view-link="researcher">Maya Chen</button> · Sofia Alvarez</b></div><div><span>CONTRIBUTORS</span><b>Intern cohort 2026-02 · Systems Evaluation</b></div></div>
     </header>
     <div class="paper-body">
       <div class="paper-main">
@@ -106,6 +107,67 @@
     <section class="decision-surface"><span>02 / RESEARCH DECISION SURFACE</span><div class="decision-flow"><div><small>LIVE SIGNALS</small><b>Order · ATP · Capacity</b></div><i>→</i><div class="cortex-node"><small>CERNIAM CORTEX</small><b>Resolve current state</b></div><i>→</i><div><small>GOVERNED ACTION</small><b>Rebalance promise paths</b></div></div><div class="decision-proof"><div><span>DECISION LATENCY</span><b>112 ms</b></div><div><span>LATE PROMISE RISK</span><b>−27%</b></div><div><span>AUTHORITY</span><b>Policy bound</b></div></div></section>
   </div>
   <section class="evaluation-register"><header><span>03 / EVALUATION DESIGN</span><h2>What must be proven</h2></header><div><article><span>A</span><h3>State fidelity</h3><p>Does the graph represent available-to-promise inventory at decision time?</p></article><article><span>B</span><h3>Decision quality</h3><p>Does the intervention reduce late promises without suppressing valid demand?</p></article><article><span>C</span><h3>Authority safety</h3><p>Does every action remain inside declared commercial and operational policy?</p></article><article><span>D</span><h3>Recovery</h3><p>Can the system explain and reverse the intervention when conditions change?</p></article></div></section>
+</section>
+
+<section class="view researchers-view" data-screen="researchers" aria-labelledby="researchers-title" hidden>
+  <header class="people-header">
+    <div><span class="eyebrow">People / Public Research Reflections</span><h1 id="researchers-title">Researchers</h1><p>Researchers, architects, and interns whose work contributes to the Cerniam Labs record.</p></div>
+    <div class="people-count"><b>04</b><span>ACTIVE RESEARCHERS</span></div>
+  </header>
+  <article class="researcher-feature">
+    <figure class="researcher-portrait"><img src="assets/maya-chen-fictional.webp" width="800" height="1000" alt="Fictional sample portrait for Maya Chen's researcher profile"><figcaption>FEATURED RESEARCHER / SAMPLE RECORD</figcaption></figure>
+    <div class="researcher-overview">
+      <span class="eyebrow">Operational Knowledge / Senior Research Scientist</span>
+      <h2>Maya Chen</h2>
+      <p class="researcher-role">Research lead for operational memory, context resolution, and graph-based enterprise state.</p>
+      <p>Maya studies how high-frequency operational events become durable, decision-relevant knowledge. Her current work evaluates entity continuity and state fidelity across commerce and fulfillment systems.</p>
+      <div class="research-tags" aria-label="Research themes"><span>Operational memory</span><span>Knowledge graphs</span><span>Entity resolution</span><span>Evaluation</span></div>
+      <div class="profile-actions"><button type="button" data-view-link="researcher">Open research record ↗</button><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+    </div>
+    <aside class="researcher-metrics" aria-label="Maya Chen research record summary"><div><span>REPORTS</span><b>06</b></div><div><span>MODELS</span><b>03</b></div><div><span>PROGRAMS</span><b>02</b></div><div><span>TOPIC STATE</span><b class="sync-word">REFLECTED</b></div></aside>
+  </article>
+  <section class="researcher-roster" aria-labelledby="roster-title">
+    <header class="section-head"><span>02 / Research Roster</span><h2 id="roster-title">Current contributors</h2><b>PROGRAM</b></header>
+    <article><span class="researcher-initials">VO</span><div><h3>Van Oleson</h3><p>Principal Research Architect</p></div><b>Operational Knowledge</b><i class="status active">ACTIVE</i></article>
+    <article><span class="researcher-initials">DM</span><div><h3>David Mensah</h3><p>Research Scientist</p></div><b>Governed Action</b><i class="status active">ACTIVE</i></article>
+    <article><span class="researcher-initials">SA</span><div><h3>Sofia Alvarez</h3><p>Research Intern · Systems Evaluation</p></div><b>Enterprise Simulation</b><i class="status evaluating">FIELD STUDY</i></article>
+  </section>
+</section>
+
+<section class="view researcher-view" data-screen="researcher" aria-labelledby="researcher-title" hidden>
+  <div class="profile-rail"><button type="button" data-view-link="researchers">← Researchers</button><span>RESEARCHER RECORD</span><b>CL-PER-2026-002</b><i class="status active">SYNCED</i></div>
+  <article class="researcher-record">
+    <header class="profile-hero">
+      <figure><img src="assets/maya-chen-fictional.webp" width="800" height="1000" alt="Fictional sample portrait for Maya Chen's researcher profile"></figure>
+      <div class="profile-intro">
+        <span class="eyebrow">Researcher / Topic Places Reflection</span>
+        <h1 id="researcher-title">Maya Chen</h1>
+        <p class="profile-role">Senior Research Scientist · Operational Knowledge</p>
+        <p class="profile-bio">Maya Chen leads research into continuously current enterprise memory: how events are resolved into persistent entities, how contradictory signals alter operational state, and how that state remains inspectable at decision time.</p>
+        <div class="research-tags" aria-label="Research themes"><span>Operational memory</span><span>Knowledge graphs</span><span>Entity resolution</span><span>State fidelity</span></div>
+        <nav class="external-profiles" aria-label="External researcher profiles"><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://orcid.org/" target="_blank" rel="noreferrer">ORCID ↗</a><a href="https://scholar.google.com/" target="_blank" rel="noreferrer">Google Scholar ↗</a></nav>
+      </div>
+      <aside class="profile-facts"><div><span>LOCATION</span><b>Cambridge, MA</b></div><div><span>AFFILIATION</span><b>Cerniam Labs</b></div><div><span>JOINED</span><b>2025</b></div><div><span>TOPIC SLUG</span><b>maya-chen</b></div></aside>
+    </header>
+    <div class="profile-content">
+      <section class="linked-work" aria-labelledby="work-title">
+        <header><span>01 / LINKED RESEARCH OBJECTS</span><h2 id="work-title">Research record</h2></header>
+        <a href="#report" data-view-link="report"><span>AUTHORED</span><b>CL-RR-2026-004</b><strong>Operational Memory Under Event Pressure</strong><i class="status review">WORKING PAPER</i></a>
+        <a href="#models" data-view-link="models"><span>OWNS</span><b>CL-MOD-CORTEX-ENTITY-R3</b><strong>Operational Entity Resolution</strong><i class="status active">TRAINING</i></a>
+        <a href="#case" data-view-link="case"><span>EVALUATES</span><b>CL-AR-RTL-003</b><strong>Retail Inventory Decision Surface</strong><i class="status evaluating">FIELD STUDY</i></a>
+        <a href="#index" data-view-link="index"><span>CONTRIBUTES TO</span><b>PROGRAM 01</b><strong>Operational Knowledge</strong><i class="status active">ACTIVE</i></a>
+      </section>
+      <aside class="research-context">
+        <section><span>02 / CURRENT QUESTION</span><blockquote>How much contradiction can an operational graph absorb before current state becomes less trustworthy than reconstruction?</blockquote></section>
+        <section><span>03 / METHODS</span><p>Event replay · graph projection · entity continuity · contradiction recovery · latency evaluation</p></section>
+        <section><span>04 / COLLABORATORS</span><p>Van Oleson · Sofia Alvarez · Systems Evaluation cohort 2026-02</p></section>
+      </aside>
+    </div>
+    <section class="reflection-provenance" aria-labelledby="reflection-title">
+      <header><span>RECORD PROVENANCE</span><h2 id="reflection-title">Topic Places reflection</h2></header>
+      <div><span>MASTER TOPIC</span><b>tp://people/maya-chen</b><small>Single source of truth</small></div><i>→</i><div><span>PUBLIC REFLECTION</span><b>/labs/researchers/maya-chen</b><small>Locked display record</small></div><i>→</i><div><span>SYNC STATE</span><b>Current</b><small>Verified 09:28 UTC</small></div>
+    </section>
+  </article>
 </section>
 </main>
 <footer class="lab-footer"><span>Research repository mock / Not a production publication</span><b>CERN = TO MAKE KNOWN, TO DECIDE · IAM = NOW</b></footer>
