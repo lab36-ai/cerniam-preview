@@ -1,0 +1,414 @@
+/* Cerniam Labs — Executive Research refinement */
+:root {
+  --paper: #f7f8f7;
+  --line: rgba(18, 59, 93, .16);
+  --line-strong: rgba(18, 59, 93, .32);
+  --condensed: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--paper);
+  background-image: none;
+}
+
+.shell {
+  grid-template-columns: 176px minmax(0, 1fr);
+  grid-template-rows: 68px 1fr auto;
+}
+
+.masthead {
+  grid-template-columns: 176px 1fr auto;
+  background: rgba(247, 248, 247, .97);
+}
+
+.lab-mark {
+  padding: 0 18px;
+}
+
+.lab-mark span {
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -.015em;
+}
+
+.lab-mark i {
+  width: 3px;
+  height: 3px;
+  margin-inline: 8px;
+}
+
+.lab-mark b,
+.mast-meta span {
+  font-size: 9px;
+  letter-spacing: .13em;
+}
+
+.mast-meta b,
+.cerniam-return {
+  font-size: 8px;
+}
+
+.section-nav {
+  top: 68px;
+  height: calc(100vh - 68px);
+  padding: 18px 10px;
+  background: rgba(247, 248, 247, .93);
+}
+
+.nav-item {
+  min-height: 52px;
+  grid-template-columns: 24px 1fr;
+  font-size: 8px;
+  letter-spacing: .07em;
+}
+
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: .13em;
+}
+
+.index-hero {
+  min-height: 388px;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 44px;
+  padding: 52px clamp(34px, 5vw, 74px) 46px;
+}
+
+.hero-copy h1 {
+  max-width: 820px;
+  margin: 22px 0 25px;
+  font-family: var(--sans);
+  font-size: clamp(44px, 4.4vw, 64px);
+  font-weight: 690;
+  line-height: .96;
+  letter-spacing: -.045em;
+}
+
+.hero-copy h1 em {
+  color: var(--blue);
+}
+
+.hero-copy p {
+  max-width: 630px;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.cycle-register {
+  border-top-width: 2px;
+}
+
+.cycle-register div {
+  min-height: 59px;
+}
+
+.cycle-register span {
+  font-size: 8px;
+}
+
+.cycle-register b {
+  font-family: var(--sans);
+  font-size: 23px;
+  font-weight: 650;
+  letter-spacing: -.04em;
+}
+
+.program-register,
+.latest-register {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.section-head {
+  margin-bottom: 19px;
+}
+
+.section-head h2,
+.model-strip h2,
+.evaluation-register h2 {
+  font-family: var(--sans);
+  font-weight: 680;
+  letter-spacing: -.025em;
+}
+
+.section-head h2 {
+  font-size: clamp(23px, 2vw, 30px);
+  line-height: 1;
+}
+
+.program-row {
+  min-height: 100px;
+}
+
+.program-row h3,
+.report-link h3 {
+  font-family: var(--sans);
+  font-weight: 650;
+  letter-spacing: -.02em;
+}
+
+.program-row h3 {
+  font-size: 19px;
+}
+
+.program-row p {
+  font-size: 12px;
+}
+
+.report-link h3 {
+  font-size: 16px;
+  line-height: 1.12;
+}
+
+.model-strip {
+  grid-template-columns: 190px minmax(0, 1fr);
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.model-strip h2 {
+  font-size: 21px;
+}
+
+.training-line,
+.training-line > * {
+  min-width: 0;
+}
+
+.training-line > div:first-child span,
+.training-line > div:first-child b {
+  overflow-wrap: anywhere;
+}
+
+.paper {
+  padding-top: 50px;
+}
+
+.paper-header {
+  max-width: 1040px;
+}
+
+.paper-header h1 {
+  max-width: 940px;
+  margin: 22px 0 27px;
+  font-family: var(--sans);
+  font-size: clamp(45px, 4.45vw, 64px);
+  font-weight: 690;
+  line-height: .94;
+  letter-spacing: -.047em;
+}
+
+.abstract {
+  max-width: 840px;
+  font-size: clamp(18px, 1.65vw, 23px);
+  line-height: 1.48;
+}
+
+.author-line {
+  margin-top: 36px;
+}
+
+.paper-body {
+  margin-top: 42px;
+}
+
+.paper-main h2 {
+  font-family: var(--sans);
+  font-size: 24px;
+  font-weight: 670;
+  letter-spacing: -.025em;
+}
+
+.paper-main blockquote {
+  font-family: var(--sans);
+  font-size: clamp(23px, 2.15vw, 31px);
+  font-weight: 590;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+.artifact-panel {
+  border-top-width: 2px;
+}
+
+.registry-header {
+  min-height: 270px;
+  grid-template-columns: 1fr 150px;
+  padding-top: 46px;
+  padding-bottom: 44px;
+}
+
+.registry-header h1 {
+  margin: 21px 0 16px;
+  font-family: var(--sans);
+  font-size: clamp(45px, 4.2vw, 60px);
+  font-weight: 690;
+  line-height: .95;
+  letter-spacing: -.047em;
+}
+
+.registry-header p {
+  font-size: 15px;
+}
+
+.registry-count b {
+  font-family: var(--sans);
+  font-size: 54px;
+  font-weight: 650;
+  letter-spacing: -.05em;
+}
+
+.model-table {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.model-row {
+  min-height: 80px;
+}
+
+.model-inspector h2 {
+  font-family: var(--sans);
+  font-size: 27px;
+  font-weight: 670;
+  line-height: 1;
+  letter-spacing: -.025em;
+}
+
+.eval-block b {
+  font-family: var(--sans);
+  font-size: 23px;
+  font-weight: 650;
+}
+
+.case-header {
+  min-height: 314px;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  padding-top: 50px;
+  padding-bottom: 46px;
+}
+
+.case-header h1 {
+  max-width: 950px;
+  margin-top: 22px;
+  font-family: var(--sans);
+  font-size: clamp(43px, 4.2vw, 60px);
+  font-weight: 690;
+  line-height: .95;
+  letter-spacing: -.046em;
+}
+
+.case-header h1 em {
+  color: var(--blue);
+}
+
+.case-id {
+  border-top-width: 2px;
+}
+
+.case-id b {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.operating-condition h2 {
+  max-width: 650px;
+  font-family: var(--sans);
+  font-size: clamp(24px, 2.2vw, 32px);
+  font-weight: 620;
+  line-height: 1.12;
+  letter-spacing: -.03em;
+}
+
+.decision-proof b,
+.evaluation-register h3 {
+  font-family: var(--sans);
+  font-weight: 650;
+  letter-spacing: -.02em;
+}
+
+.decision-proof b {
+  font-size: 17px;
+}
+
+.evaluation-register h2 {
+  font-size: 29px;
+}
+
+.evaluation-register article {
+  min-height: 170px;
+}
+
+.evaluation-register h3 {
+  font-size: 18px;
+}
+
+@media (max-width: 980px) {
+  .shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: 68px auto 1fr auto;
+  }
+
+  .masthead {
+    grid-template-columns: 176px 1fr auto;
+  }
+
+  .section-nav {
+    top: 68px;
+    height: auto;
+    padding: 0;
+  }
+
+  .index-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .training-line {
+    grid-template-columns: minmax(160px, 1.3fr) minmax(120px, 1fr) auto auto;
+  }
+
+  .training-line time {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .training-line {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(35px, 10.5vw, 43px);
+    line-height: .97;
+  }
+
+  .paper-header h1 {
+    font-size: clamp(36px, 10.7vw, 44px);
+    line-height: .96;
+  }
+
+  .registry-header h1 {
+    font-size: clamp(39px, 11.2vw, 46px);
+  }
+
+  .case-header h1 {
+    font-size: clamp(36px, 10.2vw, 43px);
+  }
+
+  .program-row h3 {
+    font-size: 18px;
+  }
+
+  .paper-main h2 {
+    font-size: 21px;
+  }
+
+  .evaluation-register h2 {
+    font-size: 26px;
+  }
+
+  .evaluation-register h3 {
+    font-size: 17px;
+  }
+}
