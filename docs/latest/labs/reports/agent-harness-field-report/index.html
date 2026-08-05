@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Cerniam Labs field report on the Agent Harness: context economics, multi-agent orchestration, build guards, worktree governance, and VPS resource pressure.">
+<title>The Agent Harness — Cerniam Labs Field Report</title>
+<link rel="stylesheet" href="../../assets/labs.css">
+<link rel="stylesheet" href="../../assets/executive.css">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/agent-harness-report.css">
+</head>
+<body class="harness-report">
+<a class="skip" href="#workspace">Skip to research content</a>
+<div class="shell">
+<header class="masthead"><a class="lab-mark" href="../../" aria-label="Cerniam Labs research index"><span>CERNIAM</span><i></i><b>LABS</b></a><div class="mast-meta"><span>Open Research Repository</span><b>Systems Field Report / 2026</b></div><a class="cerniam-return" href="../../../">CERNIAM ↗</a></header>
+<nav class="section-nav" aria-label="Cerniam Labs sections"><a class="nav-item" href="../../"><span>01</span>Research Index</a><a class="nav-item is-active" href="./" aria-current="page"><span>02</span>Reports</a><a class="nav-item" href="../../models/"><span>03</span>Models</a><a class="nav-item" href="../../applied/retail-inventory/"><span>04</span>Applied Research</a><a class="nav-item" href="../../researchers/"><span>05</span>Researchers</a></nav>
+<main id="workspace" tabindex="-1">
+<div class="preview-notice" role="note"><span><b>System-derived field report</b> / Evidence through 05 Aug 2026</span><span>Implemented · observed · proposed distinctions preserved</span></div>
+<section aria-labelledby="report-title" class="view report-view is-active">
+<div class="document-rail"><span>FIELD REPORT</span><b>CL-RR-2026-005</b><time datetime="2026-08-05">05 AUG 2026</time><span class="status active">ACTIVE RESEARCH</span></div>
+<article class="paper">
+<header class="paper-header">
+<span class="eyebrow">Agent Systems / Research Cycle 02</span>
+<h1 id="report-title">The Agent Harness<br/><em>as an operating system for work.</em></h1>
+<p class="abstract">A field report on context economics, multi-agent topology, collaboration, deterministic build controls, worktree governance, and resource pressure in a live agent-operated development environment.</p>
+<div class="author-line"><div><span>AUTHORS</span><b>Van Oleson · Saskwatch · Cerniam Labs Systems Research</b></div><div><span>RESEARCH SETTING</span><b>LabOps1 · Freedom · Topic Places · Operator · Forge · Hermes</b></div></div>
+<div class="report-meta-grid" aria-label="Report method summary">
+<div><span>Observation window</span><b>May–August 2026</b></div>
+<div><span>Primary method</span><b>Repository archaeology + operating receipts</b></div>
+<div><span>System scale</span><b>Named agents across VPS and Freedom</b></div>
+<div><span>Evidence rule</span><b>No mechanism promoted without a source or receipt</b></div>
+</div>
+</header>
+<div class="harness-layout">
+<div class="harness-main">
+<section id="abstract"><span class="section-number">00</span><div>
+<h2>Abstract</h2>
+<div class="finding-lede"><p>The useful unit of agent engineering is not the model call. It is the controlled work interval around the model call.</p></div>
+<p>Cerniam Labs and Lab 36 have been operating multiple persistent, named agents against real repositories, services, research records, and deployment surfaces. The work produced an Agent Harness that now spans identity, context recovery, routing, collaboration, execution lanes, deterministic verification, delivery, host admission, worktree lifecycle, and receipts. It did not arrive as one framework. It emerged from repeated failures at the boundaries between otherwise capable agents.</p>
+<p>The central finding is that agent quality depends less on adding more intelligence to the prompt than on making ownership, authority, context, capacity, and proof explicit outside the prompt. Shared memory can attract several agents to the same valuable seam. Parallel workers can improve coverage while exhausting a host. A green review can still fail to deliver a commit. A smaller context window can save tokens while quietly charging a recovery tax on every serious turn. Each failure led to a control that could be inspected, tested, or receipted.</p>
+<p>The resulting harness should be understood as an operating system for work: it admits context, assigns a lane, resolves an executor, constrains resources, records state transitions, and establishes what counts as completion. The model remains important, but it is one replaceable component inside a larger system.</p>
+<div class="evidence-band" aria-label="Evidence posture">
+<article><span class="evidence-label implemented">Implemented</span><h4>Execution controls</h4><p>Workstream events, Operator routing, Forge preflight and delivery gates, build leases, pressure admission, source-only worktrees, and enforcement receipts.</p></article>
+<article><span class="evidence-label partial">Partially implemented</span><h4>Economic controls</h4><p>Context-budget receipt events and UI exist; automatic source-by-source token accounting and measured break-even policy do not.</p></article>
+<article><span class="evidence-label open">Open research</span><h4>Full fleet acceptance</h4><p>Five isolated agent lanes with exact previews under measured host pressure, bounded review fan-out, and zero OOM or source drift.</p></article>
+</div>
+</div></section>
+
+<section id="system"><span class="section-number">01</span><div>
+<h2>The system under study</h2>
+<p>The research environment is a split execution estate. LabOps1 is a 31 GiB Linux VPS carrying long-lived services, agent profiles, repositories, worktrees, receipt ledgers, and build tooling. Freedom is a Mac Mini used for Apple-silicon, local-model, subscription-CLI, and overflow build workloads. Topic Places supplies durable collaboration and workstream authority. Hermes and other harnesses provide model-facing execution. Operator resolves agents across hosts and harnesses. Forge coordinates code-building and review workflows. A separate build fabric governs host capacity and generated build trees.</p>
+<p>This arrangement matters because it exposes failures hidden by single-agent demos. Several agents may be correct about the same architecture and still collide in the same repository. Several builds may be individually reasonable and collectively overload the host. A session may retain enough context to be expensive but not enough to preserve authority. The research question therefore became operational:</p>
+<pre>How do we let multiple capable agents work quickly without allowing
+context drift, ownership collisions, resource collapse, false completion,
+or model output to become ungoverned system authority?</pre>
+<h3>Control flow</h3>
+<div class="topology" aria-label="Agent Harness control flow">
+<article class="topology-card"><span>01 / Intent</span><b>Human or system objective</b><p>Original ask, business purpose, acceptance conditions.</p></article>
+<article class="topology-card control"><span>02 / Authority</span><b>Workstream + lane</b><p>Pinned owner, scope, writable tree, handoff contract, approval posture.</p></article>
+<article class="topology-card"><span>03 / Runtime</span><b>Operator + harness</b><p>Resolve agent, host, model, session, tools, and transport.</p></article>
+<article class="topology-card control"><span>04 / Guard</span><b>Deterministic control plane</b><p>Preflight, context budget, capacity admission, tests, review, delivery gate.</p></article>
+<article class="topology-card"><span>05 / Proof</span><b>Artifact + receipt</b><p>Commit, build, preview, deployment, checkpoint, or explicit failure.</p></article>
+</div>
+<p>Topic Places and Construct provide collaboration and witness. They do not become execution authority. Operator provides identity, registry, transport, and policy. It does not decide business truth. Agent Runtime and model providers produce recommendations and artifacts. They do not hold unrestricted mutation rights. Controlled services execute; receipts establish what actually happened.</p>
+</div></section>
+
+<section id="components"><span class="section-number">02</span><div>
+<h2>Harness components and current status</h2>
+<div class="report-table-wrap"><table class="report-table"><thead><tr><th>Component</th><th>Role</th><th>Observed status</th><th>Boundary</th></tr></thead><tbody>
+<tr><td>Hermes profiles</td><td>Persistent identity, memory, skills, sessions, tools, compression, and model routing.</td><td><span class="status-chip live">Live</span></td><td>Model-facing agent loop; not workstream authority.</td></tr>
+<tr><td>Topic Places</td><td>Durable collaboration, topics, workstreams, membership, checkpoints, claims, documents, and append-only receipts.</td><td><span class="status-chip live">Live</span></td><td>Collaboration authority; not canonical operational truth or privileged executor.</td></tr>
+<tr><td>Agent Roster / Workstream Board</td><td>Projects named agent lanes, NOW/NEXT/WAITING/PARKED posture, source sessions, reassignment, checkpoints, and receipts.</td><td><span class="status-chip live">Live slice</span></td><td>Super Admin mutation boundary; lane/seam convergence detection remains incomplete.</td></tr>
+<tr><td>Operator</td><td>Harness-agnostic registry, cross-host transport, capability discovery, durable jobs, policy, and signed receipts.</td><td><span class="status-chip live">Core live</span></td><td>Public gateway incomplete; no raw secret-bearing Hermes prompts.</td></tr>
+<tr><td>Forge</td><td>Worker/reviewer orchestration, no-PAYG preflight, isolated workspaces, deterministic checks, retries, and verified Git delivery.</td><td><span class="status-chip live">Implemented</span></td><td>Parallel review/delivery fan-out and worker caps remain unresolved.</td></tr>
+<tr><td>Build fabric</td><td>Signed sprint leases, weighted FIFO admission, pressure-aware scheduling, content-addressed hydration, and exact preview receipts.</td><td><span class="status-chip partial">90% model / final gate pending</span></td><td>Production deployment remains human-gated.</td></tr>
+<tr><td>Build lifecycle guard</td><td>Stops unleased heavy-build process trees and writes enforcement receipts.</td><td><span class="status-chip live">Enabled + active</span></td><td>Intermittent enforcement errors require operational follow-up.</td></tr>
+<tr><td>Construct</td><td>Human-agent room for ambiguity, teaching, collaboration, approval, and witness.</td><td><span class="status-chip partial">Reference surface</span></td><td>Not runtime and not security perimeter.</td></tr>
+<tr><td>Partner Agent Gateway</td><td>Canonical identity, context, delegation, job, event, approval, and receipt contracts for external agent systems.</td><td><span class="status-chip open">Architecture / partial prototypes</span></td><td>Authority envelope, revocation, conformance, and durable tenant receipts block production.</td></tr>
+</tbody></table></div>
+<p>The system is deliberately heterogeneous. A single framework does not own every concern. The harness is the composition of several independently testable control planes connected by typed artifacts and receipts.</p>
+</div></section>
+
+<section id="topologies"><span class="section-number">03</span><div>
+<h2>Multiple agent topologies</h2>
+<p>Two broad organizational styles recur in the research: pools of peers and hierarchies of responsibility. The field work shows that both are necessary. The mistake is treating one as a universal answer.</p>
+<h3>Single specialist lane</h3>
+<p>One agent owns the task in one isolated workspace. Deterministic validation runs outside the agent, and a separate reviewer may inspect the result. This is the cheapest topology when the task is narrow and the specialist fit is strong. It also minimizes merge and host pressure.</p>
+<h3>Peer pool</h3>
+<p>Several equal workers receive the same or partitioned objective. Forge supports parallel dispatch and restores result order to dispatch order rather than finish-time order. The five-agent build-fabric proof admitted two light jobs at a time and completed five jobs in waves of 2, 2, and 1. Peer pools increase exploration and fault coverage, but they also multiply model cost, build pressure, and correlated assumptions.</p>
+<div class="limitation-note"><p><strong>Current limitation:</strong> Forge’s parallel strategy reviews and delivers only the lowest-index successful workspace. Other workers may produce useful branches, but the present state machine does not independently review, merge, or deliver all of them. The behavior is deterministic now, not complete.</p></div>
+<h3>Consensus panel</h3>
+<p>A builder can be followed by several independent reviewers with majority or unanimity policy. This separates generation from judgment and permits specialists—security, correctness, visual design, operations—to examine the same artifact. Consensus does not eliminate shared blind spots. A quorum is only meaningful when reviewers have genuinely different instructions, evidence, or models.</p>
+<h3>Hierarchy</h3>
+<p>An orchestrator decomposes work, uses Operator’s capability registry to select specialists, delegates bounded tasks, and reconciles the resulting artifacts. Hierarchy is appropriate when authority or information is naturally layered: research, implementation, verification, and deployment should not share the same permissions. The parent remains accountable for scope, evidence, and final delivery.</p>
+<h3>Human-agent seam</h3>
+<p>The AFI-0001 incident established a fifth topology: a human implementation lane beside agent source-evidence and target-contract lanes. Gus’s adapter work was exposed to moving assumptions from two agent workstreams. The resolution was not to remove agent memory or human participation. It was to define stable handoff artifacts and make the human lane first-class.</p>
+<div class="report-table-wrap"><table class="report-table"><thead><tr><th>Topology</th><th>Use when</th><th>Main gain</th><th>Main risk</th></tr></thead><tbody>
+<tr><td>Single specialist</td><td>Scope is narrow; one expertise dominates.</td><td>Low coordination and host cost.</td><td>Single-model blind spot.</td></tr>
+<tr><td>Peer pool</td><td>Exploration, alternative implementations, independent search.</td><td>Coverage and redundancy.</td><td>Resource amplification and merge burden.</td></tr>
+<tr><td>Consensus panel</td><td>A single artifact needs independent judgment.</td><td>Separation of build and review.</td><td>Correlated review criteria.</td></tr>
+<tr><td>Hierarchy</td><td>Work decomposes by role, authority, or system boundary.</td><td>Clear responsibility and least privilege.</td><td>Context loss through handoffs.</td></tr>
+<tr><td>Human-agent seam</td><td>Human implementation knowledge is authoritative.</td><td>Practical constraints enter before contracts harden.</td><td>Human chases moving agent targets.</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="lanes"><span class="section-number">04</span><div>
+<h2>Agent Lanes and collaboration</h2>
+<p>Agent Lanes were introduced after coordination failures that ordinary task lists could not express. A lane binds a durable workstream to an owner, workspace, action boundary, and handoff. It is not a colored column on a board.</p>
+<h3>Lane pinning</h3>
+<p>AFI-0003 defines a pinned <code>primaryAgentId</code>. Related context is not authority. Another agent may support only through an explicit reassignment, team-up event, or read-only review role. Every active slice is expected to declare an owning agent, lane, scope, allowed actions, and forbidden actions. A staging slice therefore cannot be reported as production work.</p>
+<h3>Seam contracts</h3>
+<p>AFI-0001 records a concrete collision. Source Contracts and Data Hub/package agents independently approached adapter generation while a human adapter implementer worked in parallel. Shared architectural memory acted as an attractor: all three parties found the same useful seam. The missing control was execution-level ownership.</p>
+<p>The correction split the seam into source evidence, canonical target contract, human implementation, and adapter runtime contract lanes. Work froze until stable artifacts—<code>adapter_candidate_packet.v1</code> and <code>adapter_runtime_handoff.v1</code>—could be reviewed. This is the harness at its most useful: it turns “coordinate better” into named ownership, forbidden actions, and inspectable handoffs.</p>
+<h3>Collaboration surfaces</h3>
+<ul>
+<li><strong>Topic Places</strong> preserves the durable record: workstream, membership, comments, checkpoints, acknowledgements, claims, completion, and receipts.</li>
+<li><strong>Construct</strong> is the room for ambiguity, joint reasoning, teaching, approval, and witness.</li>
+<li><strong>Agent Roster</strong> projects who owns each durable workstream and whether it is active, blocked, waiting, parked, or complete.</li>
+<li><strong>Operator</strong> resolves which agent and harness should receive a request, preserving session identity and signed transport proof.</li>
+<li><strong>Forge handoff</strong> moves a preflighted task envelope through queue, processing, delivery, failure, and immutable receipt directories using atomic filesystem renames.</li>
+</ul>
+<p>The collaboration doctrine is place-native: work lives in a durable place rather than a disappearing chat thread. This reduces wrong-agent routing, preserves provenance, and makes “is another agent already working here?” a queryable relationship rather than human memory.</p>
+</div></section>
+
+<section id="context"><span class="section-number">05</span><div>
+<h2>Context management and recovery economics</h2>
+<p>The project rejected a simple contest between “small context” and “large context.” Small windows reduce token burn and stale carryover, but they create a recovery tax. Identity, user preferences, skills, workstream authority, repository state, vault records, and prior sessions may all need to be reloaded before serious action. The relevant equation is:</p>
+<pre>Total cost = live context cost + recovery cost + mistake cost</pre>
+<p>The mistake term changes the conclusion. The cheapest prompt is not economical if it causes duplicate work, wrong-workstream mutation, stale deployment, or several retries. AFI-0002 therefore adopted the principle <strong>minimum reliable context, not minimum context</strong>.</p>
+<h3>Tiered context</h3>
+<div class="report-table-wrap"><table class="report-table"><thead><tr><th>Turn class</th><th>Context posture</th><th>Rationale</th></tr></thead><tbody>
+<tr><td>Casual / status</td><td>Stable memory and user profile only.</td><td>Avoid registry and source reads without a source-grounded question.</td></tr>
+<tr><td>Planning / architecture</td><td>Compact doctrine plus relevant source.</td><td>Preserve principles without dumping the entire operating estate.</td></tr>
+<tr><td>Execution / mutation</td><td>Full authority calibration.</td><td>Identity, matching workstream, skill, source authority, and readback are correctness requirements.</td></tr>
+<tr><td>Long build loop</td><td>Compact closure frame.</td><td>Retain Build / Value / Done / Gate / Deferred instead of reloading everything each turn.</td></tr>
+<tr><td>Re-entry</td><td>Targeted journal, session, and workstream recovery.</td><td>Prefer current authority over stale compressed history.</td></tr>
+</tbody></table></div>
+<h3>Observed Hermes behavior</h3>
+<div class="metric-band">
+<div><span>Effective context</span><b>372K</b><p>Resolved GPT-5.6-sol runtime window</p></div>
+<div><span>Compression threshold</span><b>186K</b><p>Automatic preflight at 50%</p></div>
+<div><span>Initial recovery estimate</span><b>10–25K</b><p>Serious execution turn, before task work</p></div>
+<div><span>Receipt target</span><b>&lt;1K</b><p>Future summarized receipt overhead</p></div>
+</div>
+<p>Grace’s runtime logs show repeated preflight compression at the 186K threshold, including requests estimated at 196K, 213K, and 231K tokens. One compression attempt exceeded a 120-second auxiliary timeout before fallback. The lesson is not that compression is wrong. It is that compression is an execution of its own, with latency, failure modes, and provider dependence.</p>
+<h3>Context-budget receipts</h3>
+<p>The Workstream API and UI can already append and display context-budget receipt events. The schema records receipt ID, type, summary, evidence references, actor, and time through the same append-only authority contract as checkpoints and reassignment. What has not yet been completed is automatic source accounting: exact or estimated tokens for memory, skills, registry, vault, repository reads, and tool-output reduction.</p>
+<p>AFI-0002 remains open until measured receipts from real turns establish which sources dominate recovery cost and where resident context becomes cheaper than repeated calibration. The present numbers are design estimates, not billing telemetry.</p>
+</div></section>
+
+<section id="tokens"><span class="section-number">06</span><div>
+<h2>Token management and budgeting</h2>
+<p>Token budgeting appears at three different layers and should not be collapsed into one number.</p>
+<ol>
+<li><strong>Model-window budget</strong> controls how much context can be resident and when compression begins.</li>
+<li><strong>Turn-recovery budget</strong> accounts for what must be reloaded to act correctly.</li>
+<li><strong>Workstream budget</strong> combines time, cost, token, and host capacity limits for a job or session.</li>
+</ol>
+<p>Forge adds a route-cost policy before execution. OpenRouter is rejected, headless Claude is rejected, misleading “local” aliases are rejected, and more than one local model lane under parallel strategy is rejected. Local routes assume a conservative 32,768-token context unless explicitly declared. Preflight resolves each worker, escalation target, and reviewer to a concrete route and records provider, model, endpoint, cost class, binary state, model exposure, context assumption, and policy violations.</p>
+<p>This is budgeting as admission control rather than reporting after the bill. The policy has no skip flag. If the route is red, no worktree is created and no worker is dispatched. The larger Cerniam session contract extends the same idea to maximum context size, time, cost, token budget, expiry, heartbeat, data disclosure, capability grants, and side-effect ceiling.</p>
+<h3>Recommended budget ledger</h3>
+<div class="report-table-wrap"><table class="report-table"><thead><tr><th>Budget</th><th>Unit</th><th>Admission signal</th><th>Receipt</th></tr></thead><tbody>
+<tr><td>Context</td><td>Input, cached input, recovery, output tokens</td><td>Turn class and minimum authority bundle</td><td>Context Budget Receipt</td></tr>
+<tr><td>Model cost</td><td>Route class, provider usage, subscription/PAYG policy</td><td>Forge preflight / Operator policy</td><td>Route and usage receipt</td></tr>
+<tr><td>Host capacity</td><td>Weighted units, RAM, disk, PSI, projected peak</td><td>Build fabric and lifecycle controller</td><td>Queue, claim, release, pressure-stop receipt</td></tr>
+<tr><td>Work interval</td><td>Wall time, retries, reviewer count, completion</td><td>Job deadline and stop-loss policy</td><td>Durable job / Forge run receipt</td></tr>
+</tbody></table></div>
+<p>A mature harness should answer not only “how many tokens did this agent use?” but “which context source, retry, reviewer, or duplicate lane consumed them, and did that expenditure reduce error?”</p>
+</div></section>
+
+<section id="builds"><span class="section-number">07</span><div>
+<h2>Build guards and verified delivery</h2>
+<p>Build control evolved through two layers. Forge guards the software result. The build fabric guards the host.</p>
+<h3>Forge: fail closed on the artifact</h3>
+<ul>
+<li>Schema and route preflight occurs before dispatch or worktree mutation.</li>
+<li>Worker and reviewer timeouts are explicit.</li>
+<li>Tracked and untracked changed files are both included in verification.</li>
+<li>Built-in checks run before task-specific CI.</li>
+<li>Reviewer output cannot become a passing verdict if the underlying dispatch failed.</li>
+<li>Registry and session state are written atomically.</li>
+<li>Retries rebuild from the original prompt rather than nesting previous retry scaffolds indefinitely.</li>
+<li>A run cannot become passed until Git delivery is verified: repository present, staging successful, commit successful or verified no-op, HEAD advanced when expected, and index clean.</li>
+</ul>
+<p>The delivery guard fixed a consequential defect. Earlier state could report success before proving that the commit landed. The current state machine records <code>delivery_failed</code>, carries the error into retry context, and exits non-zero.</p>
+<h3>Host build fabric: fail closed on capacity</h3>
+<p>LabOps1 now uses signed sprint leases bound to agent, workstream, repository, branch, permissions, and TTL. A weighted FIFO scheduler assigns light, medium, and heavy build classes against host units. Heavy jobs serialize and cannot starve behind newer light work. Local admission reads free disk, available memory, and full memory/I/O pressure stall information. Remote provider builds consume zero local units but retain provider timestamps.</p>
+<p>The default lifecycle creates a controller-managed source-only worktree, predicts the smallest truthful build scope, admits it against policy, acquires a host-wide heavy-build lease, hydrates dependencies, builds, writes a receipt, removes generated outputs, and releases the worktree back to source-only state.</p>
+<p>The active policy refuses heavy work below 80 GiB free disk, below 8 GiB available RAM, below a 4 GiB minimum projected peak, above I/O full-PSI 2.0, or above memory full-PSI 1.0. Severe pressure across three samples triggers process-group stop-loss.</p>
+</div></section>
+
+<section id="trees"><span class="section-number">08</span><div>
+<h2>Build-tree and worktree management</h2>
+<p>Parallel agents require filesystem isolation, but worktrees become a resource estate of their own. Each can accumulate <code>node_modules</code>, <code>.next</code>, <code>.turbo</code>, <code>coverage</code>, and <code>dist</code>. On a shared host, these trees consume disk, warm caches, file watchers, process references, and eventually human attention.</p>
+<h3>Source-only lifecycle</h3>
+<p>The lifecycle controller treats generated dependency and build trees as temporary hydration, not durable work. Clean, inactive managed worktrees return to source-only posture after build or completion. Unknown or global changed paths fail closed rather than invoking an all-zone build by accident.</p>
+<h3>Cold-estate consolidation</h3>
+<p>Clean inactive worktrees are pinned under archival Git refs before ordinary removal. Dirty inactive trees require a binary tracked patch and a private mode-0600 archive of non-generated untracked and ignored files. Generated dependency/build trees are never archived. Active, process-referenced, symlinked, mounted, recently changed, or restoration-ambiguous trees are refused.</p>
+<h3>Policy drift discovered during this review</h3>
+<div class="incident"><h3>Documented cap and active cap disagree</h3><p>The lifecycle README states that the Console estate permits at most 10 registered worktrees. The active <code>cerniam.build_lifecycle_policy.v2</code> file currently permits 25. The code validator accepts values from 6 through 25. Until reconciled, the machine-enforced boundary is 25, not 10.</p></div>
+<p>This is a small example of why policy must be inspected from the running authority rather than repeated from prose. The report recommends one canonical cap rendered into documentation and receipts from the policy file.</p>
+</div></section>
+
+<section id="vps"><span class="section-number">09</span><div>
+<h2>VPS overload: incident, diagnosis, and response</h2>
+<div class="incident"><h3>Observed incident</h3><p>A Vite production build reached transformation and terminated with exit 143. Raising the Node heap to 4 GiB did not prevent termination. The host was also observed with 8 GiB of exhausted swap and heavy resident agent load during a separate build incident.</p><div class="incident-grid"><div><span>Proven</span><b>Process received SIGTERM / exit 143</b></div><div><span>Proven</span><b>Large heap alone did not solve it</b></div><div><span>Observed condition</span><b>Severe swap occupancy and concurrent resident load</b></div><div><span>Not proven</span><b>Kernel OOM killer as the sender</b></div></div></div>
+<p>The evidence supports host resource pressure as the operating condition. It does not identify the precise SIGTERM sender in the preserved incident log. The report therefore avoids calling it an OOM kill. That distinction matters: a kernel OOM kill, systemd policy, external supervisor, manual termination, or later build guard all require different remediation.</p>
+<h3>Current host observation — 05 August 2026</h3>
+<div class="metric-band">
+<div><span>Physical memory</span><b>31 GiB</b><p>Linux LabOps1 VPS</p></div>
+<div><span>Available memory</span><b>14 GiB</b><p>At observation time</p></div>
+<div><span>Swap occupied</span><b>7.2 / 8 GiB</b><p>Residual high occupancy</p></div>
+<div><span>Root disk free</span><b>133 GiB</b><p>66% used</p></div>
+</div>
+<p>Memory full-PSI was low at observation time, so the host was not in active memory collapse. Swap remained heavily occupied, however, which reduces confidence in burst capacity and makes available-memory plus PSI more useful than free memory alone.</p>
+<h3>How the harness attacks overload</h3>
+<ol>
+<li><strong>Prevent:</strong> reject builds below disk/RAM floors or above PSI limits.</li>
+<li><strong>Serialize:</strong> allow one host-wide heavy-build lease while admitting limited light work.</li>
+<li><strong>Bound:</strong> classify work by weighted capacity and enforce deadlines and pressure stop-loss.</li>
+<li><strong>Isolate:</strong> build in managed source-only worktrees with scoped hydration.</li>
+<li><strong>Dehydrate:</strong> remove generated trees after the useful artifact and receipt exist.</li>
+<li><strong>Offload:</strong> move exact working-tree builds to Freedom or remote providers when local pressure is real; record them as zero-local-unit work.</li>
+<li><strong>Enforce:</strong> stop unleased heavy-build process trees rather than merely auditing them.</li>
+<li><strong>Prove:</strong> retain queue, claim, release, enforcement, preview, and exact-SHA receipts.</li>
+</ol>
+<h3>Enforcement record</h3>
+<p>Between August 1 and August 5, the guard wrote 240 verified enforcement receipts. Across those receipts it signalled 652 process IDs associated with 296 root-process mentions, with no remaining processes in the recorded outcomes. Child-process fan-out means these numbers must not be read as 652 independent builds. They do show that uncontrolled build invocation was systemic.</p>
+<div class="limitation-note"><p><strong>Operational caveat:</strong> the guard service log contains intermittent “enforcement error exit=1” entries alongside successful enforcement. The guard is active, but its own error rate, classification accuracy, and false-positive rate need a typed health rollup. A safety control that fails silently becomes another source of uncertainty.</p></div>
+</div></section>
+
+<section id="proof"><span class="section-number">10</span><div>
+<h2>Receipts, proof, and the meaning of done</h2>
+<p>The harness treats failure and denial as evidence rather than absence. Topic Places stores append-only workstream events. Operator signs consequential actions. Forge records review, CI, delivery, and failure state. The build fabric records admission, queue, claim, release, preview, source SHA, and enforcement. Partner-agent architecture requires canonical receipts for authorization and execution rather than trusting a partner’s success message.</p>
+<p>This yields a strict completion rule:</p>
+<pre>agent says complete            ≠ complete
+checks pass                    ≠ delivered
+git commit exists              ≠ deployed
+provider reports READY         ≠ correct revision
+canonical artifact + receipt + independent verification = done</pre>
+<p>The rule is not ceremonial. Forge’s earlier delivery defect demonstrated that every prior stage could be green while the commit never landed. The fix moved delivery verification inside the passing state transition.</p>
+<h3>Five-agent scheduler proof</h3>
+<div class="metric-band">
+<div><span>Submitted</span><b>5</b><p>Named agent jobs</p></div>
+<div><span>Succeeded</span><b>5</b><p>No product-source mutation</p></div>
+<div><span>Max concurrency</span><b>2</b><p>Capacity-constrained light work</p></div>
+<div><span>Execution waves</span><b>2·2·1</b><p>Receipt-preserved schedule</p></div>
+</div>
+<p>The slice proved scheduler and lease mechanics and passed 40 tests. It did not complete the full velocity acceptance gate. That gate still requires five isolated sprint lanes, five exact preview receipts, measured edit-to-preview latency, and zero OOM, source drift, lost receipts, or unauthorized production deployment under measured pressure.</p>
+</div></section>
+
+<section id="authority"><span class="section-number">11</span><div>
+<h2>Authority and security boundaries</h2>
+<div class="finding-lede"><p>Models propose. Policy decides. Controlled services execute. Receipts prove.</p></div>
+<p>This rule runs through the entire harness. Original asks are preserved as evidence but are not interpreted as authorization. A context pack distinguishes facts, evidence, model opinions, instructions, and policy constraints. Secret references remain references; reusable credentials do not enter model context. Tool grants, side-effect ceilings, approval posture, time, cost, token budgets, expiry, heartbeat, and revocation belong to the session contract.</p>
+<p>The current Agent Workstream API illustrates the boundary in executable form. Any identified operator can read the registry. Mutation requires Super Admin authority. Server-owned actor and timestamps are attached to checkpoints, receipts, reassignments, stack changes, session links, archives, completions, and agent registrations. Duplicate action IDs are idempotent.</p>
+<p>Operator similarly separates registry, transport, policy, and audit. Its Hermes adapter refuses secret-looking bodies because the non-interactive prompt channel currently uses command arguments. Secret-bearing work must use a harness with an API, stdin, or file channel. Public ingress remains incomplete, so the report does not describe Operator’s public gateway as production-ready.</p>
+</div></section>
+
+<section id="findings"><span class="section-number">12</span><div>
+<h2>Findings</h2>
+<ol>
+<li><strong>Shared memory improves architecture and increases collision risk.</strong> Multiple agents correctly identify the same valuable seam. Without lane ownership, intelligence converges faster than execution governance.</li>
+<li><strong>Context compression is not free.</strong> It consumes provider time, can fail, and may force recovery reads later. Its economics must include recovery and mistake cost.</li>
+<li><strong>Parallelism is a host policy, not a prompt preference.</strong> “Use five agents” has implications for model routes, local runtimes, builds, worktrees, reviewers, and merge behavior.</li>
+<li><strong>Build trees are operational state.</strong> Dependency hydration, generated output, watchers, and stale worktrees materially affect host capacity.</li>
+<li><strong>Completion is a state transition guarded by proof.</strong> Textual self-report, green review, and even a successful build are intermediate signals.</li>
+<li><strong>Human work must be modeled as a lane.</strong> Otherwise agents treat a human implementer as an external detail and continue changing the contract around them.</li>
+<li><strong>Budgets must compose.</strong> Token, route cost, wall time, host capacity, and authority are separate budgets that meet at one work interval.</li>
+<li><strong>Control planes require their own observability.</strong> Guard errors, compression fallbacks, receipt failures, and policy drift are first-class operational events.</li>
+</ol>
+</div></section>
+
+<section id="recommendations"><span class="section-number">13</span><div>
+<h2>Recommended next research and engineering work</h2>
+<h3>1. Complete automatic context receipts</h3>
+<p>Capture exact provider usage where available; estimate memory, skill, registry, vault, repository, and tool-output footprints otherwise. Record raw-versus-injected size and the reduction method. Collect at least five real turns per major turn class before changing global context policy.</p>
+<h3>2. Integrate lane and seam contracts into the live roster</h3>
+<p>The board already projects agents, workstreams, stack posture, sessions, checkpoints, and receipts. Add pinned-owner mismatch warnings, bounded team-up roles, slice tags, writable repositories, handoff artifacts, and convergence alarms.</p>
+<h3>3. Cap peer pools through the capacity scheduler</h3>
+<p>Replace Forge’s unbounded <code>max_workers=len(worker_dispatch)</code> behavior with policy issued by the host build fabric. Model dispatch and build execution should have separate limits.</p>
+<h3>4. Decide parallel review and merge semantics</h3>
+<p>Choose explicitly among first-success, per-worker review, consensus over artifacts, or merge-before-review. The current deterministic first-success behavior should remain visible until replaced.</p>
+<h3>5. Reconcile worktree cap policy</h3>
+<p>Resolve 10 versus 25, then generate documentation and dashboards from the canonical policy. Add a receipt when the cap changes.</p>
+<h3>6. Establish guard health metrics</h3>
+<p>Roll up enforcement attempts, successful signals, remaining processes, errors, false positives, and average response time. Alert on guard failure separately from build violation.</p>
+<h3>7. Treat swap recovery as an operational task</h3>
+<p>High swap occupancy after pressure has passed should be observed and explained. Do not clear swap blindly on a live host; measure working sets, idle services, and restart windows, then use a controlled recovery plan.</p>
+<h3>8. Run a bounded topology benchmark</h3>
+<p>Evaluate single specialist, peer pool, consensus panel, and hierarchy on the same task set. Measure completion quality, escaped defects, review burden, wall time, input/output/cached tokens, recovery tokens, host PSI, build queue time, collision rate, merge overhead, and cost.</p>
+</div></section>
+
+<section id="status"><span class="section-number">14</span><div>
+<h2>Research status</h2>
+<div class="report-table-wrap"><table class="report-table"><thead><tr><th>Capability</th><th>Status</th><th>Evidence</th><th>Remaining gate</th></tr></thead><tbody>
+<tr><td>Named agent registry and cross-host routing</td><td><span class="status-chip live">Implemented</span></td><td>Operator core, seven harness adapters, fleet health, durable jobs.</td><td>Public gateway completion and restricted-network acceptance.</td></tr>
+<tr><td>Agent workstream lanes</td><td><span class="status-chip partial">Partial</span></td><td>Live lane board, source sessions, stack posture, receipts, reassignment.</td><td>Pinned ownership, team-up, slice, and seam convergence contracts.</td></tr>
+<tr><td>Context-budget receipts</td><td><span class="status-chip partial">Partial</span></td><td>Receipt event, API mutation, tests, and UI projection.</td><td>Automatic measurement and break-even evidence.</td></tr>
+<tr><td>Forge deterministic delivery</td><td><span class="status-chip live">Implemented</span></td><td>Fail-closed review, CI, changed-file, atomic-state, and Git delivery tests.</td><td>Parallel review/delivery semantics and worker policy cap.</td></tr>
+<tr><td>Resource-aware build fabric</td><td><span class="status-chip partial">Verified slices</span></td><td>Five jobs succeeded in 2–2–1 waves; 40 tests passed.</td><td>Full five-lane preview acceptance under measured pressure.</td></tr>
+<tr><td>Unleased build enforcement</td><td><span class="status-chip live">Active</span></td><td>Systemd guard and 240 verified receipts.</td><td>Guard error SLO and false-positive measurement.</td></tr>
+<tr><td>Partner-agent governed interoperability</td><td><span class="status-chip open">In progress</span></td><td>Architecture, contract families, runtime prototypes.</td><td>Signed authority, revocation, durable receipts, callbacks, conformance.</td></tr>
+</tbody></table></div>
+<p>This report describes a working research system with unfinished edges. Its contribution is not a claim of autonomous software production. It is a documented control architecture for making multi-agent work inspectable, bounded, and recoverable under real operating pressure.</p>
+</div></section>
+
+<section id="sources"><span class="section-number">15</span><div>
+<h2>Source ledger</h2>
+<ol class="source-list">
+<li><b>Agent Framework Issue 0001</b><code>cerniam-docs/reports/agent-framework/AFI-0001-agent-workstream-convergence-and-adapter-seam-drift.md</code> — observed adapter-seam collision, lane ownership, human implementation lane, and acceptance criteria.</li>
+<li><b>Agent Framework Issue 0002</b><code>library/recovery/.../afi-0002-context-recovery-token-economics.md</code> — cost model, tiered context policy, receipt schema, and open measurement gates.</li>
+<li><b>Agent Framework Issue 0003</b><code>library/recovery/.../afi-0003-agent-workstream-lane-pinning-slice-tags.md</code> — pinned owners, team-up events, slice tags, and staging/production boundaries.</li>
+<li><b>Agent Workstream implementation</b><code>cerniam-console/app/agent-roster/AgentWorkstreamBoard.tsx</code> and <code>app/api/agent-roster/workstreams/route.ts</code> — live projection, authority, checkpoints, receipts, reassignment, and tests.</li>
+<li><b>Forge integration audit</b><code>forge/INTEGRATION_AUDIT.md</code> — delivery defect, parallel ordering, changed-file tracking, fail-closed reviewer parsing, retries, atomic state, and open findings.</li>
+<li><b>Forge operator manual</b><code>forge/OPERATOR.md</code> — no-PAYG policy, preflight schema, local-lane cap, task handoff, redaction, and receipt flow.</li>
+<li><b>Operator</b><code>operator/README.md</code> and <code>operator/plans/PLAN-0-CONTRACTS.md</code> — harness registry, transport, durable jobs, signed receipts, cross-host routing, and current public-gateway limits.</li>
+<li><b>Build fabric and lifecycle</b><code>operations/worktree-estate-maturity/README.md</code>, active policy, scripts, tests, maturity model, and acceptance receipts.</li>
+<li><b>Agent architecture</b><code>cerniam-docs/architecture/agent-platform/cerniam-agent-architecture-overview.md</code> and ADR-0087 — authority, context packs, partner contracts, and implementation status.</li>
+<li><b>Agentic intercommunication</b><code>cerniam-docs/adrs/public-shelf/ADR-0013-agentic-intercommunication.md</code> — identity, MCP, A2A, persistent self, discovery, sandbox boundary, and Topic Places conduit.</li>
+<li><b>Agentic Dev Cockpit</b><code>cerniam-docs/reference/woven/agentic-dev-cockpit-prd.md</code> — misrouting, coordination blindness, place-native collaboration, workstream UI, and collision evidence.</li>
+<li><b>Runtime logs and host observation</b>Hermes agent logs, systemd build-guard status, Linux memory/swap/PSI, disk observation, and enforcement receipts captured on 05 August 2026.</li>
+<li><b>Historical build incident record</b>Session records documenting Vite exit 143, unsuccessful 4 GiB heap increase, saturated swap, and the explicit uncertainty around the terminating supervisor.</li>
+</ol>
+<div class="limitation-note"><p><strong>Method limitation:</strong> This is a field report from one operating environment. It contains implementation evidence and incident records, not a controlled comparison against external agent frameworks. Claims about superiority require the bounded topology benchmark proposed above.</p></div>
+</div></section>
+</div>
+
+<aside class="harness-aside" aria-label="Report navigation and evidence posture">
+<section><span class="report-kicker">On this page</span><h2>Contents</h2>
+<a href="#abstract">00 / Abstract</a><a href="#system">01 / System</a><a href="#components">02 / Components</a><a href="#topologies">03 / Topologies</a><a href="#lanes">04 / Agent Lanes</a><a href="#context">05 / Context</a><a href="#tokens">06 / Tokens</a><a href="#builds">07 / Build Guards</a><a href="#trees">08 / Build Trees</a><a href="#vps">09 / VPS Overload</a><a href="#proof">10 / Proof</a><a href="#authority">11 / Authority</a><a href="#findings">12 / Findings</a><a href="#recommendations">13 / Recommendations</a><a href="#status">14 / Status</a><a href="#sources">15 / Sources</a>
+</section>
+<section><span class="report-kicker">Evidence posture</span><h2>Field report</h2><p>Source code, tests, policies, receipts, systemd state, runtime logs, and session records. Proposed architecture is labeled separately.</p></section>
+<section><span class="report-kicker">Current observation</span><h2>LabOps1</h2><p>31 GiB RAM · 14 GiB available · 7.2/8 GiB swap occupied · low memory full-PSI at capture.</p></section>
+</aside>
+</div>
+</article>
+</section>
+</main>
+<footer class="lab-footer"><span>Cerniam Labs / Systems Research / Field evidence through 05 Aug 2026</span><b>CERN = TO MAKE KNOWN, TO DECIDE · IAM = NOW</b></footer>
+</div>
+<script src="../../assets/site.js"></script>
+</body>
+</html>

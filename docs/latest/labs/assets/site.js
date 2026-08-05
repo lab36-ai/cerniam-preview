@@ -1,7 +1,13 @@
 (()=>{
   const current=document.querySelector('.nav-item[aria-current="page"]');
   if(current&&current.parentElement.scrollWidth>current.parentElement.clientWidth){
-    current.scrollIntoView({block:'nearest',inline:'nearest'});
+    const rail=current.parentElement;
+    const itemStart=current.offsetLeft;
+    const itemEnd=itemStart+current.offsetWidth;
+    const visibleStart=rail.scrollLeft;
+    const visibleEnd=visibleStart+rail.clientWidth;
+    if(itemStart<visibleStart)rail.scrollLeft=itemStart;
+    else if(itemEnd>visibleEnd)rail.scrollLeft=itemEnd-rail.clientWidth;
   }
 
   const modelData={
