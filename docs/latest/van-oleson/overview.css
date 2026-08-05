@@ -102,7 +102,7 @@ main{width:min(1520px,calc(100% - 40px));margin:auto}
   .lineage header h2{margin-top:34px}
   .lineage li{grid-template-columns:36px minmax(0,1fr);gap:18px;padding:34px 0 38px}
   .lineage li div{display:block;min-width:0}
-  .lineage h3{margin:21px 0 19px;padding-right:0;font-family:var(--sans);font-size:29px;font-weight:800;line-height:1;letter-spacing:-.045em}
+  .lineage h3{margin:21px 0 19px;padding-right:0;font-family:var(--sans);font-size:28px;font-weight:800;line-height:1;letter-spacing:-.045em}
   .lineage p{font-size:15px}
   .lineage li>b{grid-column:2;margin-top:15px}
   .return-to-research{grid-template-columns:minmax(0,1fr);gap:48px;padding:78px 22px}
