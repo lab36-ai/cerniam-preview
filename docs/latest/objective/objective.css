@@ -28,7 +28,7 @@ a{color:inherit}
 main{width:min(1520px,calc(100% - 40px));margin:auto}
 .hero{min-height:calc(100vh - 74px);padding:clamp(62px,9vh,110px) 0 clamp(68px,9vh,112px);display:flex;flex-direction:column;justify-content:space-between}
 .hero-meta{display:flex;justify-content:space-between;gap:24px;color:var(--teal);font:700 10px var(--mono);letter-spacing:.16em;text-transform:uppercase}
-.hero h1{max-width:23ch;margin:clamp(68px,10vh,122px) 0 70px;font:700 clamp(38px,5.25vw,79px)/1.02 var(--sans);letter-spacing:-.047em;text-wrap:balance}
+.hero h1{max-width:28ch;margin:clamp(62px,9vh,108px) 0 64px;font:700 clamp(32px,4.2vw,64px)/1.06 var(--sans);letter-spacing:-.042em;text-wrap:balance}
 .hero-close{align-self:flex-end;max-width:42ch;margin:0;padding-left:22px;border-left:2px solid var(--teal);color:var(--slate);font-size:clamp(18px,1.55vw,24px);line-height:1.48}
 .outcomes{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .outcomes article{min-height:265px;padding:30px 24px 38px;border-right:1px solid var(--line)}
@@ -99,7 +99,7 @@ main{width:min(1520px,calc(100% - 40px));margin:auto}
   .hero{min-height:auto;padding:48px 0 72px}
   .hero-meta{display:block;line-height:1.7}
   .hero-meta span{display:block}
-  .hero h1{margin:58px 0 48px;font-size:clamp(33px,9.8vw,48px);line-height:1.04;letter-spacing:-.045em;text-wrap:pretty}
+  .hero h1{margin:52px 0 44px;font-size:clamp(29px,8.6vw,42px);line-height:1.08;letter-spacing:-.04em;text-wrap:pretty}
   .hero-close{font-size:17px}
   .outcomes{grid-template-columns:1fr}
   .outcomes article{min-height:0;padding:26px 4px 30px;border-right:0;border-bottom:1px solid var(--line)!important}
@@ -107,7 +107,7 @@ main{width:min(1520px,calc(100% - 40px));margin:auto}
   .outcomes h2{margin:38px 0 12px;font-size:34px}
   .editorial,.decision-section>header,.technology>header{display:block;padding-left:0;padding-right:0}
   .editorial{padding:90px 0}
-  .editorial-title h2,.decision-section>header h2,.executive-question h2,.technology>header h2,.closing h2{font-family:var(--sans);font-size:clamp(34px,10vw,46px);font-weight:800;line-height:.95;letter-spacing:-.055em}
+  .editorial-title h2,.decision-section>header h2,.executive-question h2,.technology>header h2,.closing h2{font-family:var(--sans);font-size:clamp(32px,9.4vw,44px);font-weight:800;line-height:.97;letter-spacing:-.05em}
   .editorial-title{margin:34px 0 50px}
   .editorial-copy p{font-size:17px}
   .decision-section{padding:90px 0}
@@ -115,7 +115,7 @@ main{width:min(1520px,calc(100% - 40px));margin:auto}
   .decision-section>header h2{margin:34px 0 30px}
   .decision-grid{grid-template-columns:minmax(0,1fr)}
   .decision-grid article{min-width:0;min-height:0;padding:28px 22px 38px}
-  .decision-grid h3{margin:52px 0 22px;font-family:var(--sans);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.05em}
+  .decision-grid h3{margin:52px 0 22px;font-family:var(--sans);font-size:31px;font-weight:800;line-height:1.02;letter-spacing:-.045em}
   .executive-question{grid-template-columns:minmax(0,1fr);padding:70px 20px;gap:55px}
   .executive-question>*{min-width:0}
   .executive-question li{grid-template-columns:44px minmax(0,1fr)}
@@ -125,7 +125,7 @@ main{width:min(1520px,calc(100% - 40px));margin:auto}
   .architecture{margin:70px 0}
   .woven{grid-template-columns:minmax(0,1fr);gap:50px}
   .woven>*{min-width:0}
-  .woven h3{font-family:var(--sans);font-size:36px;font-weight:800;line-height:1;letter-spacing:-.05em}
+  .woven h3{font-family:var(--sans);font-size:32px;font-weight:800;line-height:1.02;letter-spacing:-.045em}
   .closing{padding:100px 0}
   .closing h2{margin:34px 0 42px}
   .closing p{font-size:18px}
