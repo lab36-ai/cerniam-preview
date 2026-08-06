@@ -43,8 +43,9 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .hero-new-question p{max-width:62ch;margin:19px 0 0;color:var(--slate);font-size:clamp(14px,1.05vw,17px);line-height:1.5}
 .stewardship h2,.context-thesis h2,.event-origin h2,.nervous-system h2,.lineage h2,.return-to-research h2,.cerniam-now h2,.closing h2{margin:0;font:700 clamp(36px,4.2vw,64px)/.96 var(--condensed);letter-spacing:-.03em;text-transform:uppercase}
 .stewardship{padding:clamp(110px,12vw,175px) 0}
-.steward-heading{display:grid;grid-template-columns:.42fr 1.58fr;gap:clamp(30px,6vw,90px);margin-bottom:80px}
-.steward-heading h2{max-width:20ch}
+.steward-heading{display:block;margin-bottom:80px}
+.steward-heading>span{display:block;margin-bottom:24px}
+.steward-heading h2{max-width:30ch;text-align:left;text-wrap:pretty}
 .steward-copy{display:grid;grid-template-columns:1fr 1fr;gap:clamp(35px,6vw,90px);padding:clamp(44px,5vw,68px);background:var(--mist);border:1px solid var(--line)}
 .steward-copy p{margin:0;color:var(--slate);font-size:clamp(17px,1.45vw,22px);line-height:1.65}
 .steward-copy p:last-child{color:var(--midnight);font-weight:650}
@@ -65,10 +66,10 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .steward-field{display:grid;grid-template-columns:repeat(5,1fr);border-left:1px solid var(--line)}
 .steward-field span{padding:18px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--slate);font:700 9px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;text-align:center}
 .context-thesis{width:100vw;margin-left:calc(50% - 50vw);padding:clamp(105px,12vw,175px) max(20px,calc((100vw - 1440px)/2));background:var(--deep);color:#fff}
-.context-thesis header{display:grid;grid-template-columns:.42fr 1fr .7fr;gap:clamp(30px,5vw,75px);align-items:end}
+.context-thesis header{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);grid-template-areas:"label label" "title copy";gap:24px clamp(40px,6vw,90px);align-items:end}
 .context-thesis header>span{color:#58cecc}
-.context-thesis h2{font-size:clamp(40px,4.5vw,68px)}
-.context-thesis header>p{margin:0;color:#fff;font-size:clamp(18px,1.55vw,23px);line-height:1.55;font-weight:600}
+.context-thesis header>span{grid-area:label}.context-thesis h2{grid-area:title;max-width:22ch;font-size:clamp(38px,4vw,60px);text-align:left;text-wrap:pretty}
+.context-thesis header>p{grid-area:copy;margin:0;color:#fff;font-size:clamp(18px,1.55vw,23px);line-height:1.55;font-weight:600}
 .context-copy{display:grid;grid-template-columns:1fr 1fr;gap:clamp(50px,8vw,120px);margin:85px 0}
 .context-copy p{margin:0;color:rgba(255,255,255,.7);font-size:clamp(16px,1.3vw,20px);line-height:1.68}
 .context-copy p:last-child{color:#fff}
@@ -80,9 +81,9 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .context-flow i{align-self:center;color:#58cecc;font:400 20px var(--mono);font-style:normal}
 .context-flow .context-core{padding-left:18px;padding-right:18px;background:rgba(88,206,204,.08);border-left:1px solid #58cecc;border-right:1px solid #58cecc}
 .event-origin{padding:clamp(115px,13vw,190px) 0}
-.event-origin>header{display:grid;grid-template-columns:.42fr 1.1fr .72fr;gap:clamp(30px,5vw,75px);align-items:end}
-.event-origin>header h2{font-size:clamp(38px,4.2vw,64px)}
-.event-origin>header p{margin:0;color:var(--slate);font-size:clamp(16px,1.3vw,20px);line-height:1.65}
+.event-origin>header{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);grid-template-areas:"label label" "title copy";gap:24px clamp(40px,6vw,90px);align-items:end}
+.event-origin>header>span{grid-area:label}.event-origin>header h2{grid-area:title;max-width:23ch;font-size:clamp(36px,3.8vw,58px);text-align:left;text-wrap:pretty}
+.event-origin>header p{grid-area:copy;margin:0;color:var(--slate);font-size:clamp(16px,1.3vw,20px);line-height:1.65}
 .origin-thesis{max-width:37ch;margin:75px 0 0;padding:38px 0 42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--midnight);font:650 clamp(23px,2.3vw,34px)/1.42 var(--sans);letter-spacing:-.025em}
 .origin-team{display:grid;grid-template-columns:repeat(7,1fr);margin-top:65px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .origin-team span{padding:21px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font:700 10px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-align:center}
@@ -100,8 +101,8 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .publications .publication-supporting b{font-size:clamp(27px,2.5vw,37px)}
 .publications .publication-supporting p{margin-top:38px;margin-bottom:0}
 .nervous-system{width:100vw;margin-left:calc(50% - 50vw);padding:clamp(105px,12vw,175px) max(20px,calc((100vw - 1440px)/2));background:var(--mist);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.nervous-system header{display:grid;grid-template-columns:.42fr 1.1fr .72fr;gap:clamp(30px,5vw,75px);align-items:end}
-.nervous-system header p{margin:0;color:var(--slate);font-size:clamp(16px,1.3vw,20px);line-height:1.65}
+.nervous-system header{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);grid-template-areas:"label label" "title copy";gap:24px clamp(40px,6vw,90px);align-items:end}
+.nervous-system header>span{grid-area:label}.nervous-system header h2{grid-area:title;max-width:23ch;text-align:left;text-wrap:pretty}.nervous-system header p{grid-area:copy;margin:0;color:var(--slate);font-size:clamp(16px,1.3vw,20px);line-height:1.65}
 .nervous-thesis{max-width:42ch;margin:78px 0 65px;padding-left:24px;border-left:2px solid var(--teal);font-size:clamp(22px,2.1vw,31px);line-height:1.48;font-weight:650;letter-spacing:-.02em}
 .nervous-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .nervous-grid article{min-height:210px;padding:26px 23px 32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.5)}
@@ -109,8 +110,8 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .nervous-grid b{display:block;margin:48px 0 14px;font:700 clamp(27px,2.4vw,36px)/1 var(--condensed);letter-spacing:-.02em;text-transform:uppercase}
 .nervous-grid p{margin:0;color:var(--slate);font-size:14px;line-height:1.5}
 .lineage{padding:clamp(115px,13vw,190px) 0;border-top:1px solid var(--line)}
-.lineage header{display:grid;grid-template-columns:.42fr 1.58fr;gap:clamp(30px,6vw,90px);align-items:start;margin-bottom:70px}
-.lineage header h2{max-width:28ch;font-size:clamp(36px,3.65vw,54px)}
+.lineage header{display:block;margin-bottom:62px}
+.lineage header h2{max-width:none;font-size:clamp(34px,3.2vw,48px);line-height:1.02;text-align:left;text-wrap:pretty}
 .lineage ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .lineage li{display:grid;grid-template-columns:55px minmax(0,1fr) minmax(170px,.35fr);gap:clamp(25px,4vw,60px);align-items:start;padding:37px 0 41px;border-bottom:1px solid var(--line)}
 .lineage li>span{padding-top:4px;color:var(--teal);font:700 10px var(--mono)}
@@ -124,9 +125,9 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .return-to-research p{margin:0 0 27px;color:var(--slate);font-size:clamp(17px,1.35vw,20px);line-height:1.65}
 .return-to-research p:last-child{margin-bottom:0;color:var(--midnight);font-weight:650}
 .cerniam-now{padding:clamp(110px,12vw,175px) 0}
-.now-intro{display:grid;grid-template-columns:.42fr 1.1fr .72fr;gap:clamp(30px,5vw,75px);align-items:end;margin-bottom:78px}
-.now-intro h2{font-size:clamp(38px,4.2vw,64px)}
-.now-intro p{margin:0;color:var(--slate);font-size:clamp(16px,1.3vw,20px);line-height:1.65}
+.now-intro{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);grid-template-areas:"label label" "title copy";gap:24px clamp(40px,6vw,90px);align-items:end;margin-bottom:78px}
+.now-intro>span{grid-area:label}.now-intro h2{grid-area:title;max-width:23ch;font-size:clamp(36px,3.8vw,58px);text-align:left;text-wrap:pretty}
+.now-intro p{grid-area:copy;margin:0;color:var(--slate);font-size:clamp(16px,1.3vw,20px);line-height:1.65}
 .capabilities{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .capabilities article{min-height:230px;padding:28px clamp(23px,3vw,42px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white)}
 .capabilities span{color:var(--teal);font:700 10px var(--mono);letter-spacing:.13em;text-transform:uppercase}
@@ -139,15 +140,12 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .closing-actions a:hover{border-color:var(--teal)}
 .site-footer{width:min(1440px,calc(100% - 40px));margin:auto;padding:28px 0 34px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--slate);font:700 9px var(--mono);letter-spacing:.13em;text-transform:uppercase}
 @media(max-width:1180px){
-  .steward-heading{grid-template-columns:1fr 1.5fr}
   .contributor-field{grid-template-columns:repeat(8,minmax(50px,1fr))}
-  .context-thesis header,.event-origin>header,.nervous-system header,.now-intro{grid-template-columns:1fr 1.4fr}
-  .context-thesis header>span,.event-origin>header>span,.nervous-system header>span,.now-intro>span{grid-column:1/-1}
-  .context-thesis header>p,.event-origin>header>p,.nervous-system header>p,.now-intro p{grid-column:2}
+  .context-thesis header,.event-origin>header,.nervous-system header,.now-intro{grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr)}
   .context-flow{grid-template-columns:1fr}.context-flow i{transform:rotate(90deg);justify-self:center}.context-flow article{padding:22px 0 25px}.context-flow article b{margin-top:22px}.context-flow .context-core{padding-left:18px;padding-right:18px}
   .origin-team{grid-template-columns:repeat(4,1fr)}
   .nervous-grid{grid-template-columns:1fr 1fr}
-  .lineage header{grid-template-columns:1fr 1.5fr}.lineage li{grid-template-columns:50px 1fr}.lineage li div{grid-template-columns:.55fr 1fr}.lineage li p{grid-column:1/-1}.lineage li>b{grid-column:2;justify-self:start}
+  .lineage li{grid-template-columns:50px 1fr}.lineage li div{grid-template-columns:.55fr 1fr}.lineage li p{grid-column:1/-1}.lineage li>b{grid-column:2;justify-self:start}
 }
 @media(max-width:760px){
   .site-header,main,.site-footer{width:calc(100% - 28px)}
