@@ -42,7 +42,14 @@
 
     <section class="lineage" aria-labelledby="lineage-title">
       <header>
-        <h2 id="lineage-title">For thirty years, I’ve worked with exceptional minds across industries—from IT to product—to evolve the enterprise nervous system.</h2>
+        <div class="lineage-intro">
+          <h2 id="lineage-title">Thirty years building enterprise nervous systems.</h2>
+          <p>For more than thirty years, I have worked with exceptional researchers, operators, architects, engineers, customers, and collaborators to invent, build, deploy, and operate <strong>ENTERPRISE NERVOUS SYSTEMS</strong> at the largest scale and consequence.</p>
+        </div>
+        <div class="lineage-portraits" aria-hidden="true">
+          <span class="contributor-silhouette"></span><span class="contributor-silhouette"></span><span class="contributor-silhouette"></span><span class="contributor-silhouette"></span>
+          <span class="contributor-silhouette"></span><span class="contributor-silhouette"></span><span class="contributor-silhouette"></span><span class="contributor-silhouette"></span>
+        </div>
       </header>
       <ol>
         <li><span>01</span><div><small>Delta Air Lines / Georgia Tech</small><h3>Live operations gain memory and relationships.</h3><p>Operational Information Systems, event derivation, messaging, and continuous availability connected changing airline state to the wider operational world around it.</p></div><b>Operational context</b></li>
@@ -71,18 +78,30 @@
         <blockquote class="origin-thesis">An event told us something changed. The operational model told us what it meant, what else was affected, and what the enterprise could do next.</blockquote>
         <p class="origin-context">At Delta Air Lines, our enterprise engineering team and Georgia Tech systems researchers innovated event methods from inside one of the world’s most demanding operating environments. But the event was not the only point. The deeper invention was the real-time operational model around it.</p>
       </div>
-      <div class="publications" aria-label="Selected event-systems publications">
-        <article class="publication-featured"><div><span>WIESS 2000 / USENIX</span><b>Operational Information Systems: An Example from the Airline Industry</b></div><p>Presented Delta’s mid-tier OIS approach: minimally intrusive taps captured transactions from legacy operational systems for consistent replay, processing, and event-based dissemination across a geographically distributed enterprise. The work joined electronic-commerce enablement with the hard requirements of real-time operational applications.</p><a href="https://www.usenix.org/conference/wiess-2000/operational-information-systems-example-airline-industry">Publication record ↗</a></article>
-        <article><div><span>HPDC 2001</span><b>Adaptable Mirroring in Cluster Servers</b></div><p>Developed middleware-level mirroring that could use application semantics to filter, coalesce, and vary streaming-data consistency as client demand changed. The goal was scalable service without sacrificing current state or quality of service.</p><a href="https://sites.cc.gatech.edu/systems/papers/schwan/Gavrilovska01HPDC.pdf">Read paper ↗</a></article>
-        <article><div><span>ICDCS 2002</span><b>A Practical Approach for “Zero” Downtime in an Operational Information System</b></div><p>Used redundant event-derivation engines, relaxed synchronous fault tolerance, buffering, and cluster parallelism to mask failures and recovery from subscribers while resisting deterministic faults such as ill-formed messages.</p><a href="https://sites.cc.gatech.edu/home/ada/papers/icdcs.pdf">Read paper ↗</a></article>
-        <article class="publication-supporting"><div><span>Supporting research lineage</span><b>Continuously Available Real Time Event Systems</b></div><p>Extended the core concern: continuous operational understanding under failure, load, and changing enterprise conditions.</p></article>
-        <article class="publication-supporting"><div><span>Supporting research lineage</span><b>NAK Concentrators for Sender-Initiated Multicast Protocols</b></div><p>Addressed feedback concentration and reliable dissemination for event streams serving very large, geographically distributed receiver populations.</p></article>
+      <div class="publication-library" aria-label="Selected event-systems publications">
+        <aside class="publication-index">
+          <span>Selected publication record</span>
+          <h3>Event systems research</h3>
+          <p>Primary papers and supporting research from the operational information systems lineage.</p>
+          <dl><div><dt>Records</dt><dd>05</dd></div><div><dt>Coverage</dt><dd>2000–2002</dd></div><div><dt>Field</dt><dd>Distributed systems</dd></div></dl>
+        </aside>
+        <div class="publication-stack">
+          <header aria-hidden="true"><span>Record</span><span>Paper and contribution</span><span>Access</span></header>
+          <article><div class="publication-meta"><span>01 / WIESS</span><time>2000</time></div><div><h3>Operational Information Systems: An Example from the Airline Industry</h3><p>Presented Delta’s mid-tier OIS approach: minimally intrusive taps captured transactions from legacy operational systems for consistent replay, processing, and event-based dissemination across a geographically distributed enterprise.</p></div><a href="https://www.usenix.org/conference/wiess-2000/operational-information-systems-example-airline-industry">Record ↗</a></article>
+          <article><div class="publication-meta"><span>02 / HPDC</span><time>2001</time></div><div><h3>Adaptable Mirroring in Cluster Servers</h3><p>Developed middleware-level mirroring that used application semantics to filter, coalesce, and vary streaming-data consistency as client demand changed.</p></div><a href="https://sites.cc.gatech.edu/systems/papers/schwan/Gavrilovska01HPDC.pdf">Paper ↗</a></article>
+          <article><div class="publication-meta"><span>03 / ICDCS</span><time>2002</time></div><div><h3>A Practical Approach for “Zero” Downtime in an Operational Information System</h3><p>Used redundant event-derivation engines, relaxed synchronous fault tolerance, buffering, and cluster parallelism to mask failures and recovery from subscribers.</p></div><a href="https://sites.cc.gatech.edu/home/ada/papers/icdcs.pdf">Paper ↗</a></article>
+          <article><div class="publication-meta"><span>04 / Lineage</span><time>Research</time></div><div><h3>Continuously Available Real Time Event Systems</h3><p>Extended the core concern: continuous operational understanding under failure, load, and changing enterprise conditions.</p></div><span class="publication-state">Supporting</span></article>
+          <article><div class="publication-meta"><span>05 / Lineage</span><time>Research</time></div><div><h3>NAK Concentrators for Sender-Initiated Multicast Protocols</h3><p>Addressed feedback concentration and reliable dissemination for event streams serving very large, geographically distributed receiver populations.</p></div><span class="publication-state">Supporting</span></article>
+        </div>
       </div>
     </section>
 
     <section class="nervous-system" aria-labelledby="nervous-title">
-      <header><span>04 / Enterprise nervous system</span><h2 id="nervous-title">We defined the enterprise nervous system.</h2><p>The event infrastructure became an intelligent enterprise network: a system able to sense operational change, preserve current state, distribute context, protect critical flows, and coordinate action across the business.</p></header>
-      <div class="nervous-thesis">From live event to intelligent action, the architecture carried the state of the enterprise through every consequential decision.</div>
+      <header><h2 id="nervous-title">We defined the enterprise nervous system.</h2></header>
+      <div class="nervous-key-points">
+        <p class="nervous-thesis">From live event to intelligent action, the architecture carried the state of the enterprise through every consequential decision.</p>
+        <p class="nervous-context">The event infrastructure became an intelligent enterprise network: a system able to sense operational change, preserve current state, distribute context, protect critical flows, and coordinate action across the business.</p>
+      </div>
       <div class="nervous-grid" aria-label="Capabilities of an enterprise nervous system">
         <article><span>01</span><b>Sense</b><p>Capture operational change as it happens.</p></article>
         <article><span>02</span><b>Remember</b><p>Maintain current state, relationships, and history.</p></article>
@@ -92,7 +111,8 @@
     </section>
 
     <section class="context-thesis" aria-labelledby="context-title">
-      <header><span>05 / Context, memory, and the event that matters</span><h2 id="context-title">The event was not the only point.</h2><p>Context, memory, and the real-time operational model gave the event meaning.</p></header>
+      <header><h2 id="context-title">The event was not the only point.</h2></header>
+      <p class="context-lead">Context, memory, and the real-time operational model gave the event meaning.</p>
       <div class="context-copy"><p>In airline operations, an aircraft event does not stand alone. Its meaning depends on the flight, airport, crew, passengers, baggage, maintenance, weather, gates, downstream connections, service commitments, and every other state that may be affected.</p><p>Since 1997, my research focus has been to react to state change, place it inside a living operational context, and derive the event that matters. Modern Operational AI extends that same idea by giving the changing world around the event more memory, meaning, and reasoning power.</p></div>
       <div class="context-flow" aria-label="How a state change becomes coordinated action"><article><span>01</span><b>Event</b><p>Something changed.</p></article><i aria-hidden="true">→</i><article><span>02</span><b>State</b><p>What changed?</p></article><i aria-hidden="true">→</i><article class="context-core"><span>03</span><b>Context</b><p>What does it mean in the world model?</p></article><i aria-hidden="true">→</i><article><span>04</span><b>Value</b><p>Which opportunity or threat matters?</p></article><i aria-hidden="true">→</i><article><span>05</span><b>Action</b><p>What should be coordinated now?</p></article></div>
     </section>
