@@ -123,6 +123,7 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .return-to-research{display:grid;grid-template-columns:1fr 1fr;gap:clamp(55px,9vw,135px);padding:clamp(90px,10vw,145px) clamp(25px,5vw,70px);background:var(--mist);border:1px solid var(--line)}
 .return-to-research h2{margin-top:30px;font-size:clamp(36px,3.8vw,56px)}
 .return-to-research p{margin:0 0 27px;color:var(--slate);font-size:clamp(17px,1.35vw,20px);line-height:1.65}
+.return-to-research p strong{color:var(--midnight);font-weight:800}
 .return-to-research p:last-child{margin-bottom:0;color:var(--midnight);font-weight:650}
 .cerniam-now{padding:clamp(110px,12vw,175px) 0}
 .now-intro{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);grid-template-areas:"label label" "title copy";gap:24px clamp(40px,6vw,90px);align-items:end;margin-bottom:78px}
