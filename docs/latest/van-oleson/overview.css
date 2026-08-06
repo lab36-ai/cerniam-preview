@@ -120,7 +120,7 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .lineage ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .lineage li{display:grid;grid-template-columns:55px minmax(0,1fr) minmax(170px,.35fr);gap:clamp(25px,4vw,60px);align-items:start;padding:37px 0 41px;border-bottom:1px solid var(--line)}
 .lineage li>span{padding-top:4px;color:var(--teal);font:700 10px var(--mono)}
-.lineage li div{display:grid;grid-template-columns:minmax(140px,.3fr) minmax(280px,.8fr) minmax(280px,1fr);gap:clamp(20px,2.2vw,32px);align-items:start}
+.lineage li div{display:grid;grid-template-columns:minmax(120px,.25fr) minmax(300px,1.2fr) minmax(260px,.75fr);gap:clamp(20px,2.2vw,32px);align-items:start}
 .lineage small{color:var(--teal);font:700 10px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .lineage h3{min-width:0;margin:0;padding-right:12px;font:700 clamp(26px,2.2vw,32px)/.98 var(--condensed);letter-spacing:-.015em;text-transform:uppercase}
 .lineage p{margin:0;color:var(--slate);font-size:15px;line-height:1.6}
