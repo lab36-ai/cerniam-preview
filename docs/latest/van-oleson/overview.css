@@ -30,7 +30,7 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .hero{min-height:calc(100vh - 74px);padding:clamp(60px,7vh,84px) 0 clamp(65px,8vh,96px);display:grid;grid-template-columns:minmax(300px,.62fr) minmax(0,1.38fr);grid-template-rows:auto auto;gap:clamp(52px,8vw,120px);align-items:center}
 .hero-founder{min-width:0}
 .hero-positioning p{max-width:38ch;margin:24px 0 38px;color:var(--midnight);font-size:clamp(17px,1.35vw,20px);line-height:1.55;font-weight:700}
-.hero-founder figure{width:min(100%,310px);margin:0}
+.hero-founder figure{width:min(100%,295px);margin:0}
 .hero-founder img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;filter:grayscale(1);border:1px solid var(--line);background:var(--mist)}
 .hero-founder figcaption{display:grid;gap:7px;padding:17px 0;border-bottom:1px solid var(--line)}
 .hero-founder figcaption b{font:700 clamp(26px,2.4vw,36px)/1 var(--condensed);letter-spacing:-.02em;text-transform:uppercase}
