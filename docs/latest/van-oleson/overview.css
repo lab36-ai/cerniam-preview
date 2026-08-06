@@ -108,8 +108,7 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .publications .publication-supporting b{font-size:clamp(27px,2.5vw,37px)}
 .publications .publication-supporting p{margin-top:38px;margin-bottom:0}
 .lineage{padding:clamp(115px,13vw,190px) 0;border-top:1px solid var(--line)}
-.lineage header{display:grid;grid-template-columns:.42fr 1.58fr;gap:clamp(30px,6vw,90px);margin-bottom:75px}
-.lineage header h2{max-width:16ch}
+.lineage header{margin-bottom:42px}
 .lineage ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .lineage li{display:grid;grid-template-columns:55px minmax(0,1fr) minmax(170px,.35fr);gap:clamp(25px,4vw,60px);align-items:start;padding:37px 0 41px;border-bottom:1px solid var(--line)}
 .lineage li>span{padding-top:4px;color:var(--teal);font:700 10px var(--mono)}
