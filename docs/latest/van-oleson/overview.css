@@ -85,7 +85,7 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .publication-library{display:grid;grid-template-columns:minmax(230px,.42fr) minmax(0,1.58fr);gap:clamp(50px,7vw,105px);align-items:start}
 .publication-index{position:sticky;top:28px;padding-top:17px;border-top:2px solid var(--midnight)}
 .publication-index>span{color:var(--teal);font:700 9px var(--mono);letter-spacing:.13em;text-transform:uppercase}
-.publication-index h3{max-width:12ch;margin:25px 0 19px;font:650 clamp(27px,2.5vw,36px)/1.02 Georgia,"Times New Roman",serif;letter-spacing:-.025em}
+.publication-index h3{max-width:12ch;margin:25px 0 19px;font:700 clamp(27px,2.5vw,36px)/1.02 var(--sans);letter-spacing:-.035em}
 .publication-index>p{max-width:30ch;margin:0;color:var(--slate);font-size:13px;line-height:1.6}
 .publication-index dl{margin:38px 0 0;border-top:1px solid var(--line)}
 .publication-index dl div{display:grid;grid-template-columns:78px 1fr;gap:18px;padding:11px 0;border-bottom:1px solid var(--line)}
@@ -95,7 +95,7 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .publication-stack>header{padding:0 0 11px;color:var(--slate);font:700 7px var(--mono);letter-spacing:.11em;text-transform:uppercase}
 .publication-stack>article{min-height:132px;align-items:start;padding:23px 0 25px;border-top:1px solid var(--line)}
 .publication-meta{display:grid;gap:8px}.publication-meta span,.publication-meta time{font:700 8px/1.35 var(--mono);letter-spacing:.08em;text-transform:uppercase}.publication-meta span{color:var(--teal)}.publication-meta time{color:var(--slate)}
-.publication-stack h3{max-width:42ch;margin:0 0 9px;font:650 clamp(18px,1.65vw,23px)/1.15 Georgia,"Times New Roman",serif;letter-spacing:-.015em}
+.publication-stack h3{max-width:42ch;margin:0 0 9px;font:700 clamp(18px,1.65vw,23px)/1.15 var(--sans);letter-spacing:-.025em}
 .publication-stack article p{max-width:72ch;margin:0;color:var(--slate);font-size:12px;line-height:1.55}
 .publication-stack article>a,.publication-state{align-self:start;justify-self:end;padding-bottom:3px;color:var(--teal);font:700 8px/1.4 var(--mono);letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
 .publication-stack article>a{border-bottom:1px solid var(--teal)}.publication-stack article>a:hover{color:var(--midnight)}.publication-state{color:var(--slate)}
