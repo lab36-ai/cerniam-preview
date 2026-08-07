@@ -117,6 +117,16 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
 .lineage-intro p strong{color:var(--midnight);font-weight:800}
 .lineage-portraits{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;width:100%;max-width:780px;justify-self:end}
 .lineage-portraits .contributor-silhouette{aspect-ratio:1.03}
+.career-path{margin:0 0 78px;padding:28px 0 34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.career-path-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:17px;color:var(--teal);font:700 8px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.career-path-head b{color:var(--slate);font-weight:700}
+.career-strip{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.career-strip:focus-visible{outline:2px solid var(--teal);outline-offset:5px}
+.career-strip article{min-width:0;display:grid;grid-template-rows:76px minmax(102px,auto);border:1px solid var(--line-strong);background:rgba(255,255,255,.38)}
+.career-company{position:relative;display:flex;align-items:flex-end;padding:27px 13px 13px;background:var(--midnight);color:#fff}
+.career-company span{position:absolute;top:10px;left:13px;color:rgba(255,255,255,.62);font:700 7px var(--mono);letter-spacing:.08em}
+.career-company b{font:700 clamp(16px,1.45vw,20px)/.95 var(--condensed);letter-spacing:-.01em;text-transform:uppercase}
+.career-strip article>p{display:flex;align-items:flex-start;margin:0;padding:15px 13px 17px;color:var(--slate);font-size:12px;line-height:1.45;font-weight:650}
 .lineage ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .lineage li{display:grid;grid-template-columns:55px minmax(0,1fr) minmax(170px,.35fr);gap:clamp(25px,4vw,60px);align-items:start;padding:37px 0 41px;border-bottom:1px solid var(--line)}
 .lineage li>span{padding-top:4px;color:var(--teal);font:700 10px var(--mono)}
@@ -149,6 +159,9 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
   .contributor-field{grid-template-columns:repeat(8,minmax(50px,1fr))}
   .lineage header{grid-template-columns:minmax(0,1fr) 300px;gap:44px}
   .lineage-portraits{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .career-strip{grid-template-columns:repeat(8,180px);overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;padding-bottom:12px}
+  .career-path-head b::after{content:" / scroll →";color:var(--teal)}
+  .career-strip article{scroll-snap-align:start}
   .context-thesis header,.now-intro{grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr)}
   .context-flow{grid-template-columns:1fr}.context-flow i{transform:rotate(90deg);justify-self:center}.context-flow article{padding:22px 0 25px}.context-flow article b{margin-top:22px}.context-flow .context-core{padding-left:18px;padding-right:18px}
 
@@ -164,7 +177,7 @@ main{width:min(1440px,calc(100% - 40px));margin:auto}
   .context-thesis{padding-top:90px;padding-bottom:100px}.context-lead{margin-top:38px;font-size:21px}.context-copy{grid-template-columns:1fr;gap:0;margin:40px 0 58px;padding:0;border-bottom:1px solid rgba(255,255,255,.2)}.context-copy p{padding:29px 0;font-size:16px}.context-copy p+ p{border-top:1px solid rgba(255,255,255,.2)}.context-flow article b{font-family:var(--sans);font-size:27px;font-weight:800}.context-flow article p{font-size:13px}
   .event-origin{padding:95px 0}.origin-key-points{grid-template-columns:1fr;gap:0;margin:52px 0 50px}.origin-thesis{max-width:none;padding:31px 0 34px;font-size:21px}.origin-context{max-width:none;padding:31px 0 35px;border-top:1px solid var(--line);font-size:16px}.publication-library{grid-template-columns:1fr;gap:42px}.publication-index{position:static}.publication-index h3{max-width:none}.publication-index>p{max-width:42ch}.publication-stack>header{display:none}.publication-stack>article{grid-template-columns:84px minmax(0,1fr);gap:18px;padding:23px 0}.publication-stack article>a,.publication-state{grid-column:2;justify-self:start;margin-top:2px}
   .nervous-system{padding-top:90px;padding-bottom:100px}.nervous-key-points{grid-template-columns:1fr;gap:0;margin:52px 0 48px}.nervous-thesis{max-width:none;padding:31px 0 34px;font-size:20px}.nervous-context{max-width:none;padding:31px 0 35px;border-top:1px solid var(--line);font-size:16px}.nervous-grid{grid-template-columns:1fr}.nervous-grid article{min-height:0;padding:24px 20px 29px}.nervous-grid b{margin-top:30px;font-family:var(--sans);font-size:27px;font-weight:800}
-  .lineage{padding:95px 0}.lineage header{margin-bottom:50px}.lineage-intro h2{max-width:none;font-size:clamp(27px,7.7vw,33px);line-height:1.02}.lineage-intro p{margin-top:26px;font-size:15px}.lineage-portraits{max-width:none;margin-top:36px}.lineage li{grid-template-columns:34px minmax(0,1fr);gap:16px;padding:31px 0 35px}.lineage li div{display:block;min-width:0}.lineage h3{margin:19px 0 18px;padding:0;font-family:var(--sans);font-size:27px;font-weight:800;line-height:1;letter-spacing:-.04em}.lineage p{font-size:14px}.lineage li>b{grid-column:2;margin-top:14px}
+  .lineage{padding:95px 0}.lineage header{margin-bottom:50px}.lineage-intro h2{max-width:none;font-size:clamp(27px,7.7vw,33px);line-height:1.02}.lineage-intro p{margin-top:26px;font-size:15px}.lineage-portraits{max-width:none;margin-top:36px}.career-path{margin-bottom:56px;padding:24px 0 28px}.career-path-head{align-items:flex-start}.career-strip{margin-right:-14px;padding-right:14px}.lineage li{grid-template-columns:34px minmax(0,1fr);gap:16px;padding:31px 0 35px}.lineage li div{display:block;min-width:0}.lineage h3{margin:19px 0 18px;padding:0;font-family:var(--sans);font-size:27px;font-weight:800;line-height:1;letter-spacing:-.04em}.lineage p{font-size:14px}.lineage li>b{grid-column:2;margin-top:14px}
   .return-to-research{grid-template-columns:1fr;gap:45px;padding:72px 21px}.return-to-research h2{margin-top:28px}.return-to-research p{font-size:16px}
   .cerniam-now{padding:95px 0}.now-intro{margin-bottom:50px}.now-intro p{margin-top:38px;font-size:16px}.capabilities{grid-template-columns:1fr}.capabilities article{min-height:0;padding:26px 22px 31px}.capabilities p{margin-top:38px;font-size:18px}
   .closing{padding:88px 0 95px}.closing h2{margin:31px 0 50px;font-size:clamp(28px,8.1vw,35px);line-height:1}.closing-actions{display:grid}.closing-actions a{text-align:center}.site-footer{display:grid;gap:10px}
