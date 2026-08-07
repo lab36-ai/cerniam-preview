@@ -1,0 +1,22 @@
+/* Cerniam Labs — reports register */
+.reports-view{min-height:calc(100vh - 118px)}
+.reports-header{min-height:300px;display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:48px;align-items:end;padding:52px clamp(34px,5vw,74px) 48px;border-bottom:1px solid var(--line-strong)}
+.reports-header h1{margin:20px 0 15px;font-size:clamp(48px,5vw,72px);font-weight:690;line-height:.9;letter-spacing:-.052em;text-transform:uppercase}
+.reports-header p{max-width:760px;margin:0;color:var(--slate);font-size:15px;line-height:1.6}
+.report-count{text-align:right}.report-count b{display:block;font-size:58px;font-weight:650;line-height:.78;letter-spacing:-.055em}.report-count span{font:700 8px var(--mono);letter-spacing:.1em}
+.report-register{padding:44px clamp(34px,5vw,74px) 74px}
+.report-register>header,.report-row{display:grid;grid-template-columns:150px minmax(0,1fr) 130px;gap:clamp(24px,3vw,46px)}
+.report-register>header{padding:0 0 12px;color:var(--slate);font:700 7px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.report-row{position:relative;min-height:154px;align-items:center;padding:28px 0 31px;border-top:1px solid var(--line);color:var(--blue);text-decoration:none}
+.report-row:last-of-type{border-bottom:1px solid var(--line)}
+.report-row::before{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:transparent;transition:background .18s ease}
+.report-row:hover::before,.report-row:focus-visible::before,.report-row.is-primary::before{background:var(--teal)}
+.report-row:focus-visible{outline:1px solid var(--teal);outline-offset:5px}
+.report-record{align-self:start;display:grid;gap:10px;padding-top:4px}.report-record span,.report-record time,.report-type{font:700 8px/1.4 var(--mono);letter-spacing:.075em;text-transform:uppercase}.report-record span,.report-type{color:var(--teal)}.report-record time{color:var(--slate)}
+.report-row h2{max-width:780px;margin:9px 0 10px;font-size:clamp(24px,2.6vw,38px);font-weight:670;line-height:1.02;letter-spacing:-.038em}
+.report-row p{max-width:820px;margin:0;color:var(--slate);font-size:13px;line-height:1.55}
+.report-status{align-self:start;justify-self:end;padding-top:4px;font:700 8px/1.4 var(--mono);letter-spacing:.075em;text-align:right}.report-status.active{color:var(--green)}.report-status.review{color:var(--amber)}
+.report-row:hover h2,.report-row:focus-visible h2{color:var(--teal)}
+.reports-foot{display:grid;grid-template-columns:150px minmax(0,620px);gap:clamp(24px,3vw,46px);margin:0 clamp(34px,5vw,74px) 84px;padding-top:20px;border-top:2px solid var(--blue)}
+.reports-foot span{color:var(--teal);font:700 8px var(--mono);letter-spacing:.1em;text-transform:uppercase}.reports-foot p{margin:0;color:var(--slate);font-size:13px;line-height:1.6}
+@media(max-width:760px){.reports-header{min-height:0;grid-template-columns:1fr;padding:44px 22px 38px}.reports-header h1{font-size:48px}.report-count{text-align:left}.report-count b{font-size:44px}.report-register{padding:32px 22px 56px}.report-register>header{display:none}.report-row{grid-template-columns:1fr;gap:16px;min-height:0;padding:26px 0 30px}.report-record{grid-template-columns:auto 1fr;align-items:center}.report-record time{text-align:right}.report-row h2{font-size:27px}.report-status{justify-self:start}.reports-foot{grid-template-columns:1fr;gap:12px;margin:0 22px 62px}}
