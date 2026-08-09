@@ -32,7 +32,7 @@
   width: 100%;
   min-width: 0;
   overflow: visible;
-  padding: 12px clamp(22px, 4vw, 64px) clamp(44px, 6vw, 88px);
+  padding: 6px clamp(22px, 4vw, 64px) 24px;
 }
 
 .direction-attention-page .dir-intro,
@@ -50,21 +50,109 @@
   justify-content: space-between;
   gap: 16px;
   min-width: 0;
-  margin-bottom: clamp(16px, 2vw, 24px);
+  margin-bottom: 0;
+}
+
+.direction-attention-page .dir-intro {
+  row-gap: 12px;
 }
 
 .direction-attention-page .dir-compare {
-  margin-top: clamp(28px, 4vw, 54px);
+  margin-top: 16px;
 }
 
 .direction-attention-page .dir-notes {
-  margin-top: clamp(24px, 3vw, 44px);
+  margin-top: 16px;
 }
 
 .direction-attention-page .dir-range:focus-visible,
 .direction-attention-page button:focus-visible {
   outline: 2px solid #9ce9e6;
   outline-offset: 3px;
+}
+
+@media (min-width: 701px) {
+  .direction-attention-page .dir-stage {
+    height: 420px;
+  }
+
+  .direction-attention-page .dir-frame {
+    grid-template-rows: 92px 1fr 52px;
+  }
+
+  .direction-attention-page .dir-frame-head {
+    padding: 14px 20px;
+  }
+
+  .direction-attention-page .dir-compare[data-dir-mode="split"] .dir-stage {
+    height: 360px;
+  }
+
+  .direction-attention-page .dir-compare[data-dir-mode="split"] .dir-frame {
+    grid-template-rows: 12px 1fr 52px;
+  }
+
+  .direction-attention-page .dir-presets {
+    height: 46px;
+  }
+
+  .direction-attention-page .dir-note {
+    padding: 14px 18px;
+  }
+
+  .direction-attention-page .dir-note p {
+    margin-top: 4px;
+    line-height: 1.35;
+  }
+}
+
+@media (min-width: 701px) and (max-height: 760px) {
+  .direction-attention-page .dir-stage {
+    height: 340px;
+  }
+
+  .direction-attention-page .dir-frame {
+    grid-template-rows: 72px 1fr 48px;
+  }
+
+  .direction-attention-page .dir-frame-head {
+    padding: 10px 18px;
+  }
+
+  .direction-attention-page .dir-frame-head p {
+    display: none;
+  }
+
+  .direction-attention-page .dir-stack {
+    gap: 8px;
+  }
+
+  .direction-attention-page .dir-node {
+    min-height: 64px;
+    padding: 8px 12px 8px 15px;
+  }
+
+  .direction-attention-page .dir-node b {
+    font-size: 17px;
+    line-height: 1.04;
+  }
+
+  .direction-attention-page .dir-compare[data-dir-mode="split"] .dir-stage {
+    height: 315px;
+  }
+
+  .direction-attention-page .dir-compare[data-dir-mode="split"] .dir-frame {
+    grid-template-rows: 10px 1fr 48px;
+  }
+
+  .direction-attention-page .dir-body {
+    padding-bottom: 16px;
+  }
+
+  .direction-attention-page .dir-compare,
+  .direction-attention-page .dir-notes {
+    margin-top: 12px;
+  }
 }
 
 @media (max-width: 700px) {
