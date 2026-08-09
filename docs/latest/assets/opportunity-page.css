@@ -1,0 +1,230 @@
+.opportunity-page{
+  position:relative;
+  width:100%;
+  min-height:100svh;
+  display:grid;
+  overflow:hidden;
+  background:#f7f9f8;
+  color:#102b4e;
+}
+
+.opportunity-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(18,59,93,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(18,59,93,.035) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:linear-gradient(to bottom,transparent,black 18%,black 82%,transparent);
+}
+
+.opportunity-shell{
+  position:relative;
+  width:min(1360px,calc(100% - 40px));
+  min-height:100svh;
+  margin:auto;
+  padding:clamp(36px,5vh,64px) 0;
+  display:grid;
+  align-content:center;
+  gap:clamp(28px,4vh,44px);
+}
+
+.opportunity-intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);
+  gap:clamp(40px,7vw,104px);
+  align-items:center;
+}
+
+.opportunity-copy h2{
+  max-width:12ch;
+  margin:0;
+  font:700 clamp(62px,7vw,100px)/.88 var(--condensed);
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+}
+
+.opportunity-copy h2 em{
+  color:#008b8b;
+  font-style:normal;
+}
+
+.opportunity-lede{
+  max-width:50ch;
+  margin:clamp(20px,3vh,30px) 0 0;
+  color:#354454;
+  font-size:clamp(18px,1.45vw,21px);
+  line-height:1.5;
+}
+
+.opportunity-signal{
+  width:100%;
+  height:auto;
+  max-height:220px;
+  overflow:visible;
+}
+
+.opportunity-signal .signal-line{
+  fill:none;
+  stroke:#008b8b;
+  stroke-width:1.5;
+  opacity:.42;
+}
+
+.opportunity-signal .signal-line.strong{
+  stroke-width:2.5;
+  opacity:.9;
+}
+
+.opportunity-signal .signal-dot{
+  fill:#36b8b5;
+  opacity:.5;
+}
+
+.opportunity-signal .signal-arrow{
+  fill:none;
+  stroke:#008b8b;
+  stroke-width:4;
+  stroke-linecap:square;
+  stroke-linejoin:miter;
+}
+
+.opportunity-outcomes{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid rgba(18,59,93,.22);
+  border-bottom:1px solid rgba(18,59,93,.22);
+}
+
+.opportunity-outcome{
+  min-width:0;
+  padding:clamp(20px,2.2vw,32px) clamp(20px,2.8vw,40px);
+}
+
+.opportunity-outcome + .opportunity-outcome{
+  border-left:1px solid rgba(18,59,93,.18);
+}
+
+.opportunity-outcome h3{
+  max-width:15ch;
+  margin:0;
+  font:700 clamp(30px,3.2vw,44px)/.94 var(--condensed);
+  letter-spacing:-.025em;
+  text-transform:uppercase;
+}
+
+.opportunity-outcome h3::after{
+  content:"";
+  display:block;
+  width:44px;
+  height:3px;
+  margin:16px 0;
+  background:#008b8b;
+}
+
+.opportunity-outcome p{
+  max-width:34ch;
+  margin:0;
+  color:#4a5865;
+  font-size:clamp(15px,1.2vw,18px);
+  line-height:1.5;
+}
+
+@media(min-width:901px) and (max-height:720px){
+  .opportunity-shell{
+    padding:28px 0;
+    gap:24px;
+  }
+
+  .opportunity-copy h2{
+    font-size:clamp(58px,6vw,78px);
+  }
+
+  .opportunity-lede{
+    margin-top:18px;
+    font-size:18px;
+    line-height:1.42;
+  }
+
+  .opportunity-signal{
+    max-height:178px;
+  }
+
+  .opportunity-outcome{
+    padding:18px 28px;
+  }
+
+  .opportunity-outcome h3{
+    font-size:34px;
+  }
+
+  .opportunity-outcome h3::after{
+    margin:12px 0;
+  }
+
+  .opportunity-outcome p{
+    font-size:15px;
+    line-height:1.42;
+  }
+}
+
+@media(max-width:760px){
+  .opportunity-page{
+    overflow:visible;
+  }
+
+  .opportunity-shell{
+    width:calc(100% - 28px);
+    padding:54px 0;
+    gap:40px;
+  }
+
+  .opportunity-intro{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .opportunity-copy h2{
+    max-width:11ch;
+    font-family:var(--sans);
+    font-size:clamp(40px,12.5vw,54px);
+    font-weight:800;
+    line-height:.94;
+    letter-spacing:-.055em;
+  }
+
+  .opportunity-lede{
+    margin-top:20px;
+    font-size:17px;
+    line-height:1.52;
+  }
+
+  .opportunity-signal{
+    max-height:104px;
+  }
+
+  .opportunity-outcomes{
+    grid-template-columns:1fr;
+  }
+
+  .opportunity-outcome{
+    padding:22px 4px;
+  }
+
+  .opportunity-outcome + .opportunity-outcome{
+    border-left:0;
+    border-top:1px solid rgba(18,59,93,.18);
+  }
+
+  .opportunity-outcome h3{
+    font-family:var(--sans);
+    font-size:28px;
+    line-height:1;
+  }
+
+  .opportunity-outcome p{
+    font-size:16px;
+  }
+}
