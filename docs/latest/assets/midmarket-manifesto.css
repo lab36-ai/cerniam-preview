@@ -1,16 +1,92 @@
-.midmarket-manifesto{position:relative;width:100%;background:#123b5d;color:#fff;overflow:hidden}
-.midmarket-manifesto::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,transparent,black 24%,black 76%,transparent)}
-.midmarket-shell{position:relative;width:min(1360px,calc(100% - 40px));margin:auto;padding:clamp(105px,12vw,180px) 0}
-.midmarket-head{display:grid;grid-template-columns:.42fr 1.58fr;gap:clamp(32px,6vw,92px);align-items:start}
-.midmarket-kicker,.midmarket-outcomes span{color:#5fd0ce;font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase}
-.midmarket-head h2{max-width:15ch;margin:0;font:700 clamp(44px,5.3vw,80px)/.9 var(--condensed);letter-spacing:-.04em;text-transform:uppercase}
-.midmarket-head h2 em{color:#78d8d6;font-style:normal}
-.midmarket-copy{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(34px,5vw,72px);margin:90px 0 78px;padding-top:34px;border-top:1px solid rgba(255,255,255,.22)}
-.midmarket-copy p{margin:0;color:rgba(255,255,255,.7);font-size:clamp(16px,1.35vw,20px);line-height:1.65}
-.midmarket-copy p:last-child{color:#fff}
-.midmarket-outcomes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.22);border-left:1px solid rgba(255,255,255,.22)}
-.midmarket-outcomes article{min-height:210px;padding:27px 24px 34px;border-right:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22)}
-.midmarket-outcomes b{display:block;margin-top:56px;font-size:clamp(17px,1.45vw,22px);line-height:1.45;font-weight:600}
-.midmarket-action{display:inline-block;margin-top:54px;padding:14px 17px;border:1px solid rgba(255,255,255,.7);color:#fff;font:700 10px var(--mono);letter-spacing:.12em;text-decoration:none;text-transform:uppercase}
-.midmarket-action:hover,.midmarket-action:focus-visible{border-color:#5fd0ce;color:#5fd0ce}
-@media(max-width:760px){.midmarket-shell{width:calc(100% - 28px);padding:90px 0 100px}.midmarket-head{display:block}.midmarket-head h2{margin-top:31px;font-family:var(--sans);font-size:clamp(32px,9.2vw,40px);font-weight:800;line-height:.98;letter-spacing:-.055em}.midmarket-copy{grid-template-columns:1fr;gap:25px;margin:58px 0 54px}.midmarket-copy p{font-size:16px}.midmarket-outcomes{grid-template-columns:1fr}.midmarket-outcomes article{min-height:0;padding:24px 20px 29px}.midmarket-outcomes b{margin-top:31px;font-size:17px}.midmarket-action{width:100%;text-align:center}}
+.midmarket-manifesto{
+  position:relative;
+  width:100%;
+  min-height:100svh;
+  display:grid;
+  background:#123b5d;
+  color:#fff;
+  overflow:hidden;
+}
+
+.midmarket-manifesto::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:linear-gradient(to bottom,transparent,black 24%,black 76%,transparent);
+}
+
+.midmarket-shell{
+  position:relative;
+  width:min(1360px,calc(100% - 40px));
+  min-height:100svh;
+  margin:auto;
+  padding:clamp(54px,8vh,96px) 0;
+  display:grid;
+  align-content:center;
+  gap:clamp(56px,9vh,100px);
+}
+
+.midmarket-head h2{
+  max-width:15ch;
+  margin:0;
+  font:700 clamp(44px,5.3vw,80px)/.9 var(--condensed);
+  letter-spacing:-.04em;
+  text-transform:uppercase;
+}
+
+.midmarket-head h2 em{
+  color:#78d8d6;
+  font-style:normal;
+}
+
+.midmarket-outcomes{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border-top:1px solid rgba(255,255,255,.22);
+  border-left:1px solid rgba(255,255,255,.22);
+}
+
+.midmarket-outcomes article{
+  min-height:112px;
+  padding:24px;
+  display:flex;
+  align-items:center;
+  border-right:1px solid rgba(255,255,255,.22);
+  border-bottom:1px solid rgba(255,255,255,.22);
+}
+
+.midmarket-outcomes span{
+  color:#5fd0ce;
+  font:700 12px var(--mono);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+@media(max-width:760px){
+  .midmarket-shell{
+    width:calc(100% - 28px);
+    padding:64px 0;
+    gap:48px;
+  }
+
+  .midmarket-head h2{
+    font-family:var(--sans);
+    font-size:clamp(32px,9.2vw,40px);
+    font-weight:800;
+    line-height:.98;
+    letter-spacing:-.055em;
+  }
+
+  .midmarket-outcomes{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .midmarket-outcomes article{
+    min-height:78px;
+    padding:20px;
+  }
+}
