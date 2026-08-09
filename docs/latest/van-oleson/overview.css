@@ -34,14 +34,14 @@ body.transitions-ready .chapter{transition:opacity .38s ease,transform .38s ease
 body.transitions-ready .chapter:not(.chapter-entered){opacity:.94;transform:translateY(10px)}
 .hero-question>span,.steward-heading>span,.context-thesis header>span,.event-origin>header>span,.nervous-system header>span,.lineage header>span,.return-to-research>div>span,.now-intro>span,.closing>span{color:var(--teal);font:700 10px var(--mono);letter-spacing:.15em;text-transform:uppercase}
 .hero{min-height:calc(100vh - 74px);padding:clamp(50px,6vh,72px) 0 clamp(30px,4vh,46px);display:grid;grid-template-columns:minmax(300px,.62fr) minmax(0,1.38fr);grid-template-rows:minmax(0,1fr) auto;column-gap:clamp(52px,8vw,120px);row-gap:clamp(34px,4vh,48px);align-items:center}
-.hero-founder{min-width:0;padding-left:clamp(10px,1.45vw,21px)}
+.hero-founder{min-width:0;padding-left:clamp(14px,2.2vw,32px)}
 .hero-founder figure{width:min(100%,295px);margin:0}
 .hero-founder img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;filter:grayscale(1);border:1px solid var(--line);background:var(--mist)}
 .hero-founder figcaption{display:grid;gap:7px;padding:17px 0;border-bottom:1px solid var(--line)}
 .hero-founder figcaption b{font:700 clamp(26px,2.4vw,36px)/1 var(--condensed);letter-spacing:-.02em;text-transform:uppercase}
 .hero-roles{display:grid;gap:5px;margin-top:5px}
 .hero-roles span{color:var(--midnight);font:500 clamp(9px,.78vw,11px)/1.2 var(--sans);letter-spacing:.01em;text-transform:uppercase}
-.hero-question{align-self:center;padding-left:clamp(0px,2vw,32px);transform:translateY(-14px)}
+.hero-question{align-self:center;padding-left:clamp(0px,2vw,32px);transform:translateY(-24px)}
 .hero-question>p{margin:0 0 29px;color:var(--teal);font-size:clamp(20px,1.65vw,24px);line-height:1.25;font-weight:750;letter-spacing:-.018em}
 .hero h1{max-width:34ch;margin:0;color:var(--slate);font:640 clamp(25px,2.45vw,36px)/1.2 var(--sans);letter-spacing:-.025em;text-wrap:balance}
 .stewardship h2,.context-thesis h2,.event-origin h2,.nervous-system h2,.lineage h2,.return-to-research h2,.cerniam-now h2,.closing h2{margin:0;font:700 clamp(36px,4.2vw,64px)/.96 var(--condensed);letter-spacing:-.03em;text-transform:uppercase}
