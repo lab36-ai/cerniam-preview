@@ -37,6 +37,7 @@
 }
 
 .direction-attention-page .dir-close {
+  margin-left: auto;
   min-width: 96px;
   min-height: 44px;
   padding: 0 14px;
