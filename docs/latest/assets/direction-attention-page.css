@@ -18,24 +18,6 @@
   overflow: visible;
 }
 
-.direction-attention-page .dir-header {
-  position: relative;
-  width: 100%;
-  min-width: 0;
-  padding: clamp(22px, 3vw, 42px) clamp(22px, 4vw, 64px);
-  background: #071d2c;
-}
-
-.direction-attention-page .dir-header-thesis {
-  max-width: 68ch;
-}
-
-.direction-attention-page .dir-header h2 {
-  max-width: 14ch;
-  font-size: clamp(46px, 6.5vw, 104px);
-  line-height: .82;
-}
-
 .direction-attention-page .dir-close {
   margin-left: auto;
   min-width: 96px;
@@ -50,7 +32,7 @@
   width: 100%;
   min-width: 0;
   overflow: visible;
-  padding: clamp(28px, 4vw, 64px) clamp(22px, 4vw, 64px) clamp(44px, 6vw, 88px);
+  padding: 12px clamp(22px, 4vw, 64px) clamp(44px, 6vw, 88px);
 }
 
 .direction-attention-page .dir-intro,
@@ -59,6 +41,16 @@
   width: min(1320px, 100%);
   min-width: 0;
   margin-inline: auto;
+}
+
+.direction-attention-page .dir-intro-nav {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .direction-attention-page .dir-compare {
@@ -76,15 +68,6 @@
 }
 
 @media (max-width: 700px) {
-  .direction-attention-page .dir-header {
-    align-items: flex-start;
-  }
-
-  .direction-attention-page .dir-header h2 {
-    max-width: 11ch;
-    font-size: clamp(42px, 14vw, 64px);
-  }
-
   .direction-attention-page .dir-close {
     min-width: 78px;
     padding-inline: 10px;
