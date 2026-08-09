@@ -1,0 +1,241 @@
+.fulfillment-case-study{
+  position:relative;
+  width:100%;
+  min-height:100svh;
+  display:grid;
+  overflow:hidden;
+  background:#123b5d;
+  color:#fff;
+}
+
+.fulfillment-case-study::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 82% 16%,rgba(120,216,214,.09),transparent 28%),
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:auto,72px 72px,72px 72px;
+}
+
+.fulfillment-shell{
+  position:relative;
+  width:min(1360px,calc(100% - 40px));
+  min-height:100svh;
+  margin:auto;
+  padding:clamp(32px,5vh,56px) 0;
+  display:grid;
+  align-content:center;
+  gap:clamp(22px,3.2vh,34px);
+}
+
+.fulfillment-intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);
+  gap:clamp(40px,7vw,108px);
+  align-items:end;
+}
+
+.fulfillment-kicker{
+  margin:0 0 14px;
+  color:#78d8d6;
+  font:700 12px var(--mono);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.fulfillment-intro h2{
+  max-width:18ch;
+  margin:0;
+  font:700 clamp(48px,4.8vw,64px)/.9 var(--condensed);
+  letter-spacing:-.028em;
+  text-transform:uppercase;
+}
+
+.fulfillment-summary{
+  padding-bottom:2px;
+}
+
+.fulfillment-summary p{
+  max-width:51ch;
+  margin:0;
+  color:rgba(255,255,255,.78);
+  font-size:clamp(16px,1.35vw,19px);
+  line-height:1.48;
+}
+
+.fulfillment-summary p + p{
+  margin-top:12px;
+}
+
+.fulfillment-steps{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid rgba(255,255,255,.2);
+  border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.fulfillment-step{
+  min-width:0;
+  padding:clamp(18px,2vw,28px) clamp(20px,2.6vw,38px);
+}
+
+.fulfillment-step + .fulfillment-step{
+  border-left:1px solid rgba(255,255,255,.16);
+}
+
+.fulfillment-step h3{
+  position:relative;
+  margin:0 0 14px;
+  padding-left:18px;
+  color:#78d8d6;
+  font:700 clamp(25px,2.25vw,32px)/1 var(--condensed);
+  letter-spacing:-.015em;
+  text-transform:uppercase;
+}
+
+.fulfillment-step h3::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.08em;
+  width:3px;
+  height:.82em;
+  background:#78d8d6;
+}
+
+.fulfillment-step p{
+  max-width:34ch;
+  margin:0;
+  color:rgba(255,255,255,.76);
+  font-size:clamp(14px,1.15vw,17px);
+  line-height:1.48;
+}
+
+.fulfillment-step p + p{
+  margin-top:14px;
+}
+
+.fulfillment-thesis{
+  margin:0;
+  padding-left:clamp(22px,3vw,42px);
+  border-left:4px solid #78d8d6;
+  color:#78d8d6;
+  font:700 clamp(28px,3vw,42px)/1.02 var(--condensed);
+  letter-spacing:-.018em;
+  text-transform:uppercase;
+}
+
+.fulfillment-thesis span{
+  display:block;
+}
+
+@media(min-width:901px) and (max-height:720px){
+  .fulfillment-shell{
+    padding:26px 0;
+    gap:20px;
+  }
+
+  .fulfillment-kicker{
+    margin-bottom:10px;
+  }
+
+  .fulfillment-intro h2{
+    font-size:clamp(46px,4.8vw,64px);
+  }
+
+  .fulfillment-summary p{
+    font-size:15px;
+    line-height:1.42;
+  }
+
+  .fulfillment-step{
+    padding:16px 26px;
+  }
+
+  .fulfillment-step h3{
+    margin-bottom:10px;
+    font-size:25px;
+  }
+
+  .fulfillment-step p{
+    font-size:14px;
+    line-height:1.4;
+  }
+
+  .fulfillment-step p + p{
+    margin-top:10px;
+  }
+
+  .fulfillment-thesis{
+    font-size:31px;
+  }
+}
+
+@media(max-width:760px){
+  .fulfillment-case-study{
+    overflow:visible;
+  }
+
+  .fulfillment-shell{
+    width:calc(100% - 28px);
+    padding:54px 0;
+    gap:38px;
+  }
+
+  .fulfillment-intro{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .fulfillment-intro h2{
+    max-width:12ch;
+    font-family:var(--sans);
+    font-size:clamp(38px,12vw,52px);
+    font-weight:800;
+    line-height:.95;
+    letter-spacing:-.05em;
+  }
+
+  .fulfillment-summary p{
+    font-size:17px;
+    line-height:1.52;
+  }
+
+  .fulfillment-steps{
+    grid-template-columns:1fr;
+  }
+
+  .fulfillment-step{
+    padding:24px 4px;
+  }
+
+  .fulfillment-step + .fulfillment-step{
+    border-left:0;
+    border-top:1px solid rgba(255,255,255,.16);
+  }
+
+  .fulfillment-step h3{
+    font-family:var(--sans);
+    font-size:25px;
+    font-weight:800;
+  }
+
+  .fulfillment-step p{
+    font-size:16px;
+  }
+
+  .fulfillment-thesis{
+    padding-left:18px;
+    font-family:var(--sans);
+    font-size:26px;
+    font-weight:800;
+    line-height:1.08;
+  }
+
+  .fulfillment-thesis span + span{
+    margin-top:8px;
+  }
+}
