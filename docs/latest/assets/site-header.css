@@ -1,0 +1,142 @@
+html{
+  scroll-behavior:smooth;
+}
+
+.site-header{
+  position:fixed;
+  z-index:100;
+  inset:0 0 auto;
+  height:52px;
+  padding:0 clamp(14px,2.5vw,36px);
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:center;
+  gap:clamp(24px,4vw,64px);
+  border-bottom:1px solid rgba(255,255,255,.12);
+  background:rgba(7,31,54,.94);
+  box-shadow:0 8px 26px rgba(7,31,54,.12);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+
+.site-mark{
+  display:inline-flex;
+  align-items:baseline;
+  color:#fff;
+  font:800 14px/1 var(--sans);
+  letter-spacing:.12em;
+  text-decoration:none;
+}
+
+.site-mark span{
+  color:#35c6c2;
+}
+
+.site-nav{
+  min-width:0;
+  height:100%;
+  display:flex;
+  justify-content:flex-end;
+  align-items:stretch;
+  gap:clamp(18px,2.3vw,36px);
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+  overscroll-behavior-inline:contain;
+}
+
+.site-nav::-webkit-scrollbar{
+  display:none;
+}
+
+.site-nav a{
+  position:relative;
+  flex:0 0 auto;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  color:rgba(255,255,255,.72);
+  font:700 clamp(9px,.72vw,11px)/1 var(--mono);
+  letter-spacing:.08em;
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:color .18s ease;
+}
+
+.site-nav a::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:3px;
+  background:#35c6c2;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .18s ease;
+}
+
+.site-nav a:hover{
+  color:#fff;
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after{
+  transform:scaleX(1);
+}
+
+.site-mark:focus-visible,
+.site-nav a:focus-visible{
+  outline:2px solid #78d8d6;
+  outline-offset:-4px;
+  color:#fff;
+}
+
+#cerniam-cortex,
+#enterprise-solutions,
+#services,
+#about,
+#contact{
+  scroll-margin-top:0;
+}
+
+@media(min-width:761px){
+  #cerniam-cortex .dir-body{
+    transform:translateY(24px);
+  }
+}
+
+@media(max-width:760px){
+  .site-header{
+    height:50px;
+    padding:0 12px;
+    gap:18px;
+  }
+
+  .site-mark{
+    font-size:12px;
+  }
+
+  .site-nav{
+    justify-content:flex-start;
+    gap:22px;
+    mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 24px),transparent);
+  }
+
+  .site-nav a{
+    font-size:9.5px;
+    letter-spacing:.07em;
+  }
+
+  #cerniam-cortex .dir-shell{
+    padding-top:50px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto;
+  }
+
+  .site-nav a::after{
+    transition:none;
+  }
+}
