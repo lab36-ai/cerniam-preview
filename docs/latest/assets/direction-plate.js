@@ -17,7 +17,7 @@
     range.setAttribute('aria-valuetext',v===100?'Classic architecture: look back':v===0?'Cerniam architecture: look forward':`${revealed} percent Cerniam architecture revealed`);
   }
   function setFromX(clientX){const rect=range.getBoundingClientRect();set(Math.round(((clientX-rect.left)/rect.width)*100))}
-  close.addEventListener('click',()=>{pageOne.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});requestAnimationFrame(()=>pageOne.querySelector('.replay')?.focus({preventScroll:true}))});
+  close.addEventListener('click',()=>{pageOne.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});requestAnimationFrame(()=>pageOne.focus({preventScroll:true}))});
   range.addEventListener('input',event=>set(event.target.value));
   range.addEventListener('pointerdown',event=>{dragging=true;range.setPointerCapture(event.pointerId);setFromX(event.clientX)});
   range.addEventListener('pointermove',event=>{if(dragging)setFromX(event.clientX)});
