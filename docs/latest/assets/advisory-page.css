@@ -6,6 +6,15 @@
   padding-bottom:clamp(36px,4vw,52px);
 }
 
+.founder-overview-link .founder-designation{
+  align-self:flex-end;
+  margin:0 0 .18em .16em;
+  font:700 clamp(10px,.85vw,12px)/1 var(--mono);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+
 .advisory-page{
   min-height:100svh;
   box-sizing:border-box;
