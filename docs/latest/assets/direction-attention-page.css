@@ -90,6 +90,16 @@
 }
 
 @media (min-width: 701px) {
+  .direction-attention-page .dir-shell {
+    grid-template-rows: auto;
+    align-content: center;
+  }
+
+  .direction-attention-page .dir-body {
+    padding-top: 17px;
+    padding-bottom: 13px;
+  }
+
   .direction-attention-page .dir-intro {
     grid-template-columns: 1fr 1fr;
   }
@@ -129,8 +139,13 @@
 }
 
 @media (min-width: 701px) and (max-height: 760px) {
+  .direction-attention-page .dir-body {
+    padding-top: 19px;
+    padding-bottom: 8px;
+  }
+
   .direction-attention-page .dir-stage {
-    height: 340px;
+    height: 337px;
   }
 
   .direction-attention-page .dir-frame {
