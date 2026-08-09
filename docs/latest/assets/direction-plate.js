@@ -1,12 +1,12 @@
 (()=>{
-  const pageThree=document.querySelector('.direction-page-three');
-  const open=document.querySelector('.direction-open');
+  const attentionPage=document.querySelector('.direction-attention-page');
+  const pageOne=document.querySelector('.cinema-stage');
   const close=document.querySelector('.dir-close');
-  const title=document.querySelector('#direction-dialog-title');
+  const title=document.querySelector('#direction-attention-title');
   const root=document.querySelector('.dir-compare');
   const range=document.querySelector('.dir-range');
   const buttons=[...document.querySelectorAll('.dir-presets button')];
-  if(!pageThree||!open||!close||!title||!root||!range)return;
+  if(!attentionPage||!pageOne||!close||!title||!root||!range)return;
   let dragging=false,touchOrigin=null;
   function set(value){
     const v=Math.max(0,Math.min(100,Number(value)));
@@ -18,8 +18,7 @@
     range.setAttribute('aria-valuetext',v===100?'Classic architecture: look back':v===0?'Cerniam architecture: look forward':`${revealed} percent Cerniam architecture revealed`);
   }
   function setFromX(clientX){const rect=range.getBoundingClientRect();set(Math.round(((clientX-rect.left)/rect.width)*100))}
-  open.addEventListener('click',()=>{set(50);pageThree.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});requestAnimationFrame(()=>title.focus({preventScroll:true}))});
-  close.addEventListener('click',()=>{open.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});requestAnimationFrame(()=>open.focus())});
+  close.addEventListener('click',()=>{pageOne.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});requestAnimationFrame(()=>pageOne.querySelector('.replay')?.focus({preventScroll:true}))});
   range.addEventListener('input',event=>set(event.target.value));
   range.addEventListener('pointerdown',event=>{dragging=true;range.setPointerCapture(event.pointerId);setFromX(event.clientX)});
   range.addEventListener('pointermove',event=>{if(dragging)setFromX(event.clientX)});
@@ -30,5 +29,5 @@
   range.addEventListener('touchend',event=>{if(touchOrigin&&!touchOrigin.vertical&&!touchOrigin.horizontal&&event.changedTouches[0])setFromX(event.changedTouches[0].clientX);touchOrigin=null},{passive:true});
   buttons.forEach(button=>button.addEventListener('click',()=>set(button.dataset.dirValue)));
   set(50);
-  window.__directionPlate={open:()=>open.click(),set,get value(){return Number(range.value)}};
+  window.__directionPlate={open:()=>{attentionPage.scrollIntoView();title.focus({preventScroll:true})},set,get value(){return Number(range.value)}};
 })();

@@ -1,4 +1,4 @@
-.direction-page-three {
+.direction-attention-page {
   width: 100%;
   min-height: 100svh;
   height: auto;
@@ -11,14 +11,14 @@
   color: #f4f7f7;
 }
 
-.direction-page-three .dir-shell {
+.direction-attention-page .dir-shell {
   width: 100%;
   min-height: 100svh;
   height: auto;
   overflow: visible;
 }
 
-.direction-page-three .dir-header {
+.direction-attention-page .dir-header {
   position: relative;
   width: 100%;
   min-width: 0;
@@ -26,17 +26,17 @@
   background: #071d2c;
 }
 
-.direction-page-three .dir-header-thesis {
+.direction-attention-page .dir-header-thesis {
   max-width: 68ch;
 }
 
-.direction-page-three .dir-header h2 {
+.direction-attention-page .dir-header h2 {
   max-width: 14ch;
   font-size: clamp(46px, 6.5vw, 104px);
   line-height: .82;
 }
 
-.direction-page-three .dir-close {
+.direction-attention-page .dir-close {
   min-width: 96px;
   min-height: 44px;
   padding: 0 14px;
@@ -45,90 +45,90 @@
   color: #9ce9e6;
 }
 
-.direction-page-three .dir-body {
+.direction-attention-page .dir-body {
   width: 100%;
   min-width: 0;
   overflow: visible;
   padding: clamp(28px, 4vw, 64px) clamp(22px, 4vw, 64px) clamp(44px, 6vw, 88px);
 }
 
-.direction-page-three .dir-intro,
-.direction-page-three .dir-compare,
-.direction-page-three .dir-notes {
+.direction-attention-page .dir-intro,
+.direction-attention-page .dir-compare,
+.direction-attention-page .dir-notes {
   width: min(1320px, 100%);
   min-width: 0;
   margin-inline: auto;
 }
 
-.direction-page-three .dir-compare {
+.direction-attention-page .dir-compare {
   margin-top: clamp(28px, 4vw, 54px);
 }
 
-.direction-page-three .dir-notes {
+.direction-attention-page .dir-notes {
   margin-top: clamp(24px, 3vw, 44px);
 }
 
-.direction-page-three .dir-range:focus-visible,
-.direction-page-three button:focus-visible {
+.direction-attention-page .dir-range:focus-visible,
+.direction-attention-page button:focus-visible {
   outline: 2px solid #9ce9e6;
   outline-offset: 3px;
 }
 
 @media (max-width: 700px) {
-  .direction-page-three .dir-header {
+  .direction-attention-page .dir-header {
     align-items: flex-start;
   }
 
-  .direction-page-three .dir-header h2 {
+  .direction-attention-page .dir-header h2 {
     max-width: 11ch;
     font-size: clamp(42px, 14vw, 64px);
   }
 
-  .direction-page-three .dir-close {
+  .direction-attention-page .dir-close {
     min-width: 78px;
     padding-inline: 10px;
   }
 }
 
 @media (max-width: 360px) {
-  .direction-page-three .dir-frame-head,
-  .direction-page-three .dir-architecture,
-  .direction-page-three .dir-frame footer {
+  .direction-attention-page .dir-frame-head,
+  .direction-attention-page .dir-architecture,
+  .direction-attention-page .dir-frame footer {
     width: 100%;
     min-width: 0;
   }
 
-  .direction-page-three .dir-architecture {
+  .direction-attention-page .dir-architecture {
     grid-template-columns: 82px minmax(0, 1fr) 82px;
   }
 
-  .direction-page-three .dir-stack {
+  .direction-attention-page .dir-stack {
     width: 82px;
   }
 
-  .direction-page-three .dir-node {
+  .direction-attention-page .dir-node {
     width: 100%;
     min-width: 0;
   }
 
-  .direction-page-three .dir-node b {
+  .direction-attention-page .dir-node b {
     font-size: 12px;
     line-height: 1.08;
     overflow-wrap: normal;
     word-break: normal;
   }
 
-  .direction-page-three .dir-node span {
+  .direction-attention-page .dir-node span {
     font-size: 7px;
     line-height: 1.1;
   }
 
-  .direction-page-three .dir-core {
+  .direction-attention-page .dir-core {
     width: 110px;
     min-width: 0;
   }
 
-  .direction-page-three .dir-frame-head h4 {
+  .direction-attention-page .dir-frame-head h4 {
     max-width: 100%;
     font-size: 28px;
     line-height: .96;
@@ -136,9 +136,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .direction-page-three *,
-  .direction-page-three *::before,
-  .direction-page-three *::after {
+  .direction-attention-page *,
+  .direction-attention-page *::before,
+  .direction-attention-page *::after {
     scroll-behavior: auto !important;
     animation: none !important;
     transition: none !important;
