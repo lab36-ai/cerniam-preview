@@ -27,14 +27,14 @@
   padding:clamp(54px,8vh,96px) 0;
   display:grid;
   align-content:center;
-  gap:clamp(56px,9vh,100px);
+  gap:clamp(44px,7vh,72px);
 }
 
 .midmarket-head h2{
   max-width:15ch;
   margin:0;
-  font:700 clamp(44px,5.3vw,80px)/.9 var(--condensed);
-  letter-spacing:-.04em;
+  font:700 clamp(40px,4.7vw,70px)/1 var(--condensed);
+  letter-spacing:-.025em;
   text-transform:uppercase;
 }
 
@@ -43,27 +43,22 @@
   font-style:normal;
 }
 
-.midmarket-outcomes{
+.midmarket-copy{
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  border-top:1px solid rgba(255,255,255,.22);
-  border-left:1px solid rgba(255,255,255,.22);
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(32px,6vw,90px);
+  max-width:1120px;
 }
 
-.midmarket-outcomes article{
-  min-height:112px;
-  padding:24px;
-  display:flex;
-  align-items:center;
-  border-right:1px solid rgba(255,255,255,.22);
-  border-bottom:1px solid rgba(255,255,255,.22);
+.midmarket-copy p{
+  margin:0;
+  color:rgba(255,255,255,.72);
+  font-size:clamp(17px,1.35vw,20px);
+  line-height:1.6;
 }
 
-.midmarket-outcomes span{
-  color:#5fd0ce;
-  font:700 12px var(--mono);
-  letter-spacing:.15em;
-  text-transform:uppercase;
+.midmarket-copy p:last-child{
+  color:#fff;
 }
 
 @media(max-width:760px){
@@ -75,18 +70,19 @@
 
   .midmarket-head h2{
     font-family:var(--sans);
-    font-size:clamp(32px,9.2vw,40px);
+    font-size:clamp(30px,8.2vw,36px);
     font-weight:800;
-    line-height:.98;
-    letter-spacing:-.055em;
+    line-height:1.08;
+    letter-spacing:-.04em;
   }
 
-  .midmarket-outcomes{
-    grid-template-columns:repeat(2,minmax(0,1fr));
+  .midmarket-copy{
+    grid-template-columns:1fr;
+    gap:22px;
   }
 
-  .midmarket-outcomes article{
-    min-height:78px;
-    padding:20px;
+  .midmarket-copy p{
+    font-size:16px;
+    line-height:1.55;
   }
 }
