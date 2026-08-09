@@ -71,6 +71,10 @@
   text-align: right;
 }
 
+.direction-attention-page .dir-frame-head h4 {
+  font-size: clamp(26px, 2.8vw, 36px);
+}
+
 .direction-attention-page .dir-compare {
   margin-top: 16px;
 }
