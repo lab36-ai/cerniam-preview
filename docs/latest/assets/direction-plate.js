@@ -1,11 +1,12 @@
 (()=>{
-  const dialog=document.querySelector('.direction-dialog');
+  const pageThree=document.querySelector('.direction-page-three');
   const open=document.querySelector('.direction-open');
   const close=document.querySelector('.dir-close');
+  const title=document.querySelector('#direction-dialog-title');
   const root=document.querySelector('.dir-compare');
   const range=document.querySelector('.dir-range');
   const buttons=[...document.querySelectorAll('.dir-presets button')];
-  if(!dialog||!open||!close||!root||!range)return;
+  if(!pageThree||!open||!close||!title||!root||!range)return;
   let dragging=false,touchOrigin=null;
   function set(value){
     const v=Math.max(0,Math.min(100,Number(value)));
@@ -17,9 +18,8 @@
     range.setAttribute('aria-valuetext',v===100?'Classic architecture: look back':v===0?'Cerniam architecture: look forward':`${revealed} percent Cerniam architecture revealed`);
   }
   function setFromX(clientX){const rect=range.getBoundingClientRect();set(Math.round(((clientX-rect.left)/rect.width)*100))}
-  open.addEventListener('click',()=>{dialog.showModal();set(50);requestAnimationFrame(()=>range.focus())});
-  close.addEventListener('click',()=>dialog.close());
-  dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+  open.addEventListener('click',()=>{set(50);pageThree.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});requestAnimationFrame(()=>title.focus({preventScroll:true}))});
+  close.addEventListener('click',()=>{open.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});requestAnimationFrame(()=>open.focus())});
   range.addEventListener('input',event=>set(event.target.value));
   range.addEventListener('pointerdown',event=>{dragging=true;range.setPointerCapture(event.pointerId);setFromX(event.clientX)});
   range.addEventListener('pointermove',event=>{if(dragging)setFromX(event.clientX)});
@@ -29,7 +29,6 @@
   range.addEventListener('touchmove',event=>{if(!touchOrigin)return;const t=event.touches[0],dx=t.clientX-touchOrigin.x,dy=t.clientY-touchOrigin.y;if(!touchOrigin.horizontal&&!touchOrigin.vertical&&Math.max(Math.abs(dx),Math.abs(dy))>8){touchOrigin.horizontal=Math.abs(dx)>Math.abs(dy);touchOrigin.vertical=!touchOrigin.horizontal}if(touchOrigin.horizontal){event.preventDefault();setFromX(t.clientX)}},{passive:false});
   range.addEventListener('touchend',event=>{if(touchOrigin&&!touchOrigin.vertical&&!touchOrigin.horizontal&&event.changedTouches[0])setFromX(event.changedTouches[0].clientX);touchOrigin=null},{passive:true});
   buttons.forEach(button=>button.addEventListener('click',()=>set(button.dataset.dirValue)));
-  dialog.addEventListener('close',()=>open.focus());
   set(50);
   window.__directionPlate={open:()=>open.click(),set,get value(){return Number(range.value)}};
 })();
