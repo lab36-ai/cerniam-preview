@@ -22,7 +22,7 @@ html{
 .site-mark{
   display:inline-flex;
   align-items:baseline;
-  color:#fff;
+  color:#35c6c2;
   font:800 14px/1 var(--sans);
   letter-spacing:.12em;
   text-decoration:none;
