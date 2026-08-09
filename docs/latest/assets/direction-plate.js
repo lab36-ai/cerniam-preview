@@ -2,11 +2,10 @@
   const attentionPage=document.querySelector('.direction-attention-page');
   const pageOne=document.querySelector('.cinema-stage');
   const close=document.querySelector('.dir-close');
-  const title=document.querySelector('#direction-attention-title');
   const root=document.querySelector('.dir-compare');
   const range=document.querySelector('.dir-range');
   const buttons=[...document.querySelectorAll('.dir-presets button')];
-  if(!attentionPage||!pageOne||!close||!title||!root||!range)return;
+  if(!attentionPage||!pageOne||!close||!root||!range)return;
   let dragging=false,touchOrigin=null;
   function set(value){
     const v=Math.max(0,Math.min(100,Number(value)));
@@ -29,5 +28,5 @@
   range.addEventListener('touchend',event=>{if(touchOrigin&&!touchOrigin.vertical&&!touchOrigin.horizontal&&event.changedTouches[0])setFromX(event.changedTouches[0].clientX);touchOrigin=null},{passive:true});
   buttons.forEach(button=>button.addEventListener('click',()=>set(button.dataset.dirValue)));
   set(50);
-  window.__directionPlate={open:()=>{attentionPage.scrollIntoView();title.focus({preventScroll:true})},set,get value(){return Number(range.value)}};
+  window.__directionPlate={open:()=>{attentionPage.scrollIntoView();attentionPage.focus({preventScroll:true})},set,get value(){return Number(range.value)}};
 })();
