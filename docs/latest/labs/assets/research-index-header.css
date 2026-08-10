@@ -26,6 +26,11 @@ body.research-index-page{
   grid-row:1;
 }
 
+.research-index-page .index-hero{
+  grid-template-columns:minmax(0,1fr);
+  gap:0;
+}
+
 .research-index-page .lab-footer{
   grid-row:2;
 }
