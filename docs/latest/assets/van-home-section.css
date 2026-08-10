@@ -74,7 +74,6 @@
   grid-area:proofs;
   display:grid;
   margin-top:2px;
-  border-top:1px solid var(--line);
 }
 
 .van-home-proof{
@@ -84,7 +83,6 @@
   gap:18px;
   align-items:start;
   padding:14px 0;
-  border-bottom:1px solid var(--line);
 }
 
 .van-home-proof-icon{
@@ -102,17 +100,17 @@
 }
 
 .van-home-proof h3{
-  margin:0 0 5px;
+  margin:0 0 8px;
   color:var(--ink);
-  font:700 clamp(13px,1.15vw,16px)/1.2 var(--sans);
-  letter-spacing:.01em;
+  font:750 clamp(18px,1.7vw,24px)/1.16 var(--sans);
+  letter-spacing:-.01em;
 }
 
 .van-home-proof p{
   max-width:66ch;
   margin:0;
   color:var(--ink);
-  font:400 clamp(11.5px,.94vw,13.5px)/1.45 var(--sans);
+  font:400 clamp(14px,1.15vw,16px)/1.52 var(--sans);
 }
 
 .van-home-lineage{
@@ -266,8 +264,8 @@
   .van-home-portrait img{object-position:50% 20%}
   .van-home-proof{grid-template-columns:44px minmax(0,1fr);gap:14px;padding:9px 0}
   .van-home-proof-icon{width:38px;height:38px}
-  .van-home-proof h3{font-size:13px}
-  .van-home-proof p{font-size:11.5px;line-height:1.35}
+  .van-home-proof h3{font-size:20px}
+  .van-home-proof p{font-size:14.5px;line-height:1.46}
   .van-home-lineage{padding:9px 20px 10px}
   .van-home-lineage h3{font-size:18px}
   .van-home-lineage>header p{font-size:10px}
@@ -309,7 +307,8 @@
   .van-home-proofs{order:2;width:100%}
   .van-home-portrait{order:3;aspect-ratio:418/384}
   .van-home-proof{grid-template-columns:44px minmax(0,1fr);padding:16px 0}
-  .van-home-proof p{font-size:13px;line-height:1.48}
+  .van-home-proof h3{font-size:20px}
+  .van-home-proof p{font-size:15px;line-height:1.54}
   .van-home-lineage{padding:18px 16px 20px}
   .van-home-lineage h3{font-size:22px;line-height:1.08}
   .van-lineage-flow{display:flex;flex-direction:column;gap:16px;margin-top:18px}
