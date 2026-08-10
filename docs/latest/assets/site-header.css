@@ -21,11 +21,22 @@ html{
 
 .site-mark{
   display:inline-flex;
-  align-items:baseline;
+  align-items:center;
+  gap:8px;
   color:#35c6c2;
   font:800 14px/1 var(--sans);
   letter-spacing:.12em;
   text-decoration:none;
+}
+
+.site-mark::before{
+  content:"";
+  width:22px;
+  height:24px;
+  flex:none;
+  background:currentColor;
+  -webkit-mask:url("cerniam-mark.svg") center/contain no-repeat;
+  mask:url("cerniam-mark.svg") center/contain no-repeat;
 }
 
 .site-mark span{
@@ -120,6 +131,11 @@ html{
 
   .site-mark{
     font-size:12px;
+  }
+
+  .site-mark::before{
+    width:19px;
+    height:21px;
   }
 
   .site-nav{

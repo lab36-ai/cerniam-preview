@@ -25,6 +25,16 @@ body {
   padding: 0 18px;
 }
 
+.lab-mark::before {
+  content: "";
+  width: 20px;
+  height: 22px;
+  flex: none;
+  background: currentColor;
+  -webkit-mask: url("../../assets/cerniam-mark.svg") center / contain no-repeat;
+  mask: url("../../assets/cerniam-mark.svg") center / contain no-repeat;
+}
+
 .lab-mark span {
   font-size: 17px;
   font-weight: 750;

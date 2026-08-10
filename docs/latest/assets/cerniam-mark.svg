@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 106" role="img" aria-label="Cerniam C mark">
+  <g fill="none" stroke="#000" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M87 43V32L52 12 14 34v44l38 22 35-20V66" stroke-width="7"/>
+    <path d="M76 43v-5L52 24 25 40v32l27 16 24-14v-8" stroke-width="4"/>
+  </g>
+</svg>
