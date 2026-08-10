@@ -67,7 +67,7 @@
   display:block;
   object-fit:cover;
   object-position:50% 50%;
-  filter:saturate(.82) contrast(1.02);
+  filter:grayscale(1) contrast(1.04) sepia(.09);
 }
 
 .van-home-proofs{
