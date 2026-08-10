@@ -9,42 +9,18 @@
   --line:rgba(18,59,93,.2);
   --soft-line:rgba(18,59,93,.1);
   --condensed:"Arial Narrow","Roboto Condensed",Impact,sans-serif;
-  --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  --sans:Inter,ui-sans-serif,system-ui,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 
 *{box-sizing:border-box}
 html{background:var(--paper)}
-body{margin:0;background:var(--paper);color:var(--midnight);font-family:var(--sans);overflow-x:hidden}
+body{margin:0;padding-top:52px;background:var(--paper);color:var(--midnight);font-family:var(--sans);overflow-x:hidden}
 a{color:inherit}
 .icon-sprite{position:absolute;width:0;height:0;overflow:hidden}
-.skip-link{position:fixed;z-index:100;left:18px;top:14px;padding:10px 14px;background:var(--midnight);color:#fff;font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;transform:translateY(-180%);transition:transform .18s ease}
+.skip-link{position:fixed;z-index:220;left:18px;top:14px;padding:10px 14px;background:var(--midnight);color:#fff;font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;transform:translateY(-180%);transition:transform .18s ease}
 .skip-link:focus{transform:none}
 :focus-visible{outline:3px solid var(--teal);outline-offset:4px}
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  width:100%;
-  height:74px;
-  padding:0 max(20px,calc((100vw - 1440px)/2));
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:36px;
-  border-bottom:1px solid var(--line);
-  background:rgba(247,249,250,.96);
-  backdrop-filter:blur(14px);
-}
-.wordmark{flex:none;display:inline-flex;align-items:center;gap:11px;color:var(--midnight);font:900 25px/.8 var(--condensed);letter-spacing:.13em;text-decoration:none}
-.wordmark::before{content:"";width:30px;height:30px;flex:none;background:currentColor;-webkit-mask:url("../assets/cerniam-mark.svg") center/contain no-repeat;mask:url("../assets/cerniam-mark.svg") center/contain no-repeat}
-.site-header nav{min-width:0;display:flex;align-items:center;gap:clamp(16px,2vw,30px);color:var(--slate);font:700 9px var(--mono);letter-spacing:.08em;white-space:nowrap}
-.site-header nav a,.site-header nav span{text-decoration:none}
-.site-header nav>[aria-current="page"]{position:relative;color:var(--teal)}
-.site-header nav>[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:1px;background:var(--teal)}
-.site-header nav a:hover{color:var(--midnight)}
-.site-header .contact-link{padding:10px 13px;border:1px solid var(--teal)}
 
 main{width:min(1360px,calc(100% - 48px));margin:auto;padding-bottom:0}
 .breadcrumb{min-height:40px;display:flex;align-items:center;gap:10px;color:var(--slate);font:600 9px var(--mono);letter-spacing:.04em}
@@ -100,9 +76,6 @@ main{width:min(1360px,calc(100% - 48px));margin:auto;padding-bottom:0}
 .research-cta a:hover{background:var(--teal);color:#fff}
 
 @media(min-width:1001px) and (max-height:720px){
-  .site-header{height:56px}
-  .wordmark{font-size:21px}.wordmark::before{width:25px;height:25px}
-  .site-header nav{font-size:8px}.site-header nav>[aria-current="page"]::after{bottom:-9px}.site-header .contact-link{padding:8px 11px}
   main{width:min(1240px,calc(100% - 36px));padding-bottom:4px}
   .breadcrumb{min-height:28px;font-size:7px}
   .profile-intro{grid-template-columns:195px minmax(0,1fr) 315px;gap:27px;padding:5px 0 10px}
@@ -115,10 +88,6 @@ main{width:min(1360px,calc(100% - 48px));margin:auto;padding-bottom:0}
 }
 
 @media(max-width:1000px){
-  .site-header{height:94px;padding:0 22px;display:grid;grid-template-rows:52px 42px;gap:0}
-  .wordmark{font-size:22px}.wordmark::before{width:26px;height:26px}
-  .site-header nav{width:calc(100vw - 44px);height:42px;overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
-  .site-header nav::-webkit-scrollbar{display:none}.site-header nav>[aria-current="page"]::after{bottom:-10px}.site-header .contact-link{padding:7px 10px}
   main{width:min(760px,calc(100% - 36px));padding-bottom:34px}
   .profile-intro{grid-template-columns:220px minmax(0,1fr);gap:34px}
   .principles{grid-column:1/-1;padding:24px 0 0;border-top:1px solid var(--line);border-left:0;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
@@ -130,7 +99,6 @@ main{width:min(1360px,calc(100% - 48px));margin:auto;padding-bottom:0}
 }
 
 @media(max-width:600px){
-  .site-header{padding-inline:14px}.site-header nav{width:calc(100vw - 28px)}.wordmark{font-size:20px;letter-spacing:.1em}
   main{width:calc(100% - 28px)}
   .breadcrumb{min-height:38px;font-size:8px}
   .profile-intro{grid-template-columns:minmax(0,1fr);gap:0;padding-top:4px}
@@ -144,5 +112,7 @@ main{width:min(1360px,calc(100% - 48px));margin:auto;padding-bottom:0}
   .why{grid-template-columns:1fr;gap:28px;margin-top:30px;padding:27px 21px}.why-origin{grid-template-columns:52px minmax(0,1fr);align-items:start;padding:0 0 27px;border-right:0;border-bottom:1px solid var(--line)}.quote-mark{width:48px;height:48px;font-size:34px}.why h2{font-size:16px}.why p{font-size:13px}.why blockquote strong{font-size:15px}
   .research-cta{grid-template-columns:46px minmax(0,1fr);gap:15px;margin-top:18px;padding:20px 18px}.research-cta>svg{width:44px;height:44px}.research-cta h2{font-size:15px}.research-cta p{font-size:12px}.research-cta a{grid-column:1/-1;width:100%;justify-content:space-between;margin-top:7px}
 }
+
+@media(max-width:760px){body{padding-top:50px}}
 
 @media(prefers-reduced-motion:reduce){.skip-link{transition:none}}
