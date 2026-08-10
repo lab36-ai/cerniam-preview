@@ -78,8 +78,13 @@ html{
   color:#fff;
 }
 
+.site-nav a[aria-current="page"]{
+  color:#fff;
+}
+
 .site-nav a:hover::after,
-.site-nav a:focus-visible::after{
+.site-nav a:focus-visible::after,
+.site-nav a[aria-current="page"]::after{
   transform:scaleX(1);
 }
 
@@ -96,6 +101,7 @@ html{
 #about,
 #van-home,
 #contact,
+#advisory-council{
   scroll-margin-top:0;
 }
 
