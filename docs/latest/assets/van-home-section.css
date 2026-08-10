@@ -134,9 +134,10 @@
 }
 
 .van-home-lineage>header p{
-  margin:4px 0 0;
+  max-width:82ch;
+  margin:7px auto 0;
   color:var(--ink);
-  font:400 clamp(10px,.95vw,13px)/1.2 var(--sans);
+  font:400 clamp(10px,.95vw,13px)/1.45 var(--sans);
   letter-spacing:.03em;
 }
 
@@ -283,12 +284,12 @@
 @media(max-width:900px){
   .van-home{min-height:100svh;padding:52px 0 0}
   .van-home-top{
-    grid-template-columns:minmax(230px,.8fr) minmax(0,1.2fr);
-    grid-template-areas:"identity identity" "portrait proofs";
+    grid-template-columns:minmax(0,1.2fr) minmax(230px,.8fr);
+    grid-template-areas:"identity identity" "proofs portrait";
     column-gap:28px;
     row-gap:22px;
   }
-  .van-home-portrait{width:100%;justify-self:start}
+  .van-home-portrait{width:100%;justify-self:end}
   .van-home-proofs{margin:0}
   .van-home-proof{grid-template-columns:42px minmax(0,1fr);gap:12px;padding:12px 0}
   .van-home-proof-icon{width:36px;height:36px}
@@ -305,8 +306,8 @@
     gap:22px;
   }
   .van-home-identity h2{font-size:clamp(50px,16vw,66px)}
-  .van-home-portrait{order:2;aspect-ratio:418/384}
-  .van-home-proofs{order:3;width:100%}
+  .van-home-proofs{order:2;width:100%}
+  .van-home-portrait{order:3;aspect-ratio:418/384}
   .van-home-proof{grid-template-columns:44px minmax(0,1fr);padding:16px 0}
   .van-home-proof p{font-size:13px;line-height:1.48}
   .van-home-lineage{padding:18px 16px 20px}
