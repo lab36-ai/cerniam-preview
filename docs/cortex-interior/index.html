@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Inside the Cerniam Cortex</title>
+<style>
+:root{
+  --navy:#07111d;--navy-2:#0b1724;--graphite:#111c27;--panel:#0a1521;
+  --white:#f4f2ea;--warm:#fff7df;--muted:#8e9ba8;--line:#29404f;
+  --teal:#35c6c2;--teal-deep:#008b8b;--amber:#d9a441;--danger:#a86b45;
+  --display:"Arial Narrow","Aptos Narrow","Helvetica Neue",sans-serif;
+  --body:"Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;background:var(--navy);color:var(--white)}
+body{font-family:var(--body);overflow-x:hidden;background:
+ radial-gradient(ellipse at 36% 42%,rgba(26,56,67,.24),transparent 42%),
+ linear-gradient(145deg,#091521 0%,#07111d 55%,#050c14 100%)}
+button{font:inherit} button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.app{min-height:100svh;display:grid;grid-template-rows:auto 1fr}
+.mast{height:88px;padding:18px 28px 14px;display:grid;grid-template-columns:minmax(260px,1fr) auto auto;gap:24px;align-items:end;border-bottom:1px solid rgba(113,148,164,.18);position:relative;z-index:10;background:linear-gradient(180deg,rgba(7,17,29,.98),rgba(7,17,29,.78))}
+.brand{display:flex;align-items:baseline;gap:18px;min-width:0}.brand b{font:700 17px/1 var(--display);letter-spacing:.18em}.brand span{font:10px/1 var(--mono);letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+.views,.controls{display:flex;gap:6px;align-items:center}.ui-btn{min-height:40px;padding:0 13px;border:1px solid var(--line);background:transparent;color:var(--muted);font:700 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s,border-color .2s}.ui-btn:hover{color:var(--white);border-color:#557283}.ui-btn[aria-pressed="true"]{color:var(--navy);background:var(--white);border-color:var(--white)}.ui-btn.primary{color:var(--white);border-color:var(--teal-deep)}.ui-btn.primary[aria-pressed="true"]{color:var(--navy)}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 340px;min-height:0;height:calc(100svh - 88px)}
+.stage{position:relative;min-width:0;overflow:hidden}.plate{width:100%;height:100%;display:block}.mobile-topology{display:none}
+.inspector{border-left:1px solid rgba(113,148,164,.22);background:rgba(6,15,24,.76);padding:28px 25px 20px;overflow:auto;display:flex;flex-direction:column;min-width:0}
+.eyebrow{margin:0;color:var(--teal);font:700 10px/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase}.inspector h1{margin:12px 0 8px;font:500 clamp(29px,2.7vw,42px)/.98 var(--display);letter-spacing:-.025em;text-transform:uppercase;text-wrap:balance}.thesis{margin:0 0 24px;color:#b8c2c9;font:15px/1.45 var(--body);max-width:31ch}.active-label{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:18px;font:700 10px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase}.active-label::before{content:"";width:7px;height:7px;background:var(--teal);box-shadow:0 0 12px rgba(53,198,194,.65)}
+.readout{margin:0;display:grid}.readout>div{padding:11px 0;border-bottom:1px solid rgba(63,89,102,.45)}.readout dt{font:700 9px/1.2 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:#758896}.readout dd{margin:6px 0 0;font:13px/1.38 var(--body);color:#dce2e3}.readout strong{color:var(--white);font-weight:600}.readout .proof{color:var(--warm);font-family:var(--mono);font-size:11px;overflow-wrap:anywhere}
+.milestone{margin-top:auto;padding-top:18px;color:var(--teal);font:700 10px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;min-height:48px}.timeline{height:2px;background:#1c303c;position:relative;margin-top:10px}.timeline i{position:absolute;inset:0 auto 0 0;width:0;background:var(--teal);box-shadow:0 0 10px rgba(53,198,194,.4)}
+/* SVG plate */
+.plate text{font-family:var(--mono);pointer-events:none}.gridline{stroke:#17303e;stroke-width:1}.hair{fill:none;stroke:#33505e;stroke-width:1}.ghost{fill:none;stroke:#4b6570;stroke-width:1;stroke-dasharray:4 7}.semantic{fill:none;stroke:var(--teal);stroke-width:1.8}.expected{fill:none;stroke:var(--teal);stroke-width:1.2;stroke-dasharray:6 6}.proof-line{fill:none;stroke:var(--warm);stroke-width:1.3}.amber-line{fill:none;stroke:var(--amber);stroke-width:1.4}.route{stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset .9s cubic-bezier(.23,1,.32,1)}.route.on{stroke-dashoffset:0}.shell{fill:url(#shellGrad);stroke:#486270;stroke-width:1.2}.cut-face{fill:url(#cutGrad);stroke:#314b58;stroke-width:1.2}.membrane{fill:none;stroke:#66808c;stroke-width:1.1}.ring{fill:none;stroke:#1e7477;stroke-width:13;opacity:.28}.ring-live{fill:none;stroke:var(--teal);stroke-width:2;stroke-dasharray:2 7}.hub{fill:#0b1925;stroke:#45606d;stroke-width:1;cursor:pointer;transition:fill .2s,stroke .2s}.hub:hover,.hub:focus{fill:#112a35;stroke:var(--white);outline:none}.hub.active{stroke:var(--teal);fill:#0c252e}.hub-label{font-size:8px;fill:#aab7bd;letter-spacing:.08em}.tiny{font-size:7px;fill:#708793;letter-spacing:.08em}.label{font-size:9px;fill:#dfe5e4;letter-spacing:.12em}.section-label{font-size:9px;fill:var(--teal);letter-spacing:.15em;font-weight:700}.state-label{font-size:8px;fill:#80929b;letter-spacing:.1em}.state-value{font-size:12px;fill:var(--white);font-weight:700;letter-spacing:.04em}.big-e-text{font-size:11px;fill:var(--white);font-weight:700}.node{fill:#0a1722;stroke:#38515d;stroke-width:1}.node.active{fill:var(--warm);stroke:var(--warm);filter:url(#proofGlow)}.node.semantic-active{fill:var(--teal);stroke:var(--teal);filter:url(#tealGlow)}.cluster-link{stroke:#2d4652;stroke-width:1}.cluster-link.active{stroke:var(--teal);opacity:.8}.token{fill:#102733;stroke:var(--teal);stroke-width:1}.token-text{fill:var(--teal);font-size:8px;font-weight:700}.chamber{fill:url(#chamberGrad);stroke:#68808b;stroke-width:1.2;filter:url(#softShadow);cursor:pointer}.chamber:focus{outline:none;stroke:var(--white);stroke-width:2}.model{fill:#0c1b27;stroke:#38515d;stroke-width:1}.state-row{fill:#0a151f;stroke:#2c434f;stroke-width:.8}.state-row.current{stroke:var(--teal);fill:#0d2a31}.gate{fill:#211c15;stroke:var(--amber);stroke-width:1}.candidate{fill:#0a161f;stroke:#38505c;stroke-width:.8}.candidate.reveal{stroke:#78909a}.candidate.selected{fill:#0d302f;stroke:var(--teal);stroke-width:1.4}.candidate.eliminated{opacity:.38}.candidate.eliminated+text{text-decoration:line-through}.vault{fill:#0a151f;stroke:#7d7768;stroke-width:1.2;cursor:pointer}.vault:focus{outline:none;stroke:var(--white);stroke-width:2}.receipt-slot{fill:#101b23;stroke:#4c5554;stroke-width:.8}.receipt-slot.committed{fill:#29271f;stroke:var(--warm)}.ribbon-stage{fill:none;stroke:#e3e6e2;stroke-width:2.4}.ribbon-semantic{fill:none;stroke:var(--teal);stroke-width:2.4}.ribbon-label{font-size:7px;letter-spacing:.12em}.packet{fill:var(--white);filter:url(#whiteGlow);opacity:0}.packet.visible{opacity:1}.packet.proof-packet{fill:var(--warm)}.packet.outcome-packet{fill:var(--teal)}.callout{stroke:#516a76;stroke-width:.8}.click-region{cursor:pointer}.click-region:hover .section-label{fill:var(--white)}
+.view-state .shell,.view-state .hub,.view-state .cluster-link,.view-state .ring{opacity:.22}.view-state .chamber,.view-state .model,.view-state .state-row,.view-state .candidate,.view-state .gate{opacity:1}.view-evidence .shell,.view-evidence .hub,.view-evidence .cluster-link,.view-evidence .ring,.view-evidence .chamber{opacity:.18}.view-evidence .vault,.view-evidence .receipt-slot,.view-evidence .proof-line,.view-evidence .ribbon-stage,.view-evidence .ribbon-semantic{opacity:1}
+/* mobile */
+.mobile-card{border:1px solid #2a424f;background:#0a1621;padding:13px 14px;position:relative;min-width:0;cursor:pointer}.mobile-card::after{content:"↓";position:absolute;left:50%;bottom:-24px;color:var(--teal);font:14px var(--mono)}.mobile-card:last-child::after{display:none}.mobile-card.active{border-color:var(--teal);background:#0c2029}.mobile-card.proof-card{border-color:#77715f}.mobile-card.threshold{border-color:var(--amber)}.mobile-kicker{display:flex;justify-content:space-between;gap:8px;color:var(--teal);font:700 9px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase}.mobile-main{display:block;margin-top:7px;font:600 14px/1.25 var(--body);color:var(--white)}.mobile-sub{display:block;margin-top:5px;color:#8fa0a8;font:10px/1.35 var(--mono)}
+@media(max-width:1050px){.workspace{grid-template-columns:minmax(0,1fr) 300px}.mast{grid-template-columns:1fr auto}.brand span{display:none}.views{grid-row:2;grid-column:1/-1;justify-content:flex-start}.mast{height:118px;align-items:center}.workspace{height:calc(100svh - 118px)}.inspector{padding:22px 18px}}
+@media(max-width:700px){body{background:linear-gradient(180deg,#07111d,#091722 55%,#07111d)}.app{display:block}.mast{height:auto;position:sticky;top:0;padding:13px 14px 12px;display:grid;grid-template-columns:1fr auto;gap:10px;background:rgba(7,17,29,.96);backdrop-filter:blur(10px)}.brand b{font-size:14px}.views{grid-column:1/-1;grid-row:2;overflow-x:auto;scrollbar-width:none}.views .ui-btn{flex:1;min-width:max-content}.controls{grid-column:2;grid-row:1}.controls .ui-btn{padding:0 10px}.workspace{display:block;height:auto}.stage{overflow:visible;padding:20px 14px 28px}.plate{display:none}.mobile-topology{display:grid;gap:24px}.inspector{border:0;border-top:1px solid var(--line);padding:25px 16px 28px;min-height:520px}.inspector h1{font-size:36px;max-width:10ch}.thesis{max-width:34ch}.milestone{margin-top:18px}.ui-btn{min-height:44px;font-size:9px}.active-label{position:sticky;top:120px;background:var(--navy);z-index:2}.mobile-card{min-height:92px}.mobile-card[hidden]{display:none!important}}
+@media(max-width:390px){.brand{gap:0}.controls{gap:4px}.controls .ui-btn{padding:0 8px}.mast{padding-inline:12px}.stage{padding-inline:12px}.inspector h1{font-size:33px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.route{stroke-dashoffset:0}.packet{display:none}.timeline i{width:100%!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="mast">
+  <div class="brand"><b>CERNIAM</b><span>Technical cutaway / Cortex interior</span></div>
+  <nav class="views" aria-label="Cortex views">
+    <button class="ui-btn" data-view="live" aria-pressed="true">Live cutaway</button>
+    <button class="ui-btn" data-view="state" aria-pressed="false">State trace</button>
+    <button class="ui-btn" data-view="evidence" aria-pressed="false">Evidence receipt</button>
+  </nav>
+  <div class="controls" aria-label="Trace controls">
+    <button class="ui-btn" id="replay">Replay</button>
+    <button class="ui-btn primary" id="pause" aria-pressed="false">Pause</button>
+  </div>
+</header>
+<main class="workspace">
+<section class="stage" aria-label="Interactive Cortex cutaway">
+<svg class="plate view-live" id="plate" viewBox="0 0 1120 820" role="img" aria-labelledby="svg-title svg-desc" preserveAspectRatio="xMidYMid meet">
+<title id="svg-title">Inside the Cerniam Cortex</title>
+<desc id="svg-desc">A technical cutaway traces source events through domain hubs, graph context, semantic services, the Progressor, a state transition, decision candidates, immutable evidence, and a verified outcome return.</desc>
+<defs>
+ <radialGradient id="shellGrad" cx="38%" cy="28%"><stop offset="0" stop-color="#1a3040" stop-opacity=".72"/><stop offset=".62" stop-color="#0d1c28" stop-opacity=".82"/><stop offset="1" stop-color="#07111c" stop-opacity=".95"/></radialGradient>
+ <linearGradient id="cutGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#152b38"/><stop offset="1" stop-color="#09151f"/></linearGradient>
+ <linearGradient id="chamberGrad" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#172d38"/><stop offset="1" stop-color="#09151f"/></linearGradient>
+ <filter id="tealGlow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="whiteGlow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="proofGlow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="softShadow"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000" flood-opacity=".5"/></filter>
+ <clipPath id="sphereClip"><ellipse cx="438" cy="369" rx="333" ry="286"/></clipPath>
+</defs>
+<g opacity=".6">
+ <path class="gridline" d="M0 690H1120M0 730H1120M0 770H1120"/><path class="gridline" d="M86 0V820M246 0V820M406 0V820M566 0V820M726 0V820M886 0V820M1046 0V820"/>
+</g>
+<!-- sphere shell and membrane -->
+<g id="region-domain" class="click-region" tabindex="0" role="button" aria-label="Domain membrane and source hubs">
+ <ellipse class="shell" cx="438" cy="369" rx="333" ry="286"/>
+ <path class="cut-face" d="M437 83A333 286 0 0 1 747 264L604 330 562 578 243 601C142 538 96 437 109 334Z" opacity=".88"/>
+ <ellipse class="membrane" cx="438" cy="369" rx="333" ry="286"/>
+ <ellipse class="membrane" cx="438" cy="369" rx="316" ry="270" opacity=".45"/>
+ <text x="145" y="151" class="section-label">OUTER DOMAIN MEMBRANE</text>
+ <path class="callout" d="M145 160H220L247 181"/>
+ <g class="hub active" tabindex="0" role="button" aria-label="Orders hub" data-region="domain"><rect x="195" y="189" width="88" height="31" rx="3"/><text class="hub-label" x="239" y="208" text-anchor="middle">ORDERS</text></g>
+ <g class="hub" tabindex="0" role="button" aria-label="Inventory hub" data-region="domain"><rect x="318" y="126" width="91" height="31" rx="3"/><text class="hub-label" x="363" y="145" text-anchor="middle">INVENTORY</text></g>
+ <g class="hub" tabindex="0" role="button" aria-label="Customer hub" data-region="domain"><rect x="463" y="120" width="90" height="31" rx="3"/><text class="hub-label" x="508" y="139" text-anchor="middle">CUSTOMER</text></g>
+ <g class="hub" tabindex="0" role="button" aria-label="Logistics hub" data-region="domain"><rect x="590" y="174" width="92" height="31" rx="3"/><text class="hub-label" x="636" y="193" text-anchor="middle">LOGISTICS</text></g>
+ <g class="hub" tabindex="0" role="button" aria-label="Finance hub" data-region="domain"><rect x="641" y="284" width="82" height="31" rx="3"/><text class="hub-label" x="682" y="303" text-anchor="middle">FINANCE</text></g>
+ <g class="hub" tabindex="0" role="button" aria-label="Workforce hub" data-region="domain"><rect x="159" y="305" width="92" height="31" rx="3"/><text class="hub-label" x="205" y="324" text-anchor="middle">WORKFORCE</text></g>
+</g>
+<!-- ingress routes -->
+<g id="ingress">
+ <path id="route-order" class="route semantic" d="M27 204C83 204 118 204 195 204"/>
+ <path id="route-inventory" class="route semantic" d="M26 246C109 246 194 173 319 143"/>
+ <path id="route-carrier" class="route semantic" d="M28 288C154 288 463 206 590 190"/>
+ <text x="28" y="193" class="tiny">order.received</text><text x="28" y="235" class="tiny">inventory.changed</text><text x="28" y="277" class="tiny">carrier.capacity_reduced</text>
+ <circle id="packet-order" class="packet" r="4"/><circle id="packet-inventory" class="packet" r="4"/><circle id="packet-carrier" class="packet" r="4"/>
+</g>
+<!-- graph lattice -->
+<g id="region-graph" class="click-region" tabindex="0" role="button" aria-label="Graph lattice resolving the active trace">
+ <text x="154" y="379" class="section-label">GRAPH LATTICE</text><path class="callout" d="M154 388H217"/>
+ <g id="graph-links">
+  <path class="cluster-link" d="M218 420L278 388L332 422L278 461Z"/><path class="cluster-link" d="M278 388L278 461"/><path class="cluster-link" d="M332 422L392 390L446 424L392 465Z"/><path class="cluster-link" d="M392 390L392 465"/><path class="cluster-link" d="M446 424L508 394L560 430L508 466Z"/><path class="cluster-link" d="M508 394L508 466"/>
+ </g>
+ <g id="graph-nodes"><circle class="node" cx="218" cy="420" r="4"/><circle class="node" cx="278" cy="388" r="4"/><circle class="node" cx="332" cy="422" r="4"/><circle class="node" cx="278" cy="461" r="4"/><circle class="node" cx="392" cy="390" r="4"/><circle class="node" cx="446" cy="424" r="4"/><circle class="node" cx="392" cy="465" r="4"/><circle class="node" cx="508" cy="394" r="4"/><circle class="node" cx="560" cy="430" r="4"/><circle class="node" cx="508" cy="466" r="4"/></g>
+ <text x="228" y="411" class="tiny">ORDER 74291</text><text x="336" y="414" class="tiny">CUSTOMER VALE</text><text x="451" y="416" class="tiny">DC-04</text><text x="513" y="459" class="tiny">NORTHLINE</text>
+ <text x="242" y="481" class="tiny">placed_by</text><text x="374" y="484" class="tiny">fulfilled_at</text><text x="484" y="486" class="tiny">carried_by</text>
+</g>
+<!-- service ring -->
+<g id="region-semantic" class="click-region" tabindex="0" role="button" aria-label="Semantic service ring deriving Big E">
+ <ellipse class="ring" cx="438" cy="369" rx="226" ry="192"/><path id="ring-route" class="route ring-live" d="M250 471A226 192 0 1 1 617 252"/>
+ <text x="646" y="356" class="section-label">SEMANTIC</text><text x="646" y="369" class="section-label">SERVICE RING</text><path class="callout" d="M640 374L598 391"/>
+ <g id="little-e"><circle class="token" cx="280" cy="287" r="10"/><text class="token-text" x="280" y="290" text-anchor="middle">e</text><circle class="token" cx="384" cy="202" r="10"/><text class="token-text" x="384" y="205" text-anchor="middle">e</text><circle class="token" cx="556" cy="251" r="10"/><text class="token-text" x="556" y="254" text-anchor="middle">e</text></g>
+ <text x="262" y="268" class="tiny">MAPPINGS</text><text x="350" y="182" class="tiny">IDENTITY + RELATIONS</text><text x="530" y="231" class="tiny">TEMPORAL CONTEXT</text>
+ <path id="route-e1" class="route semantic" d="M280 297Q315 322 351 338"/><path id="route-e2" class="route semantic" d="M384 212Q379 276 371 335"/><path id="route-e3" class="route semantic" d="M556 261Q484 296 394 338"/>
+ <rect id="big-e" x="340" y="332" width="191" height="50" rx="4" class="model"/><text x="354" y="349" class="tiny">BIG E / DERIVED INFLECTION</text><text x="354" y="365" class="big-e-text">HIGH-VALUE ORDER AT RISK</text><text x="354" y="376" class="tiny">OF MISSING CUSTOMER PROMISE</text>
+</g>
+<!-- progressor chamber -->
+<g id="region-progressor" class="click-region" tabindex="0" role="button" aria-label="Progressor chamber with current state and states models">
+ <rect class="chamber" x="280" y="492" width="392" height="184" rx="10"/>
+ <text x="300" y="516" class="section-label">PROGRESSOR CHAMBER</text><text x="650" y="516" class="tiny" text-anchor="end">STATE MACHINE / DECISION AUTHORITY</text>
+ <rect class="model" x="300" y="532" width="164" height="124" rx="4"/><text x="313" y="550" class="label">CURRENT STATE MODEL</text>
+ <text x="313" y="566" class="tiny">FACTS · INFERRED · CONFIDENCE</text><text x="313" y="578" class="tiny">RECENCY · CONTRADICTIONS</text>
+ <rect id="state-before" class="state-row current" x="313" y="589" width="138" height="23" rx="2"/><text x="322" y="604" class="state-value">FULFILLABLE</text>
+ <path id="state-arrow" class="route semantic" d="M327 622H436"/><text x="381" y="632" class="tiny" text-anchor="middle">STATE ADVANCE</text>
+ <text id="state-after" x="322" y="648" class="state-value" fill-opacity="0">AT RISK</text>
+ <rect class="model" x="480" y="532" width="172" height="124" rx="4"/><text x="493" y="550" class="label">STATES MODEL</text><text x="493" y="566" class="tiny">VALID · POSSIBLE · PROHIBITED</text><text x="493" y="578" class="tiny">DESIRED · TRANSITION GATES</text>
+ <g id="candidates"><rect class="candidate" x="493" y="590" width="70" height="21" rx="2"/><text x="528" y="604" class="tiny" text-anchor="middle">REROUTE</text><rect class="candidate" x="568" y="590" width="70" height="21" rx="2"/><text x="603" y="604" class="tiny" text-anchor="middle">SPLIT</text><rect class="candidate" x="493" y="618" width="70" height="21" rx="2"/><text x="528" y="632" class="tiny" text-anchor="middle">ESCALATE</text><rect id="wait-candidate" class="candidate" x="568" y="618" width="70" height="21" rx="2"/><text x="603" y="632" class="tiny" text-anchor="middle">WAIT</text></g>
+ <path id="gate-contour" class="amber-line route" d="M474 524H658V662H474Z"/><text x="664" y="646" class="tiny" fill="#d9a441">PROMISE</text><text x="664" y="657" class="tiny" fill="#d9a441">WINDOW</text>
+</g>
+<!-- synchronized ribbons -->
+<g id="region-ribbons" class="click-region" tabindex="0" role="button" aria-label="Stage log and semantic chain synchronized ribbons">
+ <path id="ribbon-stage" class="route ribbon-stage" d="M676 555C738 542 774 526 826 500C873 476 907 462 958 470"/>
+ <path id="ribbon-semantic" class="route ribbon-semantic" d="M676 575C744 569 778 550 833 527C883 506 914 499 971 510"/>
+ <text x="797" y="492" class="ribbon-label" fill="#e3e6e2">STAGE LOG / WHAT OCCURRED</text><text x="807" y="550" class="ribbon-label" fill="#35c6c2">SEMANTIC CHAIN / WHAT IT MEANT + WHY</text>
+ <path id="action-route" class="route semantic" d="M650 608C736 619 808 602 881 557"/><path id="expected-route" class="route expected" d="M881 557Q962 525 1035 390"/>
+ <text x="833" y="596" class="tiny">REROUTE SELECTED</text>
+</g>
+<!-- evidence vault -->
+<g id="region-vault" class="click-region" tabindex="0" role="button" aria-label="ClickHouse evidence vault and immutable receipt">
+ <path class="proof-line" d="M460 677V706"/><rect class="vault" x="278" y="706" width="470" height="86" rx="5"/>
+ <text x="297" y="728" class="section-label" fill="#fff7df">CLICKHOUSE EVIDENCE VAULT</text><text x="728" y="728" class="tiny" text-anchor="end">APPEND-ONLY / 74291-2026-08-10T14:32:18Z</text>
+ <g id="receipt-slots"><rect class="receipt-slot" x="297" y="741" width="58" height="31" rx="2"/><rect class="receipt-slot" x="361" y="741" width="58" height="31" rx="2"/><rect class="receipt-slot" x="425" y="741" width="58" height="31" rx="2"/><rect class="receipt-slot" x="489" y="741" width="58" height="31" rx="2"/><rect class="receipt-slot" x="553" y="741" width="58" height="31" rx="2"/><rect class="receipt-slot" x="617" y="741" width="58" height="31" rx="2"/><rect class="receipt-slot" x="681" y="741" width="48" height="31" rx="2"/></g>
+ <text x="326" y="754" class="tiny" text-anchor="middle">INPUTS</text><text x="390" y="754" class="tiny" text-anchor="middle">STATE</text><text x="454" y="754" class="tiny" text-anchor="middle">ALTS</text><text x="518" y="754" class="tiny" text-anchor="middle">ACTION</text><text x="582" y="754" class="tiny" text-anchor="middle">CHAIN</text><text x="646" y="754" class="tiny" text-anchor="middle">EXPECT</text><text x="705" y="754" class="tiny" text-anchor="middle">OBS.</text>
+ <text x="326" y="766" class="tiny" text-anchor="middle">3</text><text x="390" y="766" class="tiny" text-anchor="middle">v184</text><text x="454" y="766" class="tiny" text-anchor="middle">4</text><text x="518" y="766" class="tiny" text-anchor="middle">REROUTE</text><text x="582" y="766" class="tiny" text-anchor="middle">sha256</text><text x="646" y="766" class="tiny" text-anchor="middle">PROMISE</text><text x="705" y="766" class="tiny" text-anchor="middle">MET</text>
+ <circle id="receipt-packet" class="packet proof-packet" r="4"/>
+</g>
+<!-- outcome return -->
+<g id="region-outcome" class="click-region" tabindex="0" role="button" aria-label="Verified outcome return">
+ <path id="outcome-route" class="route semantic" d="M729 760C892 752 1034 681 1040 532C1046 425 952 352 738 372"/>
+ <path id="return-state-route" class="route proof-line" d="M738 372C687 400 634 424 580 472"/>
+ <text x="896" y="704" class="section-label">OUTCOME RETURN</text><text x="900" y="718" class="tiny">PROMISE PROTECTED</text><text x="900" y="731" class="tiny">→ EVIDENCE + GRAPH + NEXT STATE</text>
+ <circle id="outcome-packet" class="packet outcome-packet" r="4"/>
+</g>
+</svg>
+<!-- dedicated mobile causal topology -->
+<div class="mobile-topology" id="mobile-topology" aria-label="Mobile Cortex trace topology">
+ <button class="mobile-card active" data-region="domain"><span class="mobile-kicker"><span>01 / Domain hubs</span><span>3 events</span></span><span class="mobile-main">Orders + Inventory + Logistics</span><span class="mobile-sub">order.received · inventory.changed · carrier.capacity_reduced</span></button>
+ <button class="mobile-card" data-region="graph"><span class="mobile-kicker"><span>02 / Graph context</span><span>4 entities</span></span><span class="mobile-main">74291 ↔ Vale ↔ DC-04 ↔ Northline</span><span class="mobile-sub">placed_by · fulfilled_at · carried_by</span></button>
+ <button class="mobile-card" data-region="semantic"><span class="mobile-kicker"><span>03 / Semantic service</span><span>Big E</span></span><span class="mobile-main">High-value order at risk</span><span class="mobile-sub">Identity + relationship + temporal context converge</span></button>
+ <button class="mobile-card" data-region="progressor"><span class="mobile-kicker"><span>04 / Progressor</span><span>v184</span></span><span class="mobile-main">FULFILLABLE → AT RISK</span><span class="mobile-sub">Current state changes; states model bounds what may happen next</span></button>
+ <button class="mobile-card threshold" data-region="decision"><span class="mobile-kicker"><span>05 / Decision</span><span>Gate closes</span></span><span class="mobile-main">REROUTE selected · WAIT prohibited</span><span class="mobile-sub">Promise-window constraint removes the passive path</span></button>
+ <button class="mobile-card proof-card" data-region="vault"><span class="mobile-kicker"><span>06 / Receipt</span><span>Immutable</span></span><span class="mobile-main">cx://decision/74291/184</span><span class="mobile-sub">Inputs · snapshot · alternatives · action · chain · expected outcome</span></button>
+ <button class="mobile-card" data-region="outcome"><span class="mobile-kicker"><span>07 / Verified outcome</span><span>Observed</span></span><span class="mobile-main">PROMISE PROTECTED</span><span class="mobile-sub">Returns into evidence, graph context, and current state v185</span></button>
+</div>
+</section>
+<aside class="inspector" aria-label="Trace inspector">
+ <p class="eyebrow">Inside the Cortex / trace 74291</p>
+ <h1>Inside the Cerniam Cortex</h1>
+ <p class="thesis">A transparent flight recorder wrapped around a living state machine.</p>
+ <div class="active-label" id="active-label">Ingress / source events</div>
+ <dl class="readout" id="readout"></dl>
+ <div class="milestone"><span id="milestone">Trace ready — select Replay</span><div class="timeline"><i id="progress-bar"></i></div></div>
+ <div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true"></div>
+</aside>
+</main>
+</div>
+<script>
+(()=>{
+'use strict';
+const DURATION=14000;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const plate=document.getElementById('plate');
+const progressBar=document.getElementById('progress-bar');
+const milestone=document.getElementById('milestone');
+const announcer=document.getElementById('announcer');
+const pauseButton=document.getElementById('pause');
+const readout=document.getElementById('readout');
+const activeLabel=document.getElementById('active-label');
+const routes=[...document.querySelectorAll('.route')];
+const packets={order:document.getElementById('packet-order'),inventory:document.getElementById('packet-inventory'),carrier:document.getElementById('packet-carrier'),receipt:document.getElementById('receipt-packet'),outcome:document.getElementById('outcome-packet')};
+const paths={order:document.getElementById('route-order'),inventory:document.getElementById('route-inventory'),carrier:document.getElementById('route-carrier'),receipt:document.querySelector('#region-vault .proof-line'),outcome:document.getElementById('outcome-route')};
+const info={
+ domain:{label:'Ingress / source events',entered:'order.received + inventory.changed + carrier.capacity_reduced',believed:'Three bounded domain facts are valid, recent, and attributable.',changed:'The Orders, Inventory, and Logistics hubs admit a synchronized trace.',why:'No action yet. The Cortex first establishes authority and time.',after:'The facts enter graph resolution without losing source provenance.'},
+ graph:{label:'Graph lattice / active context',entered:'Order 74291 and three fresh operational changes.',believed:'74291 belongs to Vale, fulfills at DC-04, and depends on Northline.',changed:'Only the causal cluster illuminates; unrelated evidence remains dim.',why:'Typed relations establish which promise is exposed to which capacity loss.',after:'Resolved entities feed semantic service as one contextual trace.'},
+ semantic:{label:'Semantic service / Big E',entered:'Mapped events, resolved identities, relationships, and temporal context.',believed:'High-value order at risk of missing customer promise.',changed:'Three little-e meanings converge into one consequential Big E.',why:'The combined meaning crosses the promise-risk threshold.',after:'Big E enters the Progressor as a state-changing inflection.'},
+ progressor:{label:'Progressor / current state',entered:'Big E + current snapshot v184.',believed:'Facts are consistent enough to advance with 0.93 confidence.',changed:'Current state advances from FULFILLABLE to AT RISK.',why:'Carrier capacity loss makes the prior state no longer honest.',after:'The separate states model enumerates valid next transitions.'},
+ decision:{label:'States model / transition gate',entered:'AT RISK plus REROUTE, SPLIT, ESCALATE, and WAIT candidates.',believed:'WAIT would cross the remaining customer-promise window.',changed:'WAIT is prohibited; REROUTE becomes the selected valid transition.',why:'REROUTE protects the promise with the least irreversible intervention.',after:'The selected action exits while the entire decision chain is committed.'},
+ vault:{label:'ClickHouse / immutable evidence',entered:'Inputs, state v184, 4 alternatives, REROUTE, semantic chain, expected outcome.',believed:'The decision is reproducible from append-only evidence.',changed:'Receipt cx://decision/74291/184 is committed.',why:'Every action must preserve what occurred, what it meant, and why it mattered.',after:'Observed outcome is appended against the same receipt lineage.',proof:'sha256:8f36c8f7…d19a · tenant cerniam-eu-01 · 2026-08-10T14:32:18.442Z'},
+ outcome:{label:'Outcome return / verified truth',entered:'Observed route completion + carrier acceptance.',believed:'Customer promise remains achievable and the selected action worked.',changed:'PROMISE PROTECTED returns as current state v185.',why:'Observed truth closes the expected-versus-actual loop.',after:'Evidence, graph context, and the next current state are synchronized.',proof:'observed_outcome=PROMISE_PROTECTED · latency=11.8s · receipt=74291/184'}
+};
+const phases=[
+ {at:0,label:'Trace initialized',region:'domain'},
+ {at:.06,label:'White event packets entering domain membrane',region:'domain'},
+ {at:.18,label:'Typed graph relations resolving active cluster',region:'graph'},
+ {at:.31,label:'Little-e meanings converging',region:'semantic'},
+ {at:.43,label:'Big E derived: high-value order at risk',region:'semantic'},
+ {at:.55,label:'Current state: FULFILLABLE → AT RISK',region:'progressor'},
+ {at:.66,label:'Candidate transitions revealed',region:'decision'},
+ {at:.73,label:'Constraint eliminates WAIT',region:'decision'},
+ {at:.80,label:'REROUTE selected',region:'decision'},
+ {at:.88,label:'Immutable decision receipt committed',region:'vault'},
+ {at:.94,label:'Observed outcome returning',region:'outcome'},
+ {at:1,label:'PROMISE PROTECTED / current state v185',region:'outcome'}
+];
+let progress=reduced?1:0,playing=false,lastTime=0,raf=0,currentPhase=-1,view='live',selected='domain';
+function setInspector(region,announce=false){selected=region;const d=info[region]||info.domain;activeLabel.textContent=d.label;readout.innerHTML=`<div><dt>What entered</dt><dd>${d.entered}</dd></div><div><dt>What the Cortex believed</dt><dd>${d.believed}</dd></div><div><dt>What changed</dt><dd><strong>${d.changed}</strong></dd></div><div><dt>Why it acted</dt><dd>${d.why}</dd></div><div><dt>What happened afterward</dt><dd>${d.after}</dd></div>${d.proof?`<div><dt>Proof</dt><dd class="proof">${d.proof}</dd></div>`:''}`;document.querySelectorAll('[data-region]').forEach(el=>el.classList.toggle('active',el.dataset.region===region));if(announce)announcer.textContent=d.label;}
+function pathPoint(packet,path,t){if(!packet||!path)return;const len=path.getTotalLength();const p=path.getPointAtLength(Math.max(0,Math.min(1,t))*len);packet.setAttribute('cx',p.x);packet.setAttribute('cy',p.y);}
+function range(p,a,b){return Math.max(0,Math.min(1,(p-a)/(b-a)))}
+function render(p){progress=Math.max(0,Math.min(1,p));progressBar.style.width=(progress*100)+'%';routes.forEach(r=>r.classList.remove('on'));const routeThresholds=[['route-order',.05],['route-inventory',.07],['route-carrier',.09],['ring-route',.17],['route-e1',.30],['route-e2',.31],['route-e3',.32],['state-arrow',.51],['gate-contour',.68],['ribbon-stage',.74],['ribbon-semantic',.76],['action-route',.79],['expected-route',.81],['outcome-route',.91],['return-state-route',.96]];routeThresholds.forEach(([id,t])=>{if(progress>=t)document.getElementById(id)?.classList.add('on')});
+ Object.values(packets).forEach(x=>x.classList.remove('visible'));if(progress>=.05&&progress<.19){packets.order.classList.add('visible');packets.inventory.classList.add('visible');packets.carrier.classList.add('visible');pathPoint(packets.order,paths.order,range(progress,.05,.15));pathPoint(packets.inventory,paths.inventory,range(progress,.07,.17));pathPoint(packets.carrier,paths.carrier,range(progress,.09,.19));}
+ const nodes=[...document.querySelectorAll('#graph-nodes .node')],links=[...document.querySelectorAll('#graph-links .cluster-link')];nodes.forEach((n,i)=>n.classList.toggle('semantic-active',progress>=.18+i*.012));links.forEach((l,i)=>l.classList.toggle('active',progress>=.20+i*.013));
+ document.getElementById('big-e').style.stroke=progress>=.43?'var(--teal)':'#38515d';document.getElementById('state-after').setAttribute('fill-opacity',progress>=.55?'1':'0');document.getElementById('state-before').classList.toggle('current',progress<.55);
+ document.querySelectorAll('#candidates .candidate').forEach(c=>c.classList.toggle('reveal',progress>=.66));document.getElementById('wait-candidate').classList.toggle('eliminated',progress>=.73);document.querySelector('#candidates .candidate').classList.toggle('selected',progress>=.80);
+ document.querySelectorAll('#receipt-slots .receipt-slot').forEach((s,i)=>s.classList.toggle('committed',progress>=.84+i*.012));if(progress>=.82&&progress<.9){packets.receipt.classList.add('visible');pathPoint(packets.receipt,paths.receipt,range(progress,.82,.9));}if(progress>=.91&&progress<1){packets.outcome.classList.add('visible');pathPoint(packets.outcome,paths.outcome,range(progress,.91,1));}
+ let phase=0;for(let i=0;i<phases.length;i++)if(progress>=phases[i].at)phase=i;if(phase!==currentPhase){currentPhase=phase;milestone.textContent=phases[phase].label;announcer.textContent=phases[phase].label;if(view==='live')setInspector(phases[phase].region,false);}if(progress>=1){playing=false;pauseButton.textContent='Resume';pauseButton.setAttribute('aria-pressed','true');}}
+function frame(t){if(!playing)return;if(!lastTime)lastTime=t;progress+=(t-lastTime)/DURATION;lastTime=t;render(progress);if(progress<1)raf=requestAnimationFrame(frame)}
+function replay(){cancelAnimationFrame(raf);currentPhase=-1;lastTime=0;progress=0;playing=!reduced;pauseButton.textContent=reduced?'Resume':'Pause';pauseButton.setAttribute('aria-pressed','false');render(reduced?1:0);if(playing)raf=requestAnimationFrame(frame)}
+function pause(){if(!playing)return;playing=false;cancelAnimationFrame(raf);pauseButton.textContent='Resume';pauseButton.setAttribute('aria-pressed','true');announcer.textContent='Trace paused'}
+function resume(){if(reduced||progress>=1){replay();return}if(playing)return;playing=true;lastTime=0;pauseButton.textContent='Pause';pauseButton.setAttribute('aria-pressed','false');announcer.textContent='Trace resumed';raf=requestAnimationFrame(frame)}
+function setView(name){if(!['live','state','evidence'].includes(name))return;view=name;plate.classList.remove('view-live','view-state','view-evidence');plate.classList.add('view-'+name);document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===name)));document.querySelectorAll('.mobile-card').forEach(card=>{card.hidden=name==='state'&&!['progressor','decision'].includes(card.dataset.region)||name==='evidence'&&!['vault','outcome'].includes(card.dataset.region)});const region=name==='state'?'progressor':name==='evidence'?'vault':phases[currentPhase]?.region||'domain';setInspector(region,true)}
+document.getElementById('replay').addEventListener('click',replay);pauseButton.addEventListener('click',()=>playing?pause():resume());document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));document.querySelectorAll('[data-region]').forEach(el=>{el.addEventListener('click',()=>setInspector(el.dataset.region,true));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setInspector(el.dataset.region,true)}})});['domain','graph','semantic','progressor','vault','outcome'].forEach(region=>{const el=document.getElementById('region-'+region);if(el){el.dataset.region=region;el.addEventListener('click',()=>setInspector(region,true));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setInspector(region,true)}})}});
+window.__cortexInterior={replay,pause,resume,setView,get state(){return{playing,view,selected,phase:phases[currentPhase]?.label||'ready'}},get progress(){return progress}};
+setInspector('domain');if(reduced){render(1);setInspector('outcome')}else replay();
+})();
+</script>
+</body>
+</html>
