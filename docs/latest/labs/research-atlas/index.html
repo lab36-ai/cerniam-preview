@@ -8,9 +8,9 @@
 <title>Research Atlas — Cerniam Research</title>
 <link rel="stylesheet" href="../assets/labs.css">
 <link rel="stylesheet" href="../../assets/site-header.css?v=5">
-<link rel="stylesheet" href="research-atlas.css?v=1">
+<link rel="stylesheet" href="research-atlas.css?v=2">
 <script src="../../assets/site-header.js?v=1" defer></script>
-<script src="research-atlas.js?v=1" defer></script>
+<script src="research-atlas.js?v=2" defer></script>
 </head>
 <body class="research-atlas-page">
 <a class="skip" href="#atlas-instrument">Skip to Research Atlas</a>
@@ -41,58 +41,64 @@
         <p>Generic architecture / Vendor-neutral / Interactive</p>
       </header>
 
-      <section class="artifact-plane" aria-labelledby="artifact-title">
-        <header class="instrument-section-head"><span>05 / Inspectability</span><h2 id="artifact-title">Research artifacts</h2><p>What intelligence must leave behind</p></header>
-        <div class="artifact-register">
-          <article><span>TRACE</span><b>Causal trace</b><small>event → context → decision</small></article>
-          <article><span>RECEIPT</span><b>Decision receipt</b><small>recommendation + authority</small></article>
-          <article><span>LINEAGE</span><b>Evidence lineage</b><small>source + version + time</small></article>
-          <article><span>REPLAY</span><b>State replay</b><small>world at decision time</small></article>
-        </div>
+      <section class="artifact-service-plane" aria-labelledby="artifact-title">
+        <div class="plane-label"><span>Research artifacts</span><b id="artifact-title">Trace · Decision receipt · Evidence lineage · State replay</b></div>
+        <small>Inspectable outputs above the Intelligence Plane</small>
       </section>
-
-      <div class="vertical-link" aria-hidden="true"><span></span><b>Inspectable outputs</b><span></span></div>
 
       <section class="intelligence-plane" aria-labelledby="intelligence-title">
-        <header class="instrument-section-head"><span>04 / Reasoning</span><h2 id="intelligence-title">Intelligence Plane</h2><p>Compare, constrain, recommend</p></header>
+        <header class="intelligence-label"><span id="intelligence-title">Intelligence Plane</span><small>Compare · constrain · recommend</small></header>
         <div class="intelligence-grid">
-          <article class="deterministic-intelligence"><span>Deterministic intelligence</span><b>Rules · SEMs · optimization</b><small>Signal · score · proof</small></article>
-          <article class="agent-intelligence"><span>Agent intelligence</span><b>Targets · strategy · arbitration</b><small>Candidate · recommendation · receipt</small></article>
+          <article class="intelligence-card deterministic"><span>Deterministic Intelligence</span><p>Rules · SEMs · Markov · Optimization</p><small>Signal · Score · Proof</small></article>
+          <article class="intelligence-card agentic"><span>Agent Intelligence</span><p>Targets · Strategy · Arbitration · Resolver</p><small>Candidate · Recommendation · Receipt</small></article>
+        </div>
+        <div class="context-rail"><i aria-hidden="true"></i><b>Living Context</b><span>Source-stamped · temporal · portable · not recommendation</span><i aria-hidden="true"></i></div>
+      </section>
+
+      <section class="topology" aria-labelledby="topology-title">
+        <header class="topology-label"><span>Operational authority</span><h2 id="topology-title">Source Systems of Record</h2></header>
+        <svg class="connection-field" viewBox="0 0 1000 440" preserveAspectRatio="none" aria-hidden="true">
+          <path class="context-path teal" d="M488 0V150"/><path class="context-path cyan" d="M500 0V150"/><path class="context-path amber" d="M512 0V150"/>
+          <path data-link="commerce" class="system-path cyan" d="M200 55C305 75 344 157 410 190"/>
+          <path data-link="fulfillment" class="system-path teal" d="M200 165C315 176 350 203 410 220"/>
+          <path data-link="care" class="system-path attention" d="M200 275C315 264 352 251 410 250"/>
+          <path data-link="carrier" class="system-path amber" d="M200 385C306 350 350 307 410 280"/>
+          <path data-link="orchestration" class="system-path violet" d="M800 55C695 75 654 157 590 190"/>
+          <path data-link="finance" class="system-path amber" d="M800 165C688 176 650 203 590 220"/>
+          <path data-link="payments" class="system-path violet" d="M800 275C688 264 650 251 590 250"/>
+          <path data-link="product" class="system-path fixture" d="M800 385C694 350 650 307 590 280"/>
+        </svg>
+
+        <div class="topology-grid">
+          <div class="system-column system-column-left" aria-label="Operational source systems">
+            <button type="button" class="system-card" data-source="commerce" aria-pressed="false" style="--accent:#68d8e8"><span class="system-status">Mapped</span><span class="system-code">COM</span><span class="system-copy"><b>Commerce record</b><small>Orders + customer intent</small></span></button>
+            <button type="button" class="system-card is-selected" data-source="fulfillment" aria-pressed="true" style="--accent:#53d3a9"><span class="system-status">Mapped</span><span class="system-code">FUL</span><span class="system-copy"><b>Fulfillment record</b><small>Inventory + execution</small></span></button>
+            <button type="button" class="system-card" data-source="care" aria-pressed="false" style="--accent:#e684a8"><span class="system-status">Review</span><span class="system-code">CARE</span><span class="system-copy"><b>Customer-care record</b><small>Cases + service state</small></span></button>
+            <button type="button" class="system-card" data-source="carrier" aria-pressed="false" style="--accent:#d99451"><span class="system-status">External</span><span class="system-code">MOVE</span><span class="system-copy"><b>Carrier network</b><small>Movement + commitment</small></span></button>
+          </div>
+
+          <div class="cortex-zone" aria-label="Cerniam Cortex Integration Core">
+            <div class="cortex-orbit orbit-one" aria-hidden="true"></div><div class="cortex-orbit orbit-two" aria-hidden="true"></div>
+            <div class="cortex-sphere"><span>Cerniam Cortex</span><b>Integration<br>Core</b><small>Ingest · Resolve · Project</small></div>
+          </div>
+
+          <div class="system-column system-column-right" aria-label="Enterprise source systems">
+            <button type="button" class="system-card" data-source="orchestration" aria-pressed="false" style="--accent:#8177e8"><span class="system-status">Mapped</span><span class="system-code">ORD</span><span class="system-copy"><b>Order orchestration</b><small>Order state + routing</small></span></button>
+            <button type="button" class="system-card" data-source="finance" aria-pressed="false" style="--accent:#e7b85c"><span class="system-status">Mapped</span><span class="system-code">FIN</span><span class="system-copy"><b>Finance record</b><small>Posting + settlement</small></span></button>
+            <button type="button" class="system-card" data-source="payments" aria-pressed="false" style="--accent:#9d83ef"><span class="system-status">Mapped</span><span class="system-code">PAY</span><span class="system-copy"><b>Payment record</b><small>Authorization + capture</small></span></button>
+            <button type="button" class="system-card" data-source="product" aria-pressed="false" style="--accent:#65798f"><span class="system-status">Registered</span><span class="system-code">PROD</span><span class="system-copy"><b>Product record</b><small>Definition + catalog</small></span></button>
+          </div>
         </div>
       </section>
 
-      <div class="context-plane"><span>03 / Living context</span><b>Source-stamped · temporal · portable · not recommendation</b></div>
-
-      <section class="cortex-core" aria-labelledby="core-title">
-        <div><span>02 / Cortex integration</span><h2 id="core-title">Integration Core</h2></div>
-        <p>Ingest <i>→</i> Resolve <i>→</i> Project</p>
-        <b>Contracts remain visible. Authority remains bounded.</b>
+      <section class="source-inspector" aria-live="polite" aria-label="Selected source-system contract">
+        <div class="inspector-identity"><span data-slot="status">Mapped contract</span><b data-slot="title">Fulfillment record</b><small data-slot="meta">inventory · execution</small></div>
+        <div><span>Observed contract</span><b data-slot="contract">inventory.changed → fulfillment context</b></div>
+        <div><span>Atlas inspects</span><b data-slot="observes">health · schema · event time · receipts</b></div>
+        <div><span>Authority boundary</span><b data-slot="authority">The fulfillment system owns execution. Cortex maintains cross-system operational context.</b></div>
       </section>
 
-      <div class="vertical-link vertical-link--source" aria-hidden="true"><span></span><b>Mapped contracts + signals</b><span></span></div>
-
-      <section class="source-plane" aria-labelledby="source-title">
-        <header class="source-plane-head"><div><span>01 / Operational authority</span><h2 id="source-title">Source Systems of Record</h2></div><p>Generic domain sources / Vendor names intentionally removed</p></header>
-        <div class="source-grid" aria-label="Generic source systems of record">
-          <button type="button" class="source-card" data-source="commerce" aria-pressed="false"><span>SYS-01</span><b>Commerce record</b><small>Orders + customer intent</small></button>
-          <button type="button" class="source-card is-selected" data-source="fulfillment" aria-pressed="true"><span>SYS-02</span><b>Fulfillment record</b><small>Inventory + execution</small></button>
-          <button type="button" class="source-card" data-source="care" aria-pressed="false"><span>SYS-03</span><b>Customer-care record</b><small>Cases + service state</small></button>
-          <button type="button" class="source-card" data-source="carrier" aria-pressed="false"><span>SYS-04</span><b>Carrier network</b><small>Movement + commitment</small></button>
-          <button type="button" class="source-card" data-source="orchestration" aria-pressed="false"><span>SYS-05</span><b>Order orchestration</b><small>Order state + routing</small></button>
-          <button type="button" class="source-card" data-source="finance" aria-pressed="false"><span>SYS-06</span><b>Finance record</b><small>Posting + settlement</small></button>
-          <button type="button" class="source-card" data-source="payments" aria-pressed="false"><span>SYS-07</span><b>Payment record</b><small>Authorization + capture</small></button>
-          <button type="button" class="source-card" data-source="product" aria-pressed="false"><span>SYS-08</span><b>Product record</b><small>Definition + catalog</small></button>
-        </div>
-
-        <section class="source-inspector" aria-live="polite" aria-label="Selected source-system contract">
-          <div class="inspector-identity"><span data-slot="status">Mapped contract</span><b data-slot="title">Fulfillment record</b><small data-slot="meta">inventory · execution</small></div>
-          <div><span>Observed contract</span><b data-slot="contract">inventory.changed → fulfillment context</b></div>
-          <div><span>Atlas inspects</span><b data-slot="observes">health · schema · event time · receipts</b></div>
-          <div><span>Authority boundary</span><b data-slot="authority">The fulfillment system owns execution. Cortex maintains cross-system operational context.</b></div>
-        </section>
-      </section>
-
-      <footer class="instrument-footer"><span>FLOW: SOURCE → CONTEXT → INTELLIGENCE → EVIDENCE</span><b>Research model / Representative architecture</b></footer>
+      <footer class="instrument-footer"><span><i class="legend-dot legend-dot--mapped"></i> Mapped <i class="legend-dot legend-dot--review"></i> Review <i class="legend-dot legend-dot--registered"></i> Registered</span><b>Source → Context → Intelligence → Evidence</b></footer>
     </section>
   </div>
 </section>

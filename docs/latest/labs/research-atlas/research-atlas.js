@@ -9,14 +9,25 @@ const resources={
   payments:{status:'Mapped contract',title:'Payment record',meta:'authorization · capture',contract:'payment.state → commitment context',observes:'endpoint health · schema · event time · receipts',authority:'The payment system owns transaction execution. Cortex maintains downstream impact context.'},
   product:{status:'Registered source',title:'Product record',meta:'definition · catalog',contract:'product.updated → governed catalog context',observes:'registration · schema · version · binding',authority:'The product system owns product definition. Cortex consumes governed product context.'}
 };
-const cards=[...document.querySelectorAll('.source-card')];
+const cards=[...document.querySelectorAll('.system-card')];
+const paths=[...document.querySelectorAll('[data-link]')];
 const slots={status:document.querySelector('[data-slot="status"]'),title:document.querySelector('[data-slot="title"]'),meta:document.querySelector('[data-slot="meta"]'),contract:document.querySelector('[data-slot="contract"]'),observes:document.querySelector('[data-slot="observes"]'),authority:document.querySelector('[data-slot="authority"]')};
+const setHighlight=id=>paths.forEach(path=>path.classList.toggle('is-highlighted',path.dataset.link===id));
+const clearHighlight=()=>{const selected=document.querySelector('.system-card.is-selected');setHighlight(selected?.dataset.source)};
 const select=id=>{
   const data=resources[id];
   if(!data)return;
   cards.forEach(card=>{const active=card.dataset.source===id;card.classList.toggle('is-selected',active);card.setAttribute('aria-pressed',String(active))});
   Object.entries(slots).forEach(([key,node])=>{if(node)node.textContent=data[key]});
+  setHighlight(id);
 };
-cards.forEach(card=>card.addEventListener('click',()=>select(card.dataset.source)));
+cards.forEach(card=>{
+  const id=card.dataset.source;
+  card.addEventListener('mouseenter',()=>setHighlight(id));
+  card.addEventListener('mouseleave',clearHighlight);
+  card.addEventListener('focus',()=>setHighlight(id));
+  card.addEventListener('blur',clearHighlight);
+  card.addEventListener('click',()=>select(id));
+});
 select('fulfillment');
 })();
