@@ -58,7 +58,7 @@ main{width:min(1320px,calc(100% - 48px));margin:auto}
   max-width:22ch;
   margin:0;
   color:var(--deep);
-  font:800 clamp(48px,4.4vw,64px)/.98 var(--sans);
+  font:800 clamp(48px,4.4vw,64px)/.98 var(--condensed);
   letter-spacing:-.055em;
 }
 .hero-copy{
@@ -248,16 +248,16 @@ main{width:min(1320px,calc(100% - 48px));margin:auto}
   .hero-actions{display:grid}.button{width:100%}
   .hero-aside{padding:24px 0 0;border-left:0;border-top:1px solid var(--line)}
   .architecture-section{padding-top:68px}
-  .section-intro h2,.architecture-title{font-family:var(--sans);font-size:27px;line-height:1.05;text-transform:none}
+  .section-intro h2,.architecture-title{font-family:var(--condensed);font-size:27px;line-height:1.05;text-transform:none}
   .architecture-title{margin-top:48px}
   .source-stack ul,.output-stack ul{grid-template-columns:1fr}
   .source-stack li:nth-child(odd),.output-stack li:nth-child(odd){border-right:0}
   .architecture-stack li{min-height:62px}
   .core-nodes article{grid-template-columns:44px minmax(0,1fr);padding-inline:12px}
   .core-code{width:38px;height:38px}
-  .learning{padding:27px 20px}.learning-intro{grid-template-columns:1fr}.learning-symbol{width:48px;height:48px}.learning h2{font-family:var(--sans);font-size:23px;line-height:1.05;text-transform:none}
+  .learning{padding:27px 20px}.learning-intro{grid-template-columns:1fr}.learning-symbol{width:48px;height:48px}.learning h2{font-family:var(--condensed);font-size:23px;line-height:1.05;text-transform:none}
   .learning ul{grid-template-columns:1fr}
-  .resources article{grid-template-columns:42px minmax(0,1fr);padding:25px 18px}.resource-index{width:38px;height:38px}.resources h2{font-family:var(--sans);font-size:21px;text-transform:none}
+  .resources article{grid-template-columns:42px minmax(0,1fr);padding:25px 18px}.resource-index{width:38px;height:38px}.resources h2{font-family:var(--condensed);font-size:21px;text-transform:none}
   .closing-cta{align-items:flex-start;flex-direction:column;margin-bottom:38px;padding:22px 19px}
   .closing-copy{align-items:flex-start}.closing-copy .brand-mark{width:38px;height:38px}.closing-cta>a{width:100%;justify-content:space-between}
 }
