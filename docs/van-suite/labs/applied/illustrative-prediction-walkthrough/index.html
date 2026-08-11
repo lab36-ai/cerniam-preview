@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="An illustrative Cerniam Labs walkthrough of a custom sequence transformer connected to operational memory and Cerniam decisioning.">
+<title>Illustrative Prediction Walkthrough — Cerniam Labs</title>
+<link rel="stylesheet" href="../../assets/labs.css">
+<link rel="stylesheet" href="../../assets/executive.css">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="prediction-walkthrough.css?v=3">
+</head>
+<body>
+<a class="skip" href="#workspace">Skip to research walkthrough</a>
+<div class="shell">
+<header class="masthead"><a class="lab-mark" href="../../" aria-label="Cerniam Labs research index"><span>CERNIAM</span><i></i><b>LABS</b></a><div class="mast-meta"><span>Applied Research</span><b>Illustrative Walkthrough / 2026</b></div><a class="cerniam-return" href="../../../">CERNIAM ↗</a></header>
+<nav class="section-nav" aria-label="Cerniam Labs sections"><a class="nav-item" href="../../"><span>01</span>Research Index</a><a class="nav-item" href="../../reports/"><span>02</span>Reports</a><a class="nav-item" href="../../models/"><span>03</span>Models</a><a class="nav-item is-active" href="./" aria-current="page"><span>04</span>Applied Research</a><a class="nav-item" href="../../researchers/"><span>05</span>Researchers</a></nav>
+<main id="workspace" tabindex="-1">
+<div class="preview-notice" role="note"><span><b>Illustrative research artifact</b> / Example scenarios and model scores</span><span>Not live model output · No customer claims</span></div>
+<section class="view prediction-view is-active" aria-labelledby="walkthrough-title">
+<header class="prediction-header">
+<div><span class="eyebrow">Decision Intelligence / Interactive Research Object</span><h1 id="walkthrough-title">Illustrative Prediction<br><em>Walkthrough</em></h1><p>See how a custom sequence transformer produces candidate intelligence, how operational memory supplies the living context around those candidates, and how Cerniam converts probability into a governed decision.</p></div>
+<aside aria-label="Research artifact status"><span>STATUS</span><b>ILLUSTRATIVE</b><span>MODEL</span><b>CUSTOM SEQUENCE TRANSFORMER</b><span>MEMORY</span><b>OPERATIONAL ENTITY + EVENT STATE</b><span>OUTPUT</span><b>GOVERNED RECOMMENDATION</b></aside>
+</header>
+<section class="research-frame" aria-labelledby="research-question-title">
+<div><span>Research question</span><h2 id="research-question-title">What changes when a transformer is connected to operational memory?</h2></div>
+<p>A transformer can rank what may happen next. Operational memory gives those candidates a living world: product relationships, basket state, availability, eligibility, policy, timing, and outcome history. Cerniam uses that context to determine what the enterprise should do now.</p>
+</section>
+<section class="architecture-narrative" aria-labelledby="architecture-title">
+<header><span>Architecture narrative / Closed operational loop</span><h2 id="architecture-title">A custom transformer connected to operational memory.</h2><p>The model is not the operating system. It is a predictive organ inside a wider decision architecture.</p></header>
+<div class="architecture-flow" aria-label="Operational memory to transformer to Cerniam decision to governed action">
+<article><span>01</span><b>Operational Memory</b><p>Ordered events, entities, relationships, current state, history, and constraints.</p></article><i aria-hidden="true">→</i>
+<article><span>02</span><b>Custom Transformer</b><p>Reads the sequence and produces ranked candidate products with model scores.</p></article><i aria-hidden="true">→</i>
+<article class="cerniam-step"><span>03</span><b>Cerniam Decisioning</b><p>Applies context, availability, compatibility, eligibility, value, and policy.</p></article><i aria-hidden="true">→</i>
+<article><span>04</span><b>Governed Action</b><p>Returns a decision score, reason, disposition, and inspectable receipt.</p></article>
+</div>
+<p class="feedback-line"><span>Outcome receipt</span>The observed outcome returns to operational memory, where it becomes context for the next prediction and decision.</p>
+</section>
+<section id="prediction-walkthrough" class="prediction-instrument" aria-labelledby="instrument-title">
+<header>
+<div><span class="instrument-label">Interactive instrument / Three scenarios</span><h2 id="instrument-title">Prediction is the beginning. Cerniam makes it operational.</h2></div>
+<label for="scenario-select">Customer sequence<select id="scenario-select"></select></label>
+</header>
+<div class="metrics" aria-live="polite">
+<article><span>Top-10 hits</span><strong id="hit-count">0</strong></article>
+<article><span>Recall@10</span><strong id="recall">0%</strong></article>
+<article><span>First hit</span><strong id="first-hit">—</strong></article>
+</div>
+<section class="instrument-section"><h3>Observed purchase sequence</h3><div id="history" class="sequence" role="list"></div></section>
+<div class="decision-summary" aria-live="polite"><div><strong id="candidate-count">10</strong><span>Transformer candidates</span></div><i>→</i><div><strong id="eligible-count">0</strong><span>Operationally eligible</span></div><i>→</i><div><strong id="filtered-count">0</strong><span>Filtered</span></div><i>→</i><div><strong id="selected-product">—</strong><span>Selected placement</span></div></div>
+<div class="comparison-toolbar">
+<div class="view-switch" aria-label="Comparison view"><span>View</span><button type="button" data-view="compare" aria-pressed="true">Compare</button><button type="button" data-view="transformer" aria-pressed="false">Transformer</button><button type="button" data-view="cerniam" aria-pressed="false">Cerniam</button></div>
+<button class="replay-button" type="button">Replay Cerniam decision →</button>
+</div>
+<section class="comparison-stage" data-view="compare" aria-label="Transformer ranking compared with Cerniam decision ranking">
+<svg class="rank-connectors" aria-hidden="true"></svg>
+<section class="rank-panel transformer-panel" aria-labelledby="transformer-title"><header><span>Transformer prediction</span><h3 id="transformer-title">What is likely next?</h3><b>MODEL SCORE</b></header><div id="transformer-ranking" class="comparison-ranking" role="list"></div></section>
+<section class="decision-rail" aria-labelledby="decision-rail-title"><header><span>Cerniam context</span><h3 id="decision-rail-title">Why did it move?</h3></header><div id="decision-reasons"></div></section>
+<section class="rank-panel cerniam-panel" aria-labelledby="cerniam-ranking-title"><header><span>Cerniam decisioning</span><h3 id="cerniam-ranking-title">What should happen now?</h3><b>DECISION SCORE</b></header><div id="cerniam-ranking" class="comparison-ranking" role="list"></div></section>
+</section>
+<section id="mobile-ledger" class="mobile-ledger" aria-label="Mobile candidate comparison"></section>
+<aside id="decision-receipt" class="decision-receipt" aria-labelledby="receipt-title" aria-live="polite">
+<header><span>Decision receipt / Selected candidate</span><h3 id="receipt-title">Inspect the decision</h3></header>
+<dl>
+<div><dt>Candidate</dt><dd id="receipt-candidate">—</dd></div>
+<div><dt>Transformer</dt><dd id="receipt-transformer">—</dd></div>
+<div><dt>Operational memory</dt><dd id="receipt-context">—</dd></div>
+<div><dt>Cerniam</dt><dd id="receipt-cerniam">—</dd></div>
+<div><dt>Disposition</dt><dd id="receipt-disposition">—</dd></div>
+</dl>
+</aside>
+<section class="instrument-section actual-section"><h3>Actual next basket</h3><div id="actual" class="chips" role="list"></div></section>
+</section>
+<section class="research-notes" aria-label="Method and production boundary">
+<article><span>Transformer</span><h2>Candidate intelligence</h2><p>The custom transformer reads an ordered product sequence and returns ranked candidates with model scores. It answers what may happen next—not what the enterprise should do.</p></article>
+<article><span>Operational memory</span><h2>The living world around the score</h2><p>Operational memory carries basket state, product relationships, availability, eligibility, policy, timing, and outcome history forward between events.</p></article>
+<article><span>Cerniam</span><h2>Governed decisioning</h2><p>Cerniam transforms model score into decision score, retains the reason for movement or filtering, and produces an action that can be inspected and receipted.</p><a href="scenarios.json">View example JSON ↗</a></article>
+</section>
+</section>
+</main>
+<footer class="lab-footer"><span>Cerniam Labs / Illustrative Prediction Walkthrough</span><b>CUSTOM TRANSFORMER · OPERATIONAL MEMORY · DECISION INTELLIGENCE</b></footer>
+</div>
+<script src="walkthrough.js?v=3"></script>
+</body>
+</html>

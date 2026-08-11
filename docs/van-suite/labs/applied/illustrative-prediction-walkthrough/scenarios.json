@@ -1,0 +1,13 @@
+[
+  {
+    "id": "session-vanity",
+    "label": "Bathroom vanity installation",
+    "history": ["View vanity", "View faucet", "Add vanity", "Add faucet"],
+    "actual": ["Drain kit", "Supply lines"],
+    "predictions": [
+      {"productId": "drain-kit", "label": "Drain kit", "score": 0.78},
+      {"productId": "supply-lines", "label": "Supply lines", "score": 0.74},
+      {"productId": "p-trap", "label": "P-trap", "score": 0.69}
+    ]
+  }
+]

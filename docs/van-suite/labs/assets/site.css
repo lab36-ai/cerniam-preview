@@ -1,0 +1,78 @@
+/* Cerniam Labs — static-site integration layer */
+.nav-item {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.nav-item:focus-visible {
+  outline: 1px solid var(--teal);
+  outline-offset: -3px;
+}
+
+.preview-notice {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 8px clamp(18px, 4vw, 56px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(0, 139, 139, .045);
+  color: var(--slate);
+  font: 700 7px/1.4 var(--mono);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.preview-notice b {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.preview-notice span:last-child {
+  text-align: right;
+}
+
+.view {
+  min-height: calc(100vh - 106px);
+}
+
+.profile-rail a {
+  padding: 0;
+  border-bottom: 1px solid var(--blue);
+  color: var(--blue);
+  font: inherit;
+  text-decoration: none;
+}
+
+.profile-rail a:hover,
+.profile-rail a:focus-visible {
+  color: var(--teal);
+  outline: 0;
+}
+
+.artifact-placeholder {
+  display: block;
+  padding: 6px 0;
+  color: var(--slate);
+  font: 700 8px var(--mono);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  opacity: .7;
+}
+
+.lab-footer a {
+  color: inherit;
+}
+
+@media (max-width: 650px) {
+  .preview-notice {
+    display: grid;
+    gap: 4px;
+    padding-block: 9px;
+  }
+
+  .preview-notice span:last-child {
+    text-align: left;
+  }
+}
