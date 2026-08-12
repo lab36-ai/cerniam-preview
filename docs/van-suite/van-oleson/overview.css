@@ -41,7 +41,7 @@ body.transitions-ready .chapter:not(.chapter-entered){opacity:.94;transform:tran
 .hero-founder figcaption b{font:700 clamp(26px,2.4vw,36px)/1 var(--condensed);letter-spacing:-.02em;text-transform:uppercase}
 .hero-roles{display:grid;gap:5px;margin-top:5px}
 .hero-roles span{color:var(--midnight);font:500 clamp(9px,.78vw,11px)/1.2 var(--sans);letter-spacing:.01em;text-transform:uppercase}
-.hero-question{align-self:start;padding-top:clamp(56px,7.4vh,68px);padding-left:clamp(0px,2vw,32px);transform:none}
+.hero-question{align-self:start;padding-top:clamp(98px,12vh,112px);padding-left:clamp(0px,2vw,32px);transform:none}
 .hero-question>p{margin:0 0 29px;color:var(--teal);font-size:clamp(20px,1.65vw,24px);line-height:1.25;font-weight:750;letter-spacing:-.018em}
 .hero h1{max-width:34ch;margin:0;color:var(--slate);font:640 clamp(25px,2.45vw,36px)/1.2 var(--sans);letter-spacing:-.025em;text-wrap:balance}
 .stewardship h2,.context-thesis h2,.event-origin h2,.nervous-system h2,.lineage h2,.return-to-research h2,.cerniam-now h2,.closing h2{margin:0;font:700 clamp(36px,4.2vw,64px)/.96 var(--condensed);letter-spacing:-.03em;text-transform:uppercase}
@@ -204,7 +204,7 @@ body.transitions-ready .chapter:not(.chapter-entered){opacity:.94;transform:tran
   .hero-founder figure{width:min(100%,240px)}
   .hero-founder figcaption{gap:5px;padding:10px 0}
   .hero-founder figcaption b{font-size:30px}
-  .hero-question{padding-top:38px}.hero-question>p{margin-bottom:22px;font-size:20px}
+  .hero-question{padding-top:70px}.hero-question>p{margin-bottom:22px;font-size:20px}
   .hero h1{font-size:clamp(24px,2.2vw,32px)}
   .career-path{padding-top:9px}
   .career-path-head{margin-bottom:6px}
